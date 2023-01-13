@@ -30,7 +30,7 @@ def cambiar_shell():
     sudo chsh -s /bin/fish angel
 while True:
     try:
-        print("1=Solo dependencias\n2=Solo Apps\n3=Ambos\n4=Instalar snapd\n5=Instalar Solo yay\n6=Instalar dependencias i3(Requiere repo endeavouros)\n7=Instalar xfce\n8=Añadir repositorios nesesarios\n9=Usar script lilo/fifo\n0=Salir")
+        print("1=Solo dependencias\n2=Solo Apps\n3=Ambos\n4=Instalar snapd\n5=Instalar Solo yay\n6=Instalar dependencias i3(Requiere repo endeavouros)\n7=Instalar xfce\n8=Añadir repositorios nesesarios\n0=Salir")
         a = int(input("Seleccionar Opcion\n:"))
         if a == 1:
             base()
@@ -82,13 +82,7 @@ while True:
         if a == 7:
             sudo pacman -S xfce4-goodies xfce4 --noconfirm
         if a == 8:
-            sudo xonsh add_repo_chaotic.xsh
-#        if a == 9:
-#            fifolil = int(input("1=fifo(instalar archlinux)\n2=lilo(instalar dependencias MUY SECUNDARIAS y mas\n:)"))
-#            if fifolil == 1:
-#                aui/sudo ./fifo
-#            if fifolil 2:
-#                sudo ./lilo
+            sudo xonsh add_repo_chaotic.sh
         if a == 0:
             print("Saliendo...")
             break
