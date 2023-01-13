@@ -35,13 +35,11 @@ polkit-gnome
 rofi
 scrot
 sysstat
-thunar
-thunar-archive-plugin
-thunar-volman
+nemo
 tumbler
 xbindkeys
 xdg-user-dirs-gtk
 xed
-xfce4-terminal
+alacritty
 xorg-xbacklight
 xorg-xdpyinfo
