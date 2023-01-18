@@ -68,8 +68,8 @@ while True:
     try:
         clear
         print("1=Solo dependencias\n2=Solo Apps\n3=Ambos\n4=Instalar snapd\n5=Instalar Solo yay\n6=Instalar dependencias i3(Requiere repos externos)\n7=Añadir repositorios nesesarios\n8=Cambiar Shell\n0=Salir")
-        pre1 = int(input("Seleccionar Opcion\n:"))
-        if pre1 == 1: #Instalar solo dependencias
+        pre1 = str(input("Seleccionar Opcion\n:"))
+        if "1" in pre1: #Instalar solo dependencias
             base()
             c = str(input("Instalar yay?-y/n\n"))
             if c == "y":
@@ -80,10 +80,10 @@ while True:
                 dependenciasG()
             clear
             print("Listo!")
-        if pre1 == 2: #Instalar solo Apps
+        if "2" in pre1: #Instalar solo Apps
             apps()
             clear
-        if pre1 == 3: #Instalar dependencias y Apps
+        if "3" in pre1: #Instalar dependencias y Apps
             base()
             c = str(input("Instalar yay?-y/n\n:"))
             if c == "y":
@@ -95,7 +95,7 @@ while True:
             apps()
             clear
             print("Listo!")
-        if pre1 == 4: #Instalar Snapd
+        if "4" in pre1: #Instalar Snapd
             clear
             pr1 = int(input("Quieres descargar el paquete por...?\n1=yay(debe estar instalado)\n2=git clone\n:"))
             if pr1 == 1:
@@ -114,36 +114,31 @@ while True:
                 cd ~
                 clear
                 print("\nListo!\n")
-        if pre1 == 5: #Instalar yay
+        if "5" in pre1: #Instalar yay
             clear
             yay_install()
             clear
             print("\nListo!\n")
-        if pre1 == 6: #Instalar i3
+        if "6" in pre1: #Instalar i3
             clear
             yay -Su
             clear
-            yay --noconfirm -S - < lista-de-paquetes
+            yay --noconfirm -S - < lista-de-paquetes-i3
             clear
             yes|yay --noconfirm -S gnome-screenshot alsa-utils xscreensaver acpid mousepad-git
             clear
             print("\nListo!\n")
-        if pre1 == 7: #Instalar repos
+        if "7" in pre1: #Instalar repos
             clear
             print("Instando repos...")
             sudo repos.sh
             clear
-        if pre1 == 8: #Cambiar Shell
+        if "8" in pre1: #Cambiar Shell
             cambiar_shell()
-        if pre1 == 0: #Salida
+        if "0" in pre1: #Salida
             clear
             print("Saliendo...")
             break
-        if pre1 > 8: #Error
-            clear
-            print("No se selecciono ninguno")
-            time.sleep(1)
-            clear
     except (ValueError):
         clear
         print("Pon un numero")
