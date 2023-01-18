@@ -1,4 +1,4 @@
 #!/bin/bash
 sudo pacman -S xonsh --noconfirm
-cd datos
+cd .datos
 xonsh base.xsh
