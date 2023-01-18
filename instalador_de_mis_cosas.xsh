@@ -47,18 +47,21 @@ def permisos_snapd():
 def cambiar_shell():
     clear
     print("1:fish\n2:zsh\n3:bash")
-    shellpre = int(input("Que shell deseas poner?"))
+    shellpre = int(input("Que shell deseas poner?\n:"))
     if shellpre == 1:
         clear
         sudo pacman -S fish --noconfirm
+        clear
         chsh -s /bin/fish
     if shellpre == 2:
         clear
         sudo pacman -S zsh --noconfirm
+        clear
         chsh -s /bin/zsh
     if shellpre == 3:
         clear
         sudo pacman -S bash --noconfirm
+        clear
         chsh -s /bin/bash
     clear
 while True:
