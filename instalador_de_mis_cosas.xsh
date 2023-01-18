@@ -136,7 +136,7 @@ while True:
             clear
             print("Saliendo...")
             break
-        if pre1 > 7: #Error
+        if pre1 > 8: #Error
             clear
             print("No se selecciono ninguno")
             time.sleep(1)
