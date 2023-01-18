@@ -46,32 +46,42 @@ def permisos_snapd():
     clear
 def cambiar_shell():
     clear
-    sudo chsh -s /bin/fish angel
-    clear
-try:
-    while True:
+    print("1:fish\n2:zsh\n3:bash")
+    shellpre = int(input("Que shell deseas poner?"))
+    if shellpre == 1:
         clear
-        print("1=Solo dependencias\n2=Solo Apps\n3=Ambos\n4=Instalar snapd\n5=Instalar Solo yay\n6=Instalar dependencias i3(Requiere repo endeavouros)\n7=Añadir repositorios nesesarios\n0=Salir")
-        a = int(input("Seleccionar Opcion\n:"))
-        if a == 1:
+        sudo pacman -S fish --noconfirm
+        chsh -s /bin/fish
+    if shellpre == 2:
+        clear
+        sudo pacman -S zsh --noconfirm
+        chsh -s /bin/zsh
+    if shellpre == 3:
+        clear
+        sudo pacman -S bash --noconfirm
+        chsh -s /bin/bash
+    clear
+while True:
+    try:
+        clear
+        print("1=Solo dependencias\n2=Solo Apps\n3=Ambos\n4=Instalar snapd\n5=Instalar Solo yay\n6=Instalar dependencias i3(Requiere repos externos)\n7=Añadir repositorios nesesarios\n8=Cambiar Shell\n0=Salir")
+        pre1 = int(input("Seleccionar Opcion\n:"))
+        if pre1 == 1: #Instalar solo dependencias
             base()
             c = str(input("Instalar yay?-y/n\n"))
             if c == "y":
                 yay_install()
-            cambiar_shell()
             el_resto()
-            b = str(input("Instalar dependencias para gaming?-y/n\n:"))
+            b = str(input("Instalar apps y programas para gaming?-y/n\n:"))
             if b == "y":
                 dependenciasG()
             clear
             print("Listo!")
-        if a == 2:
+        if pre1 == 2: #Instalar solo Apps
             apps()
-            cambiar_shell()
             clear
-        if a == 3:
+        if pre1 == 3: #Instalar dependencias y Apps
             base()
-            cambiar_shell()
             c = str(input("Instalar yay?-y/n\n:"))
             if c == "y":
                 yay_install()
@@ -82,7 +92,7 @@ try:
             apps()
             clear
             print("Listo!")
-        if a == 4:
+        if pre1 == 4: #Instalar Snapd
             clear
             pr1 = int(input("Quieres descargar el paquete por...?\n1=yay(debe estar instalado)\n2=git clone\n:"))
             if pr1 == 1:
@@ -101,12 +111,12 @@ try:
                 cd ~
                 clear
                 print("\nListo!\n")
-        if a == 5:
+        if pre1 == 5: #Instalar yay
             clear
             yay_install()
             clear
             print("\nListo!\n")
-        if a == 6:
+        if pre1 == 6: #Instalar i3
             clear
             yay -Su
             clear
@@ -115,24 +125,26 @@ try:
             yes|yay --noconfirm -S gnome-screenshot alsa-utils xscreensaver acpid mousepad-git
             clear
             print("\nListo!\n")
-        if a == 7:
+        if pre1 == 7: #Instalar repos
             clear
             print("Instando repos...")
             sudo repos.sh
             clear
-        if a == 0:
+        if pre1 == 8: #Cambiar Shell
+            cambiar_shell()
+        if pre1 == 0: #Salida
             clear
             print("Saliendo...")
             break
-        if a > 7:
+        if pre1 > 7: #Error
             clear
             print("No se selecciono ninguno")
             time.sleep(1)
             clear
-except (ValueError):
-    clear
-    print("No se selecciono ninguno")
-    time.sleep(1.5)
-    clear
+    except (ValueError):
+        clear
+        print("Pon un numero")
+        time.sleep(1.5)
+        clear
 clear
-print("Instalacion Completada")
+print("Instalacion Terminada")

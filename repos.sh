@@ -21,3 +21,4 @@ clear
 yes|yay --noconfirm
 clear
 print("Exito")
+#Esta llenito de clears innesesarios xD
