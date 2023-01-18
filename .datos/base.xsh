@@ -1,5 +1,5 @@
 #!/usr/bin/env xonsh
-import time
+from time import sleep as sl
 def base():
     clear
     sudo pacman -Sy
@@ -142,12 +142,12 @@ while True:
         else: #Error
             clear
             print("Pon un numero")
-            time.sleep(1.5)
+            sl(1.5)
             clear
     except (ValueError):
         clear
         print("Pon un numero")
-        time.sleep(1.5)
+        sl(1.5)
         clear
 clear
 print("Instalacion Terminada")
