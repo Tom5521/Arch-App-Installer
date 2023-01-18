@@ -1,4 +1,4 @@
-# Instalador-de-mis-cosas
+#Instalador de Mis Cosas
 Un instalador escrito en xonsh con mis apps favoritas
 
 
