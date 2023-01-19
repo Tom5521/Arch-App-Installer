@@ -67,7 +67,7 @@ def cambiar_shell():
 while True:
     try:
         clear
-        print("1:Instalar Apps y dependencias\n2=Instalar snapd\n3=Instalar Solo yay\n4=Añadir repositorios nesesarios\n5=Cambiar Shell\n0=Salir")
+        print("1:Instalar Apps y dependencias\n2:Instalar snapd\n3:Instalar Solo yay\n4:Añadir repositorios nesesarios\n5:Cambiar Shell\n6:Borrar yay\n0=Salir")
         pre1 = str(input("Seleccionar una o mas opciones\n:"))
         if "1" in pre1: #Menu de Apps y dependencias
             clear
@@ -148,7 +148,12 @@ while True:
         if "5" in pre1: #Cambiar Shell
             cambiar_shell()
         if "6" in pre1:
-            sudo pacman -R yay flatpak
+            clear
+            yay --noconfirm
+            clear
+            yay -c --noconfirm
+            sudo pacman -R yay noconfirm
+            clear
         if "0" in pre1: #Salida
             clear
             print("Saliendo...")
