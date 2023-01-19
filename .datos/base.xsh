@@ -152,7 +152,7 @@ while True:
             yay --noconfirm
             clear
             yay -c --noconfirm
-            sudo pacman -R yay -noconfirm
+            sudo pacman -R yay xonsh -noconfirm
             clear
         if "0" in pre1: #Salida
             clear
