@@ -4,7 +4,7 @@ def base():
     clear
     sudo pacman -Sy
     clear
-    sudo pacman -Su wget git devtools fish tar ntfs-3g rofi neovim btop flatpak fakeroot gcc make vi vim neovim --noconfirm
+    sudo pacman -Su git devtools fish ntfs-3g neovim flatpak fakeroot gcc make vi vim neovim --noconfirm
     clear
 def yay_install():
     clear
@@ -31,8 +31,8 @@ def el_resto():
     yes | yay --noconfirm
 def apps():
     clear
-    yay --noconfirm -S kbackup gimp bitwarden lmms qbittorrent scrcpy kdenlive  htop kruler neofetch python3 clementine obs-studio archlinux-tweak-tool-git whatsapp-nativefier spotify firefox lutris winetricks
-    clear
+    yay --noconfirm -S kbackup gimp bitwarden lmms qbittorrent scrcpy kdenlive  htop kruler neofetch python3 clementine obs-studio whatsapp-nativefier spotify firefox lutris winetricks
+    clear btop vi vim neovim
     flatpak --assumeyes install app/net.brinkervii.grapejuice/x86_64/stable
     clear
     yay -Syu --noconfirm
@@ -68,7 +68,7 @@ while True:
     try:
         clear
         print("1:Instalar Apps y dependencias\n2=Instalar snapd\n3=Instalar Solo yay\n4=Añadir repositorios nesesarios\n5=Cambiar Shell\n0=Salir")
-        pre1 = str(input("Seleccionar Opcion\n:"))
+        pre1 = str(input("Seleccionar una o mas opciones\n:"))
         if "1" in pre1: #Menu de Apps y dependencias
             clear
             print("1:Solo Dependencias\n2:Solo Apps\n3:Ambos\n4:Instalar dependencias i3\n")
@@ -79,12 +79,16 @@ while True:
                 if c == "y":
                     yay_install()
                 el_resto()
-                b = str(input("Instalar apps y programas para gaming?-y/n\n:"))
+                b = str(input("Instalar apps y programas para gaming(Exclusivo graficas y prosesadores intel)?-y/n\n:"))
                 if b == "y":
                     dependenciasG()
                 clear
                 print("Listo!")
             if "2" in pre2: #Instalar solo Apps
+                base()
+                yya = str(input("Instalar yay?-y/n\n:"))
+                if yya == "y":
+                    yay_install()
                 apps()
                 clear
             if "3" in pre2: #Instalar dependencias y Apps
@@ -143,6 +147,8 @@ while True:
             clear
         if "5" in pre1: #Cambiar Shell
             cambiar_shell()
+        if "6" in pre1:
+            sudo pacman -R yay flatpak
         if "0" in pre1: #Salida
             clear
             print("Saliendo...")
