@@ -67,7 +67,7 @@ def cambiar_shell():
 while True:
     try:
         clear
-        print("1:Instalar Apps y dependencias\n2:Instalar snapd\n3:Instalar Solo yay\n4:Añadir repositorios nesesarios\n5:Cambiar Shell\n6:Borrar dependencias de instalacion(Significa que terminaste)\n0=Salir")
+        print("1:Instalar Apps y dependencias\n2:Instalar snapd\n3:Instalar Solo yay\n4:Añadir repositorios nesesarios\n5:Cambiar Shell\n6:Borrar dependencias de instalacion(Significa que terminaste)\n0:Cancelar")
         pre1 = str(input("Seleccionar una o mas opciones\n:"))
         if "1" in pre1: #Menu de Apps y dependencias
             clear
@@ -161,7 +161,7 @@ while True:
             break
         if "0" in pre1: #Salida
             clear
-            print("Saliendo...")
+            print("Cancelando...")
             break
         else: #Error
             clear
