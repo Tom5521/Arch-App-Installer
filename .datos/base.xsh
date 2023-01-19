@@ -67,35 +67,48 @@ def cambiar_shell():
 while True:
     try:
         clear
-        print("1=Solo dependencias\n2=Solo Apps\n3=Ambos\n4=Instalar snapd\n5=Instalar Solo yay\n6=Instalar dependencias i3(Requiere repos externos)\n7=Añadir repositorios nesesarios\n8=Cambiar Shell\n0=Salir")
+        print("1:Instalar Apps y dependencias\n2=Instalar snapd\n3=Instalar Solo yay\n4=Añadir repositorios nesesarios\n5=Cambiar Shell\n0=Salir")
         pre1 = str(input("Seleccionar Opcion\n:"))
-        if "1" in pre1: #Instalar solo dependencias
-            base()
-            c = str(input("Instalar yay?-y/n\n"))
-            if c == "y":
-                yay_install()
-            el_resto()
-            b = str(input("Instalar apps y programas para gaming?-y/n\n:"))
-            if b == "y":
-                dependenciasG()
+        if "1" in pre1: #Menu de Apps y dependencias
             clear
-            print("Listo!")
-        if "2" in pre1: #Instalar solo Apps
-            apps()
-            clear
-        if "3" in pre1: #Instalar dependencias y Apps
-            base()
-            c = str(input("Instalar yay?-y/n\n:"))
-            if c == "y":
-                yay_install()
-            el_resto()
-            b = str(input("Instalar dependencias para gaming?-y/n\n:"))
-            if b == "y":
-                dependenciasG()
-            apps()
-            clear
-            print("Listo!")
-        if "4" in pre1: #Instalar Snapd
+            print("1:Solo Dependencias\n2:Solo Apps\n3:Ambos\n4:Instalar dependencias i3\n:")
+            pre2 = str(input())
+            if "1" in pre2:
+                base()
+                c = str(input("Instalar yay?-y/n\n:"))
+                if c == "y":
+                    yay_install()
+                el_resto()
+                b = str(input("Instalar apps y programas para gaming?-y/n\n:"))
+                if b == "y":
+                    dependenciasG()
+                clear
+                print("Listo!")
+            if "2" in pre2: #Instalar solo Apps
+                apps()
+                clear
+            if "3" in pre2: #Instalar dependencias y Apps
+                base()
+                c = str(input("Instalar yay?-y/n\n:"))
+                if c == "y":
+                    yay_install()
+                el_resto()
+                b = str(input("Instalar dependencias para gaming?-y/n\n:"))
+                if b == "y":
+                    dependenciasG()
+                apps()
+                clear
+                print("Listo!")
+            if "4" in pre2: #Instalar i3
+                clear
+                yay -Su
+                clear
+                yay --noconfirm -S - < lista-de-paquetes-i3
+                clear
+                yes|yay --noconfirm -S gnome-screenshot alsa-utils xscreensaver acpid mousepad-git
+                clear
+                print("\nListo!\n")
+        if "2" in pre1: #Instalar Snapd
             clear
             pr1 = int(input("Quieres descargar el paquete por...?\n1=yay(debe estar instalado)\n2=git clone\n:"))
             if pr1 == 1:
@@ -114,26 +127,21 @@ while True:
                 cd ~
                 clear
                 print("\nListo!\n")
-        if "5" in pre1: #Instalar yay
+            if pr1 < 2:
+                clear
+                print("Selecciona Correctamente")
+                sl(0.5)
+        if "3" in pre1: #Instalar yay
             clear
             yay_install()
             clear
             print("\nListo!\n")
-        if "6" in pre1: #Instalar i3
-            clear
-            yay -Su
-            clear
-            yay --noconfirm -S - < lista-de-paquetes-i3
-            clear
-            yes|yay --noconfirm -S gnome-screenshot alsa-utils xscreensaver acpid mousepad-git
-            clear
-            print("\nListo!\n")
-        if "7" in pre1: #Instalar repos
+        if "4" in pre1: #Instalar repos
             clear
             print("Instando repos...")
             sudo repos.sh
             clear
-        if "8" in pre1: #Cambiar Shell
+        if "5" in pre1: #Cambiar Shell
             cambiar_shell()
         if "0" in pre1: #Salida
             clear
