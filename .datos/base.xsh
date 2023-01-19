@@ -71,8 +71,8 @@ while True:
         pre1 = str(input("Seleccionar Opcion\n:"))
         if "1" in pre1: #Menu de Apps y dependencias
             clear
-            print("1:Solo Dependencias\n2:Solo Apps\n3:Ambos\n4:Instalar dependencias i3\n:")
-            pre2 = str(input())
+            print("1:Solo Dependencias\n2:Solo Apps\n3:Ambos\n4:Instalar dependencias i3\n")
+            pre2 = str(input(":"))
             if "1" in pre2:
                 base()
                 c = str(input("Instalar yay?-y/n\n:"))
