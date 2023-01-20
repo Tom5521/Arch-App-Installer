@@ -6,7 +6,7 @@ asd = {1:1,
        3:3,
        4:4,
        5:5}
-
+#xD
 
 for i in asd:
     print(i,"Ppp-rrrueee-b-b-AAAAAA xDDD")
