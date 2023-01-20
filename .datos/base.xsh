@@ -149,6 +149,8 @@ while True:
             cambiar_shell()
         if "6" in pre1: #Borrar basura
             sh remover.sh
+            print("Saliendo...")
+            sl(0.5)
             break
         if "0" in pre1: #Salida
             clear

@@ -6,7 +6,6 @@ yes|yay -c
 clear
 yes|sudo pacman -R yay xonsh
 clear
-python sl.py
 
 
 
