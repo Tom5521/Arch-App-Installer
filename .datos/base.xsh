@@ -151,7 +151,13 @@ while True:
         if "5" in pre1: #Cambiar Shell
             cambiar_shell()
         if "6" in pre1: #Borrar basura
-            sh remover.sh
+            clear
+            yes|yay
+            clear
+            yes|yay -c
+            clear
+            yes|sudo pacman -R yay xonsh
+            clear
             print("Saliendo...")
             sl(0.5)
             break
