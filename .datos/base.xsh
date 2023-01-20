@@ -1,7 +1,4 @@
 #!/usr/bin/env xonsh
-
-
-#Nanana Cosas que poca gente sabe
 from time import sleep as sl
 def base():
     clear
