@@ -4,7 +4,7 @@ def base():
     clear
     sudo pacman -Sy
     clear
-    sudo pacman -Su git devtools fish ntfs-3g neovim flatpak fakeroot gcc make vi vim neovim --noconfirm
+    sudo pacman -Su git devtools ntfs-3g neovim flatpak fakeroot gcc make vi vim neovim --noconfirm
     clear
 def yay_install():
     clear
