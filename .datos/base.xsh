@@ -1,5 +1,5 @@
 #!/usr/bin/env xonsh
-from time import sleep as sl
+import time
 def base():
     clear
     sudo pacman -Sy
@@ -48,17 +48,17 @@ def cambiar_shell():
     clear
     print("1:fish\n2:zsh\n3:bash")
     shellpre = int(input("Que shell deseas poner?\n:"))
-    if shellpre == 1:
+    if shellpre == 1: #Shell fish
         clear
         sudo pacman -S fish --noconfirm
         clear
         chsh -s /bin/fish
-    if shellpre == 2:
+    if shellpre == 2: #Shell zsh
         clear
         sudo pacman -S zsh --noconfirm
         clear
         chsh -s /bin/zsh
-    if shellpre == 3:
+    if shellpre == 3: #Shell Bash
         clear
         sudo pacman -S bash --noconfirm
         clear
@@ -134,7 +134,7 @@ while True:
             if pr1 < 2:
                 clear
                 print("Selecciona Correctamente")
-                sl(0.5)
+                time.sleep(0.5)
         if "3" in pre1: #Instalar yay
             clear
             yay_install()
@@ -170,7 +170,7 @@ while True:
     except (ValueError):
         clear
         print("Pon un numero")
-        sl(1.5)
+        time.sleep(1.5)
         clear
 clear
 print("Instalacion Terminada")
