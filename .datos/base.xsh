@@ -1,10 +1,12 @@
 #!/usr/bin/env xonsh
 import time
+yay_rem = True
+flat_rem = True
 def base():
     clear
     sudo pacman -Sy
     clear
-    sudo pacman -Su git devtools ntfs-3g neovim flatpak fakeroot gcc make vi vim neovim --noconfirm
+    sudo pacman -Su git nano devtools ntfs-3g flatpak fakeroot gcc make vi --noconfirm
     clear
 def yay_install():
     clear
@@ -101,6 +103,7 @@ def pkgman():
     print("1:yay\n2:paru\n3:snapd\n4:flatpak\n0:Cancelar")
     pkgpre1 = str(input(":"))
     if "1" in pkgpre1:
+        yay_rem = False
         clear
         base()
         clear
@@ -117,6 +120,7 @@ def pkgman():
     if "4" in pkgpre1:
         clear
         sudo pacman -S flatpak --noconfirm
+        flat_rem = False
         clear
     if "0" in pkgpre1:
         clear
@@ -189,14 +193,25 @@ while True:
             cambiar_shell()
         if "5" in pre1: #Borrar basura
             clear
-            yes|yay
-            clear
-            yes|yay -c
-            clear
-            yes|sudo pacman -R yay xonsh
+            print("1:Escriba los paquetes que quiere eliminar seguidos de un salto de linea\n2:Borrado automatico")
+            rm_pre = int(input())
+            if rm_pre == 1:
+                nano rem
+                clear
+                sudo pacman -R - < rem --noconfirm
+                clear
+            if rm_pre == 2:
+                clear
+                yes|yay -c
+                clear
+                if yay_rem == True:
+                    sudo pacman -R yay --noconfirm
+                if flat_rem == True:
+                    sudo pacman -R flatpak --noconfirm
+                sudo pacman -R xonsh --noconfirm
             clear
             print("Saliendo...")
-            sl(0.5)
+            time.sleep(0.5)
             break
         if "0" in pre1: #Salida
             clear
