@@ -200,6 +200,7 @@ while True:
                 clear
                 sudo pacman -R - < rem --noconfirm
                 clear
+                rm rem
             if rm_pre == 2:
                 clear
                 yes|yay -c
