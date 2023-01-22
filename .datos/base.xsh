@@ -132,6 +132,7 @@ def pkgman():
         print("Coloca una opcion valida")
         time.sleep(0.5)
         clear
+##########################Zona de Interaccion###############################
 while True:
     try:
         clear
@@ -194,14 +195,14 @@ while True:
         if "5" in pre1: #Borrar basura
             clear
             print("1:Escriba los paquetes que quiere eliminar seguidos de un salto de linea\n2:Borrado automatico")
-            rm_pre = int(input())
-            if rm_pre == 1:
+            rm_pre = str(input())
+            if "1" in rm_pre:
                 nano rem
                 clear
                 sudo pacman -R - < rem --noconfirm
                 clear
                 rm rem
-            if rm_pre == 2:
+            if "2" in rm_pre:
                 clear
                 yes|yay -c
                 clear
