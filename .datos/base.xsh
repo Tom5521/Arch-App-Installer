@@ -174,7 +174,6 @@ def pkgman():
     if "5" in pkgpre1:
         clear
         sudo pacman -S flatpak --noconfirm
-        flat_rem = False
         clear
     if "6" in pkgpre1:
         pamac_install()
