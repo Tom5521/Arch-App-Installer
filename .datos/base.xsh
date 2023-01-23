@@ -1,12 +1,11 @@
 #!/usr/bin/env xonsh
 import time
 yay_rem = True
-flat_rem = True
 def base():
     clear
     sudo pacman -Sy
     clear
-    sudo pacman -Su git nano devtools ntfs-3g flatpak fakeroot gcc make vi --noconfirm
+    sudo pacman -Su git nano devtools ntfs-3g fakeroot gcc make vi --noconfirm
     clear
 def yay_install():
     clear
