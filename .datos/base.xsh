@@ -36,17 +36,17 @@ def dependenciasG():
 def el_resto():
     clear
     yay -S yay --noconfirm
-    echo Instalando dependencias graficas...
+    clear
     yes | yay --noconfirm -S mkinitcpio-firmware python-lsp-server
     clear
     yes | yay --noconfirm
+    clear
 def apps():
     clear
-    yay --noconfirm -S kbackup gimp bitwarden lmms qbittorrent scrcpy kdenlive  htop kruler neofetch python3 clementine obs-studio whatsapp-nativefier spotify firefox lutris winetricks
-    clear btop vi vim neovim
-    flatpak --assumeyes install app/net.brinkervii.grapejuice/x86_64/stable
+    yay --noconfirm -S kbackup gimp bitwarden qbittorrent scrcpy kdenlive  htop kruler neofetch python3 clementine obs-studio whatsapp-nativefier spotify firefox lutris winetricks btop vi vim neovim
     clear
     yay -Syu --noconfirm
+    clear
 def permisos_snapd():
     clear
     sudo systemctl enable --now snapd.socket
@@ -64,16 +64,19 @@ def cambiar_shell():
         sudo pacman -S fish --noconfirm
         clear
         chsh -s /bin/fish
+        clear
     if shellpre == 2: #Shell zsh
         clear
         sudo pacman -S zsh --noconfirm
         clear
         chsh -s /bin/zsh
+        clear
     if shellpre == 3: #Shell Bash
         clear
         sudo pacman -S bash --noconfirm
         clear
         chsh -s /bin/bash
+        clear
     clear
 def snapd_inst():
     clear
@@ -181,7 +184,7 @@ while True:
                 yes|yay --noconfirm -S gnome-screenshot alsa-utils xscreensaver acpid mousepad-git
                 clear
                 print("\nListo!\n")
-        if "2" in pre1: #Menu de gestores de paquetes
+        if "2" in pre1: #Menu de gestores de paquetes (pkgman)
             clear
             pkgman()
             clear
@@ -194,7 +197,7 @@ while True:
             cambiar_shell()
         if "5" in pre1: #Borrar basura
             clear
-            print("1:Escriba los paquetes que quiere eliminar seguidos de un salto de linea\n2:Borrado automatico")
+            print("Elige una o mas opciones\n1:Escriba los paquetes que quiere eliminar seguidos de un salto de linea\n2:Borrado automatico")
             rm_pre = str(input())
             if "1" in rm_pre:
                 nano rem
