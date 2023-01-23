@@ -36,7 +36,7 @@ def pikaur_install():
     clear
 def pamac_install():
     print("1:Instalar pamac AUR\n2:Instalar pamac Flatpak\n3:Instalar pamac nosnap\n0:Cancelar")
-    pamac_pre1 int(input(":"))
+    pamac_pre1 = int(input(":"))
     if pamac_pre1 == 1: #pamac-aur
         clear
         cd /tmp
@@ -149,35 +149,52 @@ def pkgman():
     clear
     print("1:yay\n2:paru\n3:pikaur\n4:snapd\n5:flatpak\n6:Pamac\n0:Cancelar")
     pkgpre1 = str(input(":"))
-    if "1" in pkgpre1:
-        yay_rem = False
+    if "1" in pkgpre1: #Yay
+        print("Instalar yay atravez de...\n1:Repositorio chaotic(Requiere añadirlo en la seccion de repos nesesarios)\n2:git clone(lento))")
+        yayprk = int(input(":"))
+        if yayprk == 1:
+            print("Añadir repo chaotic?(Y-N)")
+            add_repoch = str(input(":"))
+            if add_repoch == "Y" or "y":
+                sudo sh add-repo-ch.sh
+                clear
+                sudo pacman -S yay --noconfirm
+                clear
+                yay_rem = False
+            if add_repoch == "N" or "n":
+                yay_rem = False
+                clear
+                base()
+                clear
+                yay_install()
+            else:
+                clear
+                print("No se seleciono ninguno")
+                time.sleep(0.5)
+                pass
         clear
-        base()
-        clear
-        yay_install()
-        clear
-    if "2" in pkgpre1:
+    if "2" in pkgpre1: #Paru
         clear
         base()
         clear
         paru_install()
         clear
-    if "3" in pkgpre1:
+    if "3" in pkgpre1: #Pikaur
         cd /tmp
         git clone https://aur.archlinux.org/pikaur.git
         clear
         cd pikaur
         makepkg -si --noconfirm
         clear
-    if "4" in pkgpre1:
+    if "4" in pkgpre1: #Snapd
         snapd_inst()
-    if "5" in pkgpre1:
+    if "5" in pkgpre1: #Flatpak
         clear
         sudo pacman -S flatpak --noconfirm
         clear
-    if "6" in pkgpre1:
+    if "6" in pkgpre1: #Pamac
         pamac_install()
-    if "0" in pkgpre1:
+    if "0" in pkgpre1: #Cancelar
         clear
         print("Cancelando...")
         time.sleep(0.5)
@@ -191,11 +208,11 @@ def pkgman():
 while True:
     try:
         clear
-        print("1:Instalar Apps y dependencias\n2:Instalar gestores de paquetes\n3:Añadir repositorios nesesarios\n4:Cambiar Shell\n5:Borrar dependencias de instalacion(Significa que terminaste)\n0:Cancelar")
+        print("1:Instalar Apps y dependencias\n2:Instalar gestores de paquetes\n3:Añadir repositorios nesesarios\n4:Cambiar Shell\n5:Borrar dependencias de instalacion(Significa que terminaste)\n0:Cancelar\nEs recomendable instalar el gestor de aur yay en la seccion de gestores de paquetes para facilitar la instalacion")
         pre1 = str(input("Seleccionar una o mas opciones\n:"))
         if "1" in pre1: #Menu de Apps y dependencias
             clear
-            print("1:Solo Dependencias\n2:Solo Apps\n3:Ambos\n4:Instalar dependencias i3\n")
+            print("1:Solo Dependencias\n2:Solo Apps\n3:Ambos\n4:Instalar dependencias i3\n0:Cancelar")
             pre2 = str(input(":"))
             if "1" in pre2:
                 base()
@@ -236,6 +253,8 @@ while True:
                 yes|yay --noconfirm -S gnome-screenshot alsa-utils xscreensaver acpid mousepad-git
                 clear
                 print("\nListo!\n")
+            if pre2 == "0": #Cancelar
+                pass
         if "2" in pre1: #Menu de gestores de paquetes (pkgman)
             clear
             pkgman()
@@ -243,7 +262,8 @@ while True:
         if "3" in pre1: #Instalar repos
             clear
             print("Instando repos...")
-            sudo repos.sh
+            sudo sh add-endOS-repo.sh
+            sudo sh ad-repo-ch.sh
             clear
         if "4" in pre1: #Cambiar Shell
             cambiar_shell()
