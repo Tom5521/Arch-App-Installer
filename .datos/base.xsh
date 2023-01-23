@@ -5,7 +5,7 @@ def base():
     clear
     sudo pacman -Sy
     clear
-    sudo pacman -Su git nano devtools ntfs-3g fakeroot gcc make vi --noconfirm
+    sudo pacman -Su git nano make --noconfirm
     clear
 def yay_install():
     clear
@@ -87,7 +87,7 @@ def el_resto():
     clear
 def apps():
     clear
-    yay --noconfirm -S kbackup gimp bitwarden qbittorrent scrcpy kdenlive  htop kruler neofetch python3 clementine obs-studio whatsapp-nativefier spotify firefox lutris winetricks btop vi vim neovim
+    yay --noconfirm -S kbackup gimp bitwarden qbittorrent scrcpy kdenlive  htop kruler neofetch python3 clementine obs-studio whatsapp-nativefier spotify firefox lutris winetricks btop vi vim neovim visual-studio-code-bin
     clear
     yay -Syu --noconfirm
     clear
