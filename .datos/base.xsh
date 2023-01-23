@@ -14,7 +14,7 @@ def yay_install():
     git clone https://aur.archlinux.org/yay.git
     clear
     cd yay
-    makepkg --noconfirm -si
+    makepkg --needed --noconfirm -si
     clear
     cd ~
 def paru_install():
@@ -23,9 +23,54 @@ def paru_install():
     git clone https://aur.archlinux.org/paru.git
     clear
     cd paru
-    makepkg --noconfirm -si
+    makepkg --needed --noconfirm -si
     clear
     cd ~
+def pikaur_install():
+    clear
+    cd /tmp
+    git clone https://aur.archlinux.org/pikaur.git
+    clear
+    cd pikaur
+    makepkg -si --needed --noconfirm
+    cd ~
+    clear
+def pamac_install():
+    print("1:Instalar pamac AUR\n2:Instalar pamac Flatpak\n3:Instalar pamac nosnap\n0:Cancelar")
+    pamac_pre1 int(input(":"))
+    if pamac_pre1 == 1: #pamac-aur
+        clear
+        cd /tmp
+        git clone https://aur.archlinux.org/pamac-aur.git
+        cd pamac-aur
+        clear
+        makepkg -si --needed --noconfirm
+        cd ~
+        clear
+    if pamac_pre1 == 2: #pamac-flatpak
+        clear
+        cd /tmp
+        git clone https://aur.archlinux.org/pamac-flatpak.git
+        cd pamac-flatpak
+        clear
+        makepkg -si --needed --noconfirm
+        cd ~
+        clear
+    if pamac_pre1 == 3: #pamac-nosnap
+        clear
+        cd /tmp
+        git clone https://aur.archlinux.org/pamac-nosnap.git
+        cd pamac-nosnap
+        clear
+        makepkg -si --needed --noconfirm
+    if pamac_pre1 == 0: #Salida
+        clear
+        pass
+    if pamac_pre1 > 3: #Error
+        clear
+        print("Selecciona solo una opcion")
+        time.sleep(0.5)
+        clear
 def dependenciasG():
     clear
     echo Instalando dependencias para gaming...
@@ -103,7 +148,7 @@ def snapd_inst():
         time.sleep(0.5)
 def pkgman():
     clear
-    print("1:yay\n2:paru\n3:snapd\n4:flatpak\n0:Cancelar")
+    print("1:yay\n2:paru\n3:pikaur\n4:snapd\n5:flatpak\n6:Pamac\n0:Cancelar")
     pkgpre1 = str(input(":"))
     if "1" in pkgpre1:
         yay_rem = False
@@ -119,12 +164,21 @@ def pkgman():
         paru_install()
         clear
     if "3" in pkgpre1:
-        snapd_inst()
+        cd /tmp
+        git clone https://aur.archlinux.org/pikaur.git
+        clear
+        cd pikaur
+        makepkg -si --noconfirm
+        clear
     if "4" in pkgpre1:
+        snapd_inst()
+    if "5" in pkgpre1:
         clear
         sudo pacman -S flatpak --noconfirm
         flat_rem = False
         clear
+    if "6" in pkgpre1:
+        pamac_install()
     if "0" in pkgpre1:
         clear
         print("Cancelando...")
