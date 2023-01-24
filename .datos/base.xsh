@@ -204,11 +204,46 @@ def pkgman():
         print("Coloca una opcion valida")
         time.sleep(0.5)
         clear
+def escritorios():
+    sudo pacman -Syy
+    clear
+    print("1:XFCE4\n2:GNOME\n3:KDE Plasma\n4:LXDE\n5:Cinnamon\n6:Mate\n0:Cancelar")
+    desk_pre = str(input(":"))
+    if "1" in desk_pre:
+        clear
+        sudo pacman -S xfce4 xfce4-goodies --noconfirm
+        clear
+    if "2" in desk_pre:
+        clear
+        sudo pacman -S gnome gnome-extra --noconfirm
+        clear
+    if "3" in desk_pre:
+        clear
+        sudo pacman -S plasma --noconfirm
+        clear
+    if "4" in desk_pre:
+        clear
+        sudo pacman -S lxde --noconfirm
+        clear
+    if "5" in desk_pre:
+        clear
+        sudo pacman -S cinnamon --noconfirm
+        clear
+    if "6" in desk_pre:
+        clear
+        sudo pacman -S mate --noconfirm
+        clear
+    if "0" in desk_pre:
+        pass
+    else:
+        clear
+        print("Seleciona una o mas opciones")
+        time.sleep(0.5)
 ##########################Zona de Interaccion###############################
 while True:
     try:
         clear
-        print("1:Instalar Apps y dependencias\n2:Instalar gestores de paquetes\n3:Añadir repositorios nesesarios\n4:Cambiar Shell\n5:Borrar dependencias de instalacion(Significa que terminaste)\n0:Cancelar\nEs recomendable instalar el gestor de aur yay en la seccion de gestores de paquetes para facilitar la instalacion")
+        print("1:Instalar Apps y dependencias\n2:Instalar gestores de paquetes\n3:Añadir Escritorios\n4:Añadir repositorios nesesarios\n5:Cambiar Shell\n6:Borrar dependencias de instalacion(Significa que terminaste)\n0:Cancelar\nEs recomendable instalar el gestor de aur yay en la seccion de gestores de paquetes para facilitar la instalacion")
         pre1 = str(input("Seleccionar una o mas opciones\n:"))
         if "1" in pre1: #Menu de Apps y dependencias
             clear
@@ -259,15 +294,19 @@ while True:
             clear
             pkgman()
             clear
-        if "3" in pre1: #Instalar repos
+        if "3" in pre1:
+            clear
+            escritorios()
+            clear
+        if "4" in pre1: #Instalar repos
             clear
             print("Instando repos...")
             sudo sh add-endOS-repo.sh
             sudo sh ad-repo-ch.sh
             clear
-        if "4" in pre1: #Cambiar Shell
+        if "5" in pre1: #Cambiar Shell
             cambiar_shell()
-        if "5" in pre1: #Borrar basura
+        if "6" in pre1: #Borrar basura
             clear
             print("Elige una o mas opciones\n1:Escriba los paquetes que quiere eliminar seguidos de un salto de linea\n2:Borrado automatico")
             rm_pre = str(input())
