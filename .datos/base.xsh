@@ -294,7 +294,7 @@ while True:
             clear
             pkgman()
             clear
-        if "3" in pre1:
+        if "3" in pre1: #Inciar Escritorios
             clear
             escritorios()
             clear
