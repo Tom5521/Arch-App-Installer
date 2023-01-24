@@ -87,7 +87,7 @@ def el_resto():
     clear
 def apps():
     clear
-    yay --noconfirm -S kbackup gimp bitwarden qbittorrent scrcpy kdenlive  htop kruler neofetch python3 clementine obs-studio whatsapp-nativefier spotify firefox lutris winetricks btop vi vim neovim visual-studio-code-bin
+    yay --noconfirm -S kbackup gimp bitwarden qbittorrent scrcpy kdenlive  htop kruler neofetch python3 clementine obs-studio whatsapp-nativefier spotify firefox lutris btop vi vim neovim visual-studio-code-bin
     clear
     yay -Syu --noconfirm
     clear
@@ -247,7 +247,7 @@ while True:
         pre1 = str(input("Seleccionar una o mas opciones\n:"))
         if "1" in pre1: #Menu de Apps y dependencias
             clear
-            print("1:Solo Dependencias\n2:Solo Apps\n3:Ambos\n4:Instalar dependencias i3\n0:Cancelar")
+            print("1:Solo Dependencias\n2:Solo Apps\n3:Instalar dependencias i3\n4:Instalar dependencias para gaming(Exclusivo graficas y prosesadores intel)\n0:Cancelar")
             pre2 = str(input(":"))
             if "1" in pre2:
                 base()
@@ -255,9 +255,6 @@ while True:
                 if yayy == "y":
                     yay_install()
                 el_resto()
-                pregam1 = str(input("Instalar apps y programas para gaming(Exclusivo graficas y prosesadores intel)?-y/n\n:"))
-                if pregam1 == "y":
-                    dependenciasG()
                 clear
                 print("Listo!")
             if "2" in pre2: #Instalar solo Apps
@@ -267,19 +264,8 @@ while True:
                     yay_install()
                 apps()
                 clear
-            if "3" in pre2: #Instalar dependencias y Apps
-                base()
-                yyyay = str(input("Instalar yay?(Si no lo quiere al finalizar su instalacion en la seccion de borrar dependencias de instalacion puede borrarlo)-y/n\n:"))
-                if yyyay == "y":
-                    yay_install()
-                el_resto()
-                pregam2 = str(input("Instalar dependencias para gaming?-y/n\n:"))
-                if pregam2 == "y":
-                    dependenciasG()
-                apps()
-                clear
                 print("Listo!")
-            if "4" in pre2: #Instalar i3
+            if "3" in pre2: #Instalar i3
                 clear
                 yay -Su
                 clear
@@ -288,6 +274,8 @@ while True:
                 yes|yay --noconfirm -S gnome-screenshot alsa-utils xscreensaver acpid mousepad-git
                 clear
                 print("\nListo!\n")
+            if "4" in pre2:
+                dependenciasG()
             if pre2 == "0": #Cancelar
                 pass
         if "2" in pre1: #Menu de gestores de paquetes (pkgman)
