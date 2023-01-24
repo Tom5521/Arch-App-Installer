@@ -3,9 +3,7 @@ import time
 yay_rem = True
 def base():
     clear
-    sudo pacman -Sy
-    clear
-    sudo pacman -Su git nano make --noconfirm
+    sudo pacman -Syu git nano make --noconfirm
     clear
 def yay_install():
     clear
