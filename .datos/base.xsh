@@ -83,6 +83,29 @@ def el_resto():
     clear
     yes | yay --noconfirm
     clear
+def apps_desarrollo():
+    while True:
+        clear
+        print("Escoje una categoria de apps a instalar\n1:Internet\n2:Imagen y Video\n3:Desarrollo\n4:Gaming\n5:Musica\n6:Entretenimiento\n0:Salir")
+        apre = str(input(":"))
+        if "1" in apre:
+            clear
+            print("")
+        if "2" in apre:
+            clear
+        if "3" in apre:
+            clear
+        if "4" in apre:
+            clear
+        if "5" in apre:
+            clear
+        if "6" in apre:
+            clear
+        if "0" in appre:
+            clear
+            print("Saliendo...")
+            time.sleep(0.1)
+            break
 def apps():
     clear
     yay --noconfirm -S kbackup gimp bitwarden qbittorrent scrcpy kdenlive  htop kruler neofetch python3 clementine obs-studio whatsapp-nativefier spotify firefox lutris btop vi vim neovim visual-studio-code-bin
@@ -257,7 +280,7 @@ while True:
                 print("Listo!")
             if "2" in pre2: #Instalar solo Apps
                 base()
-                yyay = str(input("Instalar yay?(Si no lo quiere al finalizar su instalacion en la seccion de borrar dependencias de instalacion puede borrarlo)-y/n\n:"))
+                yyay = str(input("Instalar yay?(Si no lo quiere al finalizar su instalacion en la seccion de borrar dependencias de instalacion puede borrarlo)-Y/n\n:"))
                 if yyay == "y":
                     yay_install()
                 apps()
