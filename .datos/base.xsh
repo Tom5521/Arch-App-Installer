@@ -86,27 +86,292 @@ def el_resto():
 def apps_desarrollo():
     while True:
         clear
-        print("Escoje una categoria de apps a instalar\n1:Internet\n2:Imagen y Video\n3:Desarrollo\n4:Gaming\n5:Musica\n6:Entretenimiento\n0:Salir")
+        print("Escoje una categoria de apps a instalar\n1:Internet\n2:Imagen y Video\n3:Desarrollo\n4:Gaming\n5:Musica\n6:Oficina\n0:Salir")
         apre = str(input(":"))
-        if "1" in apre:
+        if "1" in apre: #Internet
             clear
-            print("")
-        if "2" in apre:
+            print("Escoje una Categoria\n1:Navegador\n2:Email\nMensajeria\n0:Atras")
+            apre1 = str(input(":"))
+            if "1" in apre1: #Navegador
+                clear
+                print("1:Firefox\n2:Chromium\n3:Opera\n4:Brave\n5:Chrome\n6:Tor\n0:Cancelar")
+                pregunta_navegador = str(input(":"))
+                if "1" in pregunta_navegador: #Firefox
+                    clear
+                    sudo pacman -S firefox --noconfirm
+                if "2" in pregunta_navegador: #Chromium
+                    clear
+                    sudo pacman -S chromium --noconfirm
+                if "3" in pregunta_navegador: #Opera
+                    clear
+                    sudo pacman -S opera --noconfirm
+                if "4" in pregunta_navegador: #Brave
+                    clear
+                    cd /tmp
+                    git clone https://aur.archlinux.org/brave.git
+                    clear
+                    cd brave
+                    makepkg -si --noconfirm
+                    clear
+                    cd ~
+                if "5" in pregunta_navegador: #Chrome
+                    clear
+                    cd /tmp
+                    git clone https://aur.archlinux.org/google-chrome.git
+                    clear
+                    cd google-chrome
+                    makepkg -si --noconfirm
+                    clear
+                    cd ~
+                if "6" in pregunta_navegador: #Tor
+                    clear
+                    sudo pacman -S tor --noconfirm
+                if "0" in pregunta_navegador: #Cancelar
+                    pass
+            if "2" in apre1: #Correo
+                clear
+                print("Seleciona la o las apps que quieres instalar\n1:Thunderbird\n2:Mailspring\n3:Kmail\n0:Atras")
+                pregunta_correo = str(input(":"))
+                if "1" in pregunta_correo: #Thunderbird
+                    clear
+                    sudo pacman -S thunderbird --noconfirm
+                if "2" in pregunta_correo: #Mailspring
+                    cd /tmp
+                    clear
+                    git clone https://aur.archlinux.org/mailspring.git
+                    clear
+                    cd mailspring
+                    makepkg -si --noconfirm
+                    clear
+                    cd ~
+                if "3" in pregunta_correo: #Kmail
+                    clear
+                    sudo pacman -S kmail --noconfirm
+                if "0" in pregunta_correo: #Atras
+                    pass
+            if "3" in apre1: #Mensajeria
+                print("Elige lo que quieres instalar:\n1:Discord\n2:Skype\n3:Teamspeak\n4:Telegram\n5:Zoom\n0:Atras")
+                pregunta_mensajes = str(input(":"))
+                if "1" in pregunta_mensajes: #Discord
+                    clear
+                    sudo pacman -S discord --noconfirm
+                if "2" in pregunta_mensajes: #Skype
+                    cd /tmp
+                    clear
+                    git clone https://aur.archlinux.org/skypeforlinux-stable-bin.git
+                    cd skypeforlinux-stable-bin
+                    clear
+                    makepkg -si --noconfirm
+                    clear
+                    cd ~
+                if "3" in pregunta_mensajes: #Teamspeak
+                    clear
+                    sudo pacman -S teamspeak3 --noconfirm
+                if "4" in pregunta_mensajes: #Telegram
+                    clear
+                    sudo pacman -S telegram-desktop --noconfirm
+                if "5" in pregunta_mensajes: #Zoom
+                    clear
+                    cd /tmp
+                    git clone https://aur.archlinux.org/zoom.git
+                    clear
+                    cd zoom
+                    makepkg -si --noconfirm
+                    cd ~
+                    clear
+                if "0" in pregunta_mensajes: #Atras
+                    pass
+            if "0" in apre1: #Atras
+                pass
+        if "2" in apre: #Imagen y video
             clear
-        if "3" in apre:
+            print("Selecciona que instalar\n1:vlc\n2:mpv\n3:gthumb\n4:gimp\n5:krita\n6:kdenlive\n7:Netflix\n0:Atras")
+            pregunta_video = str(input(":"))
+            if "1" in pregunta_video: #vlc
+                clear
+                sudo pacman -S vlc --noconfirm
+            if "2" in pregunta_video: #mpv
+                clear
+                sudo pacman -S mpv --noconfirm
+            if "3" in pregunta_video: #gthumb
+                clear
+                sudo pacman -S gthumb --noconfirm
+            if "4" in pregunta_video: #gimp
+                clear
+                sudo pacman -S gimp --noconfirm
+            if "5" in pregunta_video: #krita
+                clear
+                sudo pacman -S krita --noconfirm
+            if "6" in pregunta_video: #kdenlive
+                clear
+                sudo pacman -S kdenlive --noconfirm
+            if "7" in pregunta_video:
+                cd /tmp
+                clear
+                git clone https://aur.archlinux.org/netflix-nativefier.git
+                clear
+                cd netflix-nativefier
+                makepkg -si --noconfirm
+                clear
+            if "0" in pregunta_video: #Atras
+                pass
+        if "3" in apre: #Desarrollo
             clear
-        if "4" in apre:
+            print("Apps de desarrollo\nElige que apps instalar\n1:VS code\n2:Code OSS\n3:Pycharm Comunity\n4:Eclipse-Java\n5:Kate\n6:Freecad\n7:Android Studio\n0:Atras")
+            pregunta_ide = str(input(":"))
+            if "1" in pregunta_ide: #VS Code
+                cd /tmp
+                clear
+                git clone https://aur.archlinux.org/visual-studio-code-bin.git
+                cd visual-studio-code-bin
+                clear
+                makepkg -si --noconfirm
+                clear
+                cd ~
+            if "2" in pregunta_ide: #Code OSS
+                clear
+                sudo pacman -S code --noconfirm
+            if "3" in pregunta_ide: #Pycharm Comunity
+                clear
+                sudo pacman -S pycharm-community-edition --noconfirm
+            if "4" in pregunta_ide: #Eclipse-Java
+                clear
+                cd /tmp
+                git clone https://aur.archlinux.org/eclipse-java.git
+                clear
+                cd eclipse-java
+                makepkg -si --noconfirm
+                cd ~
+            if "5" in pregunta_ide: #Kate
+                clear
+                sudo pacman -S kate --noconfirm
+            if "6" in pregunta_ide: #Freecad
+                clear
+                sudo pacman -S freecad --noconfirm
+            if "7" in pregunta_ide: #Android Studio
+                cd /tmp
+                clear
+                git clone https://aur.archlinux.org/android-studio.git
+                cd android-studio
+                clear
+                makepkg -si --noconfirm
+                cd ~
+                clear
+            if "0" in pregunta_ide: #Atras
+                pass
+        if "4" in apre: #Gaming
             clear
-        if "5" in apre:
+            print("--JUEGOS--\nEscoje que instalar\n1:Steam\n2:Lutris\n3:Wine\n4:proton-ge\n5:Play on Linux\n0:Atras")
+            pregunta_juegos = str(input(":"))
+            if "1" in pregunta_juegos: #Steam
+                clear
+                sudo pacman -S steam --noconfirm
+            if "2" in pregunta_juegos: #Lutris
+                clear
+                sudo pacman -S lutris --
+            if "3" in pregunta_juegos: #Wine
+                clear
+                sudo pacman -S wine --noconfirm
+            if "4" in pregunta_juegos: #Proton-ge-custom-bin
+                cd /tmp
+                clear
+                git clone https://aur.archlinux.org/proton-ge-custom-bin.git
+                cd proton-ge-custom-
+                clear
+                makepkg -si --noconfirm
+                clear
+                cd ~
+            if "5" in pregunta_juegos: #Play on Linux
+                cd /tmp
+                clear
+                git clone https://aur.archlinux.org/playonlinux.git
+                cd playonlinux
+                clear
+                makepkg -si --noconfirm
+                clear
+                cd ~
+            if "0" in pregunta_juegos: #Atras
+                pass
             clear
-        if "6" in apre:
+        if "5" in apre: #Musica
             clear
-        if "0" in appre:
+            print("--MUSICA--\nSeleciona una o mas opciones\n1:Spotify\n2:Spotify-Adblock\n3:Spotube\n4:Clementine\n5:YT Music\n6:Audacity\n0:Atras")
+            pregunta_musica = str(input(":"))
+            if "1" in pregunta_musica: #Spotify
+                clear
+                sudo pacman -S spotify-launcher --noconfirm
+            if "2" in pregunta_musica: #Spotify Adblock
+                cd /tmp
+                clear
+                git clone https://aur.archlinux.org/spotify-adblock.git
+                cd spotify-adblock
+                clear
+                makepkg -si --noconfirm
+                clear
+            if "3" in pregunta_musica: #Spotube
+                cd /tmp
+                clear
+                git clone https://aur.archlinux.org/spotube-bin.git
+                cd spotube-bin
+                clear
+                makepkg -si --noconfirm
+                clear
+            if "4" in pregunta_musica: #Clementine
+                clear
+                sudo pacman -S clementine --noconfirm
+            if "5" in pregunta_musica: #YT Music
+                cd /tmp
+                clear
+                git clone https://aur.archlinux.org/youtube-music.git
+                cd youtube-music
+                clear
+                makepkg -si --noconfirm
+                clear
+            if "6" in pregunta_musica: #Audacity
+                clear
+                sudo pacman -S audacity --noconfirm
+            if "0" in pregunta_musica: #Atras
+                pass
+            clear
+        if "6" in apre: #Oficina
+            clear
+            print("--OFICINA--\nElige una o mas opciones\n1:LibreOffice\n2:OpenOffice\n3:OnlyOffice\n4:WPS Office\n0:Atras")
+            pregunta_oficina = str(input(":"))
+            if "1" in pregunta_oficina:
+                clear
+                sudo pacman -S libreoffice --noconfirm
+            if "2" in pregunta_oficina:
+                cd /tmp
+                clear
+                git clone https://aur.archlinux.org/openoffice-bin.git
+                cd openoffice-bin
+                clear
+                makepkg -si --noconfirm
+                cd ~
+            if "3" in pregunta_oficina:
+                cd /tmp
+                clear
+                git clone https://aur.archlinux.org/onlyoffice-bin.git
+                cd onlyoffice-bin
+                clear
+                makepkg -si --noconfirm
+                cd ~
+            if "4" in pregunta_oficina:
+                cd /tmp
+                clear
+                git clone https://aur.archlinux.org/wps-office-all-dicts-win-languages.git
+                cd wps-office-all-dicts-win-languages
+                clear
+                makepkg -si --noconfirm
+                cd ~
+            if "0" in pregunta_oficina:
+                pass
+        if "0" in appre: #Salir
             clear
             print("Saliendo...")
             time.sleep(0.1)
             break
-def apps():
+def apps__OLD():
     clear
     yay --noconfirm -S kbackup gimp bitwarden qbittorrent scrcpy kdenlive  htop kruler neofetch python3 clementine obs-studio whatsapp-nativefier spotify firefox lutris btop vi vim neovim visual-studio-code-bin
     clear
@@ -260,7 +525,7 @@ def escritorios():
         clear
         print("Seleciona una o mas opciones")
         time.sleep(0.5)
-##########################Zona de Interaccion###############################
+##########################Zona de Interaccion################################
 while True:
     try:
         clear
@@ -280,10 +545,7 @@ while True:
                 print("Listo!")
             if "2" in pre2: #Instalar solo Apps
                 base()
-                yyay = str(input("Instalar yay?(Si no lo quiere al finalizar su instalacion en la seccion de borrar dependencias de instalacion puede borrarlo)-Y/n\n:"))
-                if yyay == "y":
-                    yay_install()
-                apps()
+                apps_desarrollo()
                 clear
                 print("Listo!")
             if "3" in pre2: #Instalar i3
@@ -295,8 +557,11 @@ while True:
                 yes|yay --noconfirm -S gnome-screenshot alsa-utils xscreensaver acpid mousepad-git
                 clear
                 print("\nListo!\n")
-            if "4" in pre2:
+            if "4" in pre2: #Dependencias Gaming
                 dependenciasG()
+            if pre2 == "Apps_OLD": #Instalador viejo
+                base()
+                apps__OLD()
             if pre2 == "0": #Cancelar
                 pass
         if "2" in pre1: #Menu de gestores de paquetes (pkgman)
