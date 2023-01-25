@@ -485,46 +485,37 @@ def pkgman():
         print("Cancelando...")
         time.sleep(0.5)
         clear
-    else:
-        clear
-        print("Coloca una opcion valida")
-        time.sleep(0.5)
-        clear
 def escritorios():
     sudo pacman -Syy
     clear
     print("1:XFCE4\n2:GNOME\n3:KDE Plasma\n4:LXDE\n5:Cinnamon\n6:Mate\n0:Cancelar")
     desk_pre = str(input(":"))
-    if "1" in desk_pre:
+    if "1" in desk_pre: #XFCE4
         clear
         sudo pacman -S xfce4 xfce4-goodies --noconfirm
         clear
-    if "2" in desk_pre:
+    if "2" in desk_pre: #GNOME
         clear
         sudo pacman -S gnome gnome-extra --noconfirm
         clear
-    if "3" in desk_pre:
+    if "3" in desk_pre: #KDE Plasma
         clear
         sudo pacman -S plasma --noconfirm
         clear
-    if "4" in desk_pre:
+    if "4" in desk_pre: #LXDE
         clear
         sudo pacman -S lxde --noconfirm
         clear
-    if "5" in desk_pre:
+    if "5" in desk_pre: #Cinnamon
         clear
         sudo pacman -S cinnamon --noconfirm
         clear
-    if "6" in desk_pre:
+    if "6" in desk_pre: #Mate
         clear
         sudo pacman -S mate --noconfirm
         clear
-    if "0" in desk_pre:
+    if "0" in desk_pre: #Cancelar
         pass
-    else:
-        clear
-        print("Seleciona una o mas opciones")
-        time.sleep(0.5)
 ##########################Zona de Interaccion################################
 while True:
     try:
