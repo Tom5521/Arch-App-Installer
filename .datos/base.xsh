@@ -1,4 +1,6 @@
 #!/usr/bin/env xonsh
+
+#Creado por Angel Alderete
 import time
 yay_rem = True
 def base():
@@ -77,11 +79,9 @@ def dependenciasG():
     clear
 def el_resto():
     clear
-    yay -S yay --noconfirm
-    clear
     yes | yay --noconfirm -S mkinitcpio-firmware python-lsp-server
     clear
-    yes | yay --noconfirm
+    yay -Syu --noconfirm
     clear
 def apps_desarrollo():
     while True:
