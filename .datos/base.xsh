@@ -90,7 +90,7 @@ def apps_desarrollo():
         apre = str(input(":"))
         if "1" in apre: #Internet
             clear
-            print("Escoje una Categoria\n1:Navegador\n2:Email\nMensajeria\n0:Atras")
+            print("Escoje una Categoria\n1:Navegador\n2:Email\n3:Mensajeria\n0:Atras")
             apre1 = str(input(":"))
             if "1" in apre1: #Navegador
                 clear
