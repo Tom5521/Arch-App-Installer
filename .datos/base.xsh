@@ -366,7 +366,7 @@ def apps_desarrollo():
                 cd ~
             if "0" in pregunta_oficina:
                 pass
-        if "0" in appre: #Salir
+        if "0" in apre: #Salir
             clear
             print("Saliendo...")
             time.sleep(0.1)
