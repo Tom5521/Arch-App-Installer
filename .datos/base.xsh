@@ -529,7 +529,7 @@ def escritorios():
 while True:
     try:
         clear
-        print("1:Instalar Apps y dependencias\n2:Instalar gestores de paquetes\n3:Añadir Escritorios\n4:Añadir repositorios nesesarios\n5:Cambiar Shell\n6:Borrar dependencias de instalacion(Significa que terminaste)\n0:Cancelar\nEs recomendable instalar el gestor de aur yay en la seccion de gestores de paquetes para facilitar la instalacion")
+        print("1:Instalar Apps y dependencias\n2:Instalar gestores de paquetes\n3:Añadir Escritorios\n4:Añadir repositorios nesesarios\n5:Cambiar Shell\n6:Borrar dependencias de instalacion(Significa que terminaste)\n0:Cancelar")
         pre1 = str(input("Seleccionar una o mas opciones\n:"))
         if "1" in pre1: #Menu de Apps y dependencias
             clear
