@@ -2,7 +2,6 @@
 
 #Creado por Angel Alderete
 #Oficialmente hospedado en Codeberg
-
 import time
 yay_rem = True
 def texto_inicial():
