@@ -1,11 +1,21 @@
 #!/usr/bin/env xonsh
 
 #Creado por Angel Alderete
+
 import time
 yay_rem = True
+def texto_inicial():
+
+    print("▒█▀▀█ ░▀░ █▀▀ █▀▀▄ ▀█░█▀ █▀▀ █▀▀▄ ░▀░ █▀▀▄ █▀▀█ 　 █▀▀█ █░░ 　 ")
+    print("▒█▀▀▄ ▀█▀ █▀▀ █░░█ ░█▄█░ █▀▀ █░░█ ▀█▀ █░░█ █░░█ 　 █▄▄█ █░░ 　 ")
+    print("▒█▄▄█ ▀▀▀ ▀▀▀ ▀░░▀ ░░▀░░ ▀▀▀ ▀░░▀ ▀▀▀ ▀▀▀░ ▀▀▀▀ 　 ▀░░▀ ▀▀▀ 　 ")
+    print()
+    print("░▀░ █▀▀▄ █▀▀ ▀▀█▀▀ █▀▀█ █░░ █▀▀█ █▀▀▄ █▀▀█ █▀▀█ ")
+    print("▀█▀ █░░█ ▀▀█ ░░█░░ █▄▄█ █░░ █▄▄█ █░░█ █░░█ █▄▄▀ ")
+    print("▀▀▀ ▀░░▀ ▀▀▀ ░░▀░░ ▀░░▀ ▀▀▀ ▀░░▀ ▀▀▀░ ▀▀▀▀ ▀░▀▀ ")
 def base():
     clear
-    sudo pacman -Syu git nano make --noconfirm
+    sudo pacman -Syu git nano --noconfirm
     clear
 def yay_install():
     clear
@@ -75,11 +85,11 @@ def dependenciasG():
     echo Instalando dependencias para gaming...
     yay --noconfirm -S wine mangohud game-devices-udev gamemode linux-xanmod linux-xanmod-headers vulkan-icd-loader lib32-vulkan-icd-loader lib32-vulkan-intel vulkan-intel vkd3d lib32-vkd3d
     clear
-    yes | yay --noconfirm
+    yes | yay
     clear
 def el_resto():
     clear
-    yes | yay --noconfirm -S mkinitcpio-firmware python-lsp-server
+    yay --noconfirm -S mkinitcpio-firmware python-lsp-server
     clear
     yay -Syu --noconfirm
     clear
@@ -90,6 +100,8 @@ def apps_desarrollo():
         apre = str(input(":"))
         if "1" in apre: #Internet
             clear
+            echo █ █▄░█ ▀█▀ █▀▀ █▀█ █▄░█ █▀▀ ▀█▀
+            echo █ █░▀█ ░█░ ██▄ █▀▄ █░▀█ ██▄ ░█░
             print("Escoje una Categoria\n1:Navegador\n2:Email\n3:Mensajeria\n0:Atras")
             apre1 = str(input(":"))
             if "1" in apre1: #Navegador
@@ -185,6 +197,8 @@ def apps_desarrollo():
                 pass
         if "2" in apre: #Imagen y video
             clear
+            echo █ █▀▄▀█ ▄▀█ █▀▀ █▀▀ █▄░█   █▄█   █░█ █ █▀▄ █▀▀ █▀█
+            echo █ █░▀░█ █▀█ █▄█ ██▄ █░▀█   ░█░   ▀▄▀ █ █▄▀ ██▄ █▄█
             print("Selecciona que instalar\n1:vlc\n2:mpv\n3:gthumb\n4:gimp\n5:krita\n6:kdenlive\n7:Netflix\n0:Atras")
             pregunta_video = str(input(":"))
             if "1" in pregunta_video: #vlc
@@ -217,6 +231,8 @@ def apps_desarrollo():
                 pass
         if "3" in apre: #Desarrollo
             clear
+            echo █▀▄ █▀▀ █▀ ▄▀█ █▀█ █▀█ █▀█ █░░ █░░ █▀█
+            echo █▄▀ ██▄ ▄█ █▀█ █▀▄ █▀▄ █▄█ █▄▄ █▄▄ █▄█
             print("Apps de desarrollo\nElige que apps instalar\n1:VS code\n2:Code OSS\n3:Pycharm Comunity\n4:Eclipse-Java\n5:Kate\n6:Freecad\n7:Android Studio\n0:Atras")
             pregunta_ide = str(input(":"))
             if "1" in pregunta_ide: #VS Code
@@ -261,7 +277,9 @@ def apps_desarrollo():
                 pass
         if "4" in apre: #Gaming
             clear
-            print("--JUEGOS--\nEscoje que instalar\n1:Steam\n2:Lutris\n3:Wine\n4:proton-ge\n5:Play on Linux\n0:Atras")
+            echo █▀▀ ▄▀█ █▀▄▀█ █ █▄░█ █▀▀
+            echo █▄█ █▀█ █░▀░█ █ █░▀█ █▄█
+            print("Escoje que instalar\n1:Steam\n2:Lutris\n3:Wine\n4:proton-ge\n5:Play on Linux\n0:Atras")
             pregunta_juegos = str(input(":"))
             if "1" in pregunta_juegos: #Steam
                 clear
@@ -295,7 +313,9 @@ def apps_desarrollo():
             clear
         if "5" in apre: #Musica
             clear
-            print("--MUSICA--\nSeleciona una o mas opciones\n1:Spotify\n2:Spotify-Adblock\n3:Spotube\n4:Clementine\n5:YT Music\n6:Audacity\n0:Atras")
+            echo █▀▄▀█ █░█ █▀ █ █▀▀ ▄▀█
+            echo █░▀░█ █▄█ ▄█ █ █▄▄ █▀█
+            print("Seleciona una o mas opciones\n1:Spotify\n2:Spotify-Adblock\n3:Spotube\n4:Clementine\n5:YT Music\n6:Audacity\n0:Atras")
             pregunta_musica = str(input(":"))
             if "1" in pregunta_musica: #Spotify
                 clear
@@ -335,6 +355,8 @@ def apps_desarrollo():
             clear
         if "6" in apre: #Oficina
             clear
+            echo █▀█ █▀▀ █ █▀▀ █ █▄░█ ▄▀█
+            echo █▄█ █▀░ █ █▄▄ █ █░▀█ █▀█
             print("--OFICINA--\nElige una o mas opciones\n1:LibreOffice\n2:OpenOffice\n3:OnlyOffice\n4:WPS Office\n0:Atras")
             pregunta_oficina = str(input(":"))
             if "1" in pregunta_oficina:
@@ -387,7 +409,10 @@ def permisos_snapd():
     clear
 def cambiar_shell():
     clear
-    print("1:fish\n2:zsh\n3:bash")
+    echo █▀▀ █▀▀█ █▀▄▀█ █▀▀▄ ░▀░ █▀▀█ █▀▀█ 　 █▀▀ █░░█ █▀▀ █░░ █░░ 
+    echo █░░ █▄▄█ █░▀░█ █▀▀▄ ▀█▀ █▄▄█ █▄▄▀ 　 ▀▀█ █▀▀█ █▀▀ █░░ █░░ 
+    echo ▀▀▀ ▀░░▀ ▀░░░▀ ▀▀▀░ ▀▀▀ ▀░░▀ ▀░▀▀ 　 ▀▀▀ ▀░░▀ ▀▀▀ ▀▀▀ ▀▀▀
+    print("1:fish\n2:zsh\n3:bash\n0:Atras")
     shellpre = int(input("Que shell deseas poner?\n:"))
     if shellpre == 1: #Shell fish
         clear
@@ -407,6 +432,8 @@ def cambiar_shell():
         clear
         chsh -s /bin/bash
         clear
+    if shellpre == 0:
+        pass
     clear
 def snapd_inst():
     clear
@@ -433,6 +460,9 @@ def snapd_inst():
         time.sleep(0.5)
 def pkgman():
     clear
+    echo ▒█▀▀█ █▀▀ █▀▀ ▀▀█▀▀ █▀▀█ █▀▀█ █▀▀ █▀▀ 　 █▀▀▄ █▀▀ 　 █▀▀█ █▀▀█ █▀▀█ █░░█ █▀▀ ▀▀█▀▀ █▀▀ █▀▀ 
+    echo ▒█░▄▄ █▀▀ ▀▀█ ░░█░░ █░░█ █▄▄▀ █▀▀ ▀▀█ 　 █░░█ █▀▀ 　 █░░█ █▄▄█ █░░█ █░░█ █▀▀ ░░█░░ █▀▀ ▀▀█ 
+    echo ▒█▄▄█ ▀▀▀ ▀▀▀ ░░▀░░ ▀▀▀▀ ▀░▀▀ ▀▀▀ ▀▀▀ 　 ▀▀▀░ ▀▀▀ 　 █▀▀▀ ▀░░▀ ▀▀▀█ ░▀▀▀ ▀▀▀ ░░▀░░ ▀▀▀ ▀▀▀
     print("1:yay\n2:paru\n3:pikaur\n4:snapd\n5:flatpak\n6:Pamac\n0:Cancelar")
     pkgpre1 = str(input(":"))
     if "1" in pkgpre1: #Yay
@@ -486,8 +516,11 @@ def pkgman():
         time.sleep(0.5)
         clear
 def escritorios():
-    sudo pacman -Syy
+    #sudo pacman -Syy
     clear
+    echo █▀▀ █▀▀ █▀▀ █▀▀█ ░▀░ ▀▀█▀▀ █▀▀█ █▀▀█ ░▀░ █▀▀█ █▀▀ 
+    echo █▀▀ ▀▀█ █░░ █▄▄▀ ▀█▀ ░░█░░ █░░█ █▄▄▀ ▀█▀ █░░█ ▀▀█ 
+    echo ▀▀▀ ▀▀▀ ▀▀▀ ▀░▀▀ ▀▀▀ ░░▀░░ ▀▀▀▀ ▀░▀▀ ▀▀▀ ▀▀▀▀ ▀▀▀
     print("1:XFCE4\n2:GNOME\n3:KDE Plasma\n4:LXDE\n5:Cinnamon\n6:Mate\n0:Cancelar")
     desk_pre = str(input(":"))
     if "1" in desk_pre: #XFCE4
@@ -520,13 +553,17 @@ def escritorios():
 while True:
     try:
         clear
+        texto_inicial()
         print("1:Instalar Apps y dependencias\n2:Instalar gestores de paquetes\n3:Añadir Escritorios\n4:Añadir repositorios nesesarios\n5:Cambiar Shell\n6:Borrar dependencias de instalacion(Significa que terminaste)\n0:Cancelar")
         pre1 = str(input("Seleccionar una o mas opciones\n:"))
         if "1" in pre1: #Menu de Apps y dependencias
             clear
+            echo ░█▀▀█ █▀▀█ █▀▀█ █▀▀ 　 █░░█ 　 █▀▀▄ █▀▀ █▀▀█ █▀▀ █▀▀▄ █▀▀▄ █▀▀ █▀▀▄ █▀▀ ░▀░ █▀▀█ █▀▀ 
+            echo ▒█▄▄█ █░░█ █░░█ ▀▀█ 　 █▄▄█ 　 █░░█ █▀▀ █░░█ █▀▀ █░░█ █░░█ █▀▀ █░░█ █░░ ▀█▀ █▄▄█ ▀▀█ 
+            echo ▒█░▒█ █▀▀▀ █▀▀▀ ▀▀▀ 　 ▄▄▄█ 　 ▀▀▀░ ▀▀▀ █▀▀▀ ▀▀▀ ▀░░▀ ▀▀▀░ ▀▀▀ ▀░░▀ ▀▀▀ ▀▀▀ ▀░░▀ ▀▀▀
             print("1:Solo Dependencias\n2:Solo Apps\n3:Instalar dependencias i3\n4:Instalar dependencias para gaming(Exclusivo graficas y prosesadores intel)\n0:Cancelar")
             pre2 = str(input(":"))
-            if "1" in pre2:
+            if "1" in pre2: #Solo dependencias
                 base()
                 yayy = str(input("Instalar yay?(Si no lo quiere al finalizar su instalacion en la seccion de borrar dependencias de instalacion puede borrarlo)-y/n\n:"))
                 if yayy == "y":
@@ -555,6 +592,7 @@ while True:
             if pre2 == "0": #Cancelar
                 pass
         if "2" in pre1: #Menu de gestores de paquetes (pkgman)
+            
             clear
             pkgman()
             clear
@@ -572,6 +610,9 @@ while True:
             cambiar_shell()
         if "6" in pre1: #Borrar basura
             clear
+            echo █▀▀▄ █▀▀█ █▀▀█ █▀▀█ █▀▀█ █▀▀█ 　 █▀▀▄ █▀▀█ █▀▀ █░░█ █▀▀█ █▀▀█ 
+            echo █▀▀▄ █░░█ █▄▄▀ █▄▄▀ █▄▄█ █▄▄▀ 　 █▀▀▄ █▄▄█ ▀▀█ █░░█ █▄▄▀ █▄▄█ 
+            echo ▀▀▀░ ▀▀▀▀ ▀░▀▀ ▀░▀▀ ▀░░▀ ▀░▀▀ 　 ▀▀▀░ ▀░░▀ ▀▀▀ ░▀▀▀ ▀░▀▀ ▀░░▀
             print("Elige una o mas opciones\n1:Escriba los paquetes que quiere eliminar seguidos de un salto de linea\n2:Borrado automatico")
             rm_pre = str(input())
             if "1" in rm_pre:
@@ -582,13 +623,10 @@ while True:
                 rm rem
             if "2" in rm_pre:
                 clear
-                yes|yay -c
+                yay -c --noconfirm
                 clear
                 if yay_rem == True:
                     sudo pacman -R yay --noconfirm
-                if flat_rem == True:
-                    sudo pacman -R flatpak --noconfirm
-                sudo pacman -R xonsh --noconfirm
             clear
             print("Saliendo...")
             time.sleep(0.5)
