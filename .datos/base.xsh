@@ -547,10 +547,9 @@ while True:
                 clear
                 yes|yay --noconfirm -S gnome-screenshot alsa-utils xscreensaver acpid mousepad-git
                 clear
-                print("\nListo!\n")
             if "4" in pre2: #Dependencias Gaming
                 dependenciasG()
-            if pre2 == "Apps_OLD": #Instalador viejo
+            if pre2 == "652_OlD": #Instalador viejo
                 base()
                 apps__OLD()
             if pre2 == "0": #Cancelar
@@ -559,7 +558,7 @@ while True:
             clear
             pkgman()
             clear
-        if "3" in pre1: #Inciar Escritorios
+        if "3" in pre1: #Instalar Escritorios
             clear
             escritorios()
             clear
