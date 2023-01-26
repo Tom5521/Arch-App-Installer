@@ -1,6 +1,7 @@
 #!/usr/bin/env xonsh
 
 #Creado por Angel Alderete
+#Oficialmente hospedado en Codeberg
 
 import time
 yay_rem = True
@@ -591,7 +592,6 @@ while True:
             if pre2 == "0": #Cancelar
                 pass
         if "2" in pre1: #Menu de gestores de paquetes (pkgman)
-            
             clear
             pkgman()
             clear
