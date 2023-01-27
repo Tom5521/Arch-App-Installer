@@ -1,5 +1,6 @@
 # Instalador de mis cosas
 
+<img src="https://github.com/Tom5521/Instalador-de-mis-cosas/blob/88c681252968101ad51ca6200c8cae80e90dd851/Captura%20de%20pantalla%20de%202023-01-27%2010-18-12.png" width="370" height="400" />
 
 Un instalador escrito en xonsh con mis apps favoritas
 
