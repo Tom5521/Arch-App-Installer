@@ -2,6 +2,7 @@
 
 
 Un instalador escrito en xonsh con mis apps favoritas
+
 Ejecutar con:
 ```
 sh Instalador.sh
