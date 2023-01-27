@@ -498,7 +498,6 @@ def pkgman():
         time.sleep(0.5)
         clear
 def escritorios():
-    #sudo pacman -Syy
     clear
     palabras.escritorios()
     print("1:XFCE4\n2:GNOME\n3:KDE Plasma\n4:LXDE\n5:Cinnamon\n6:Mate\n0:Cancelar")
@@ -529,7 +528,6 @@ def escritorios():
         clear
     if "0" in desk_pre: #Cancelar
         pass
-##########################Zona de Interaccion################################
 while True:
     try:
         clear
