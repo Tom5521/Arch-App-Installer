@@ -228,7 +228,7 @@ def apps_desarrollo():
         if "3" in apre: #Desarrollo
             clear
             palabras.desarrollo()
-            print("Apps de desarrollo\nElige que apps instalar\n1:VS code\n2:Code OSS\n3:Pycharm Comunity\n4:Eclipse-Java\n5:Kate\n6:Freecad\n7:Android Studio\n0:Atras")
+            print("Apps de desarrollo\nElige que apps instalar\n1:VS code\n2:Code OSS\n3:Pycharm Comunity\n4:Eclipse-Java\n5:Kate\n6:Freecad\n7:Android Studio\n8:Anbox\n0:Atras")
             pregunta_ide = str(input(":"))
             if "1" in pregunta_ide: #VS Code
                 cd /tmp
@@ -268,6 +268,15 @@ def apps_desarrollo():
                 makepkg -si --noconfirm
                 cd ~
                 clear
+            if "8" in pregunta_ide:
+                cd /tmp
+                clear
+                git clone https://aur.archlinux.org/anbox-git.git
+                clear
+                cd anbox-git
+                makepkg -si --noconfirm
+                clear
+                cd ~
             if "0" in pregunta_ide: #Atras
                 pass
         if "4" in apre: #Gaming
