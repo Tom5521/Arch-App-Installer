@@ -9,6 +9,6 @@ sh Instalador.sh
 
 En fin ire actualizando este proyecto hasta que se me caigan las manos o pierda de alguna manera mi cuenta
 
-<img src="https://github.com/Tom5521/Instalador-de-mis-cosas/blob/d6928d1bb2eed0c9ce66b00fff3d1ac8e84dec4d/gato-BOOM.gif" width="370" height="400" />
+<img src="https://github.com/Tom5521/Tom5521/blob/7b38d1501ba08da3475abfe4e0213d059445f33a/gato-BOOM.gif" width="370" height="400" />
 
 Gracias por Usarlo :D
