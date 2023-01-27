@@ -8,7 +8,6 @@ sudo echo "SigLevel = PackageRequired" >> /etc/pacman.conf
 sudo echo "Include = /etc/pacman.d/endeavouros-mirrorlist" >> /etc/pacman.conf
 sudo cp endeavouros-mirrorlist /etc/pacman.d/
 clear
-sudo pacman -Syu --noconfirm
+sudo pacman -Sy
 clear
 echo Exito!
-#Esta llenito de clears innesesarios xD

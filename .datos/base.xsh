@@ -1,21 +1,10 @@
 #!/usr/bin/env xonsh
 
 #Creado por Angel Alderete
-#Oficialmente hospedado en Codeberg
+
 import time
+import palabras
 yay_rem = True
-def texto_inicial():
-    print("▒█▀▀█ ░▀░ █▀▀ █▀▀▄ ▀█░█▀ █▀▀ █▀▀▄ ░▀░ █▀▀▄ █▀▀█ 　 █▀▀█ █░░ 　 ")
-    print("▒█▀▀▄ ▀█▀ █▀▀ █░░█ ░█▄█░ █▀▀ █░░█ ▀█▀ █░░█ █░░█ 　 █▄▄█ █░░ 　 ")
-    print("▒█▄▄█ ▀▀▀ ▀▀▀ ▀░░▀ ░░▀░░ ▀▀▀ ▀░░▀ ▀▀▀ ▀▀▀░ ▀▀▀▀ 　 ▀░░▀ ▀▀▀ 　 ")
-    print()
-    print("░▀░ █▀▀▄ █▀▀ ▀▀█▀▀ █▀▀█ █░░ █▀▀█ █▀▀▄ █▀▀█ █▀▀█ ")
-    print("▀█▀ █░░█ ▀▀█ ░░█░░ █▄▄█ █░░ █▄▄█ █░░█ █░░█ █▄▄▀ ")
-    print("▀▀▀ ▀░░▀ ▀▀▀ ░░▀░░ ▀░░▀ ▀▀▀ ▀░░▀ ▀▀▀░ ▀▀▀▀ ▀░▀▀ ")
-def base():
-    clear
-    sudo pacman -Syu git nano --noconfirm
-    clear
 def yay_install():
     clear
     cd /tmp
@@ -44,6 +33,8 @@ def pikaur_install():
     cd ~
     clear
 def pamac_install():
+    clear
+    palabras.pamac()
     print("1:Instalar pamac AUR\n2:Instalar pamac Flatpak\n3:Instalar pamac nosnap\n0:Cancelar")
     pamac_pre1 = int(input(":"))
     if pamac_pre1 == 1: #pamac-aur
@@ -95,16 +86,17 @@ def el_resto():
 def apps_desarrollo():
     while True:
         clear
+        palabras.apps()
         print("Escoje una categoria de apps a instalar\n1:Internet\n2:Imagen y Video\n3:Desarrollo\n4:Gaming\n5:Musica\n6:Oficina\n0:Salir")
         apre = str(input(":"))
         if "1" in apre: #Internet
             clear
-            echo █ █▄░█ ▀█▀ █▀▀ █▀█ █▄░█ █▀▀ ▀█▀
-            echo █ █░▀█ ░█░ ██▄ █▀▄ █░▀█ ██▄ ░█░
+            palabras.internet()
             print("Escoje una Categoria\n1:Navegador\n2:Email\n3:Mensajeria\n0:Atras")
             apre1 = str(input(":"))
             if "1" in apre1: #Navegador
                 clear
+                palabras.navegadores()
                 print("1:Firefox\n2:Chromium\n3:Opera\n4:Brave\n5:Chrome\n6:Tor\n0:Cancelar")
                 pregunta_navegador = str(input(":"))
                 if "1" in pregunta_navegador: #Firefox
@@ -141,6 +133,7 @@ def apps_desarrollo():
                     pass
             if "2" in apre1: #Correo
                 clear
+                palabras.mail()
                 print("Seleciona la o las apps que quieres instalar\n1:Thunderbird\n2:Mailspring\n3:Kmail\n0:Atras")
                 pregunta_correo = str(input(":"))
                 if "1" in pregunta_correo: #Thunderbird
@@ -161,6 +154,8 @@ def apps_desarrollo():
                 if "0" in pregunta_correo: #Atras
                     pass
             if "3" in apre1: #Mensajeria
+                clear
+                palabras.mensajeria()
                 print("Elige lo que quieres instalar:\n1:Discord\n2:Skype\n3:Teamspeak\n4:Telegram\n5:Zoom\n0:Atras")
                 pregunta_mensajes = str(input(":"))
                 if "1" in pregunta_mensajes: #Discord
@@ -196,8 +191,7 @@ def apps_desarrollo():
                 pass
         if "2" in apre: #Imagen y video
             clear
-            echo █ █▀▄▀█ ▄▀█ █▀▀ █▀▀ █▄░█   █▄█   █░█ █ █▀▄ █▀▀ █▀█
-            echo █ █░▀░█ █▀█ █▄█ ██▄ █░▀█   ░█░   ▀▄▀ █ █▄▀ ██▄ █▄█
+            palabras.imagen_y_video()
             print("Selecciona que instalar\n1:vlc\n2:mpv\n3:gthumb\n4:gimp\n5:krita\n6:kdenlive\n7:Netflix\n0:Atras")
             pregunta_video = str(input(":"))
             if "1" in pregunta_video: #vlc
@@ -230,8 +224,7 @@ def apps_desarrollo():
                 pass
         if "3" in apre: #Desarrollo
             clear
-            echo █▀▄ █▀▀ █▀ ▄▀█ █▀█ █▀█ █▀█ █░░ █░░ █▀█
-            echo █▄▀ ██▄ ▄█ █▀█ █▀▄ █▀▄ █▄█ █▄▄ █▄▄ █▄█
+            palabras.desarrollo()
             print("Apps de desarrollo\nElige que apps instalar\n1:VS code\n2:Code OSS\n3:Pycharm Comunity\n4:Eclipse-Java\n5:Kate\n6:Freecad\n7:Android Studio\n0:Atras")
             pregunta_ide = str(input(":"))
             if "1" in pregunta_ide: #VS Code
@@ -276,8 +269,7 @@ def apps_desarrollo():
                 pass
         if "4" in apre: #Gaming
             clear
-            echo █▀▀ ▄▀█ █▀▄▀█ █ █▄░█ █▀▀
-            echo █▄█ █▀█ █░▀░█ █ █░▀█ █▄█
+            palabras.gaming()
             print("Escoje que instalar\n1:Steam\n2:Lutris\n3:Wine\n4:proton-ge\n5:Play on Linux\n0:Atras")
             pregunta_juegos = str(input(":"))
             if "1" in pregunta_juegos: #Steam
@@ -312,8 +304,7 @@ def apps_desarrollo():
             clear
         if "5" in apre: #Musica
             clear
-            echo █▀▄▀█ █░█ █▀ █ █▀▀ ▄▀█
-            echo █░▀░█ █▄█ ▄█ █ █▄▄ █▀█
+            palabras.musica()
             print("Seleciona una o mas opciones\n1:Spotify\n2:Spotify-Adblock\n3:Spotube\n4:Clementine\n5:YT Music\n6:Audacity\n0:Atras")
             pregunta_musica = str(input(":"))
             if "1" in pregunta_musica: #Spotify
@@ -354,8 +345,7 @@ def apps_desarrollo():
             clear
         if "6" in apre: #Oficina
             clear
-            echo █▀█ █▀▀ █ █▀▀ █ █▄░█ ▄▀█
-            echo █▄█ █▀░ █ █▄▄ █ █░▀█ █▀█
+            palabras.oficina()
             print("--OFICINA--\nElige una o mas opciones\n1:LibreOffice\n2:OpenOffice\n3:OnlyOffice\n4:WPS Office\n0:Atras")
             pregunta_oficina = str(input(":"))
             if "1" in pregunta_oficina:
@@ -408,9 +398,7 @@ def permisos_snapd():
     clear
 def cambiar_shell():
     clear
-    echo █▀▀ █▀▀█ █▀▄▀█ █▀▀▄ ░▀░ █▀▀█ █▀▀█ 　 █▀▀ █░░█ █▀▀ █░░ █░░ 
-    echo █░░ █▄▄█ █░▀░█ █▀▀▄ ▀█▀ █▄▄█ █▄▄▀ 　 ▀▀█ █▀▀█ █▀▀ █░░ █░░ 
-    echo ▀▀▀ ▀░░▀ ▀░░░▀ ▀▀▀░ ▀▀▀ ▀░░▀ ▀░▀▀ 　 ▀▀▀ ▀░░▀ ▀▀▀ ▀▀▀ ▀▀▀
+    palabras.cambiar_shell()
     print("1:fish\n2:zsh\n3:bash\n0:Atras")
     shellpre = int(input("Que shell deseas poner?\n:"))
     if shellpre == 1: #Shell fish
@@ -459,9 +447,7 @@ def snapd_inst():
         time.sleep(0.5)
 def pkgman():
     clear
-    echo ▒█▀▀█ █▀▀ █▀▀ ▀▀█▀▀ █▀▀█ █▀▀█ █▀▀ █▀▀ 　 █▀▀▄ █▀▀ 　 █▀▀█ █▀▀█ █▀▀█ █░░█ █▀▀ ▀▀█▀▀ █▀▀ █▀▀ 
-    echo ▒█░▄▄ █▀▀ ▀▀█ ░░█░░ █░░█ █▄▄▀ █▀▀ ▀▀█ 　 █░░█ █▀▀ 　 █░░█ █▄▄█ █░░█ █░░█ █▀▀ ░░█░░ █▀▀ ▀▀█ 
-    echo ▒█▄▄█ ▀▀▀ ▀▀▀ ░░▀░░ ▀▀▀▀ ▀░▀▀ ▀▀▀ ▀▀▀ 　 ▀▀▀░ ▀▀▀ 　 █▀▀▀ ▀░░▀ ▀▀▀█ ░▀▀▀ ▀▀▀ ░░▀░░ ▀▀▀ ▀▀▀
+    palabras.gestores_de_paquetes()
     print("1:yay\n2:paru\n3:pikaur\n4:snapd\n5:flatpak\n6:Pamac\n0:Cancelar")
     pkgpre1 = str(input(":"))
     if "1" in pkgpre1: #Yay
@@ -479,8 +465,6 @@ def pkgman():
             if add_repoch == "N" or "n":
                 yay_rem = False
                 clear
-                base()
-                clear
                 yay_install()
             else:
                 clear
@@ -490,7 +474,6 @@ def pkgman():
         clear
     if "2" in pkgpre1: #Paru
         clear
-        base()
         clear
         paru_install()
         clear
@@ -517,9 +500,7 @@ def pkgman():
 def escritorios():
     #sudo pacman -Syy
     clear
-    echo █▀▀ █▀▀ █▀▀ █▀▀█ ░▀░ ▀▀█▀▀ █▀▀█ █▀▀█ ░▀░ █▀▀█ █▀▀ 
-    echo █▀▀ ▀▀█ █░░ █▄▄▀ ▀█▀ ░░█░░ █░░█ █▄▄▀ ▀█▀ █░░█ ▀▀█ 
-    echo ▀▀▀ ▀▀▀ ▀▀▀ ▀░▀▀ ▀▀▀ ░░▀░░ ▀▀▀▀ ▀░▀▀ ▀▀▀ ▀▀▀▀ ▀▀▀
+    palabras.escritorios()
     print("1:XFCE4\n2:GNOME\n3:KDE Plasma\n4:LXDE\n5:Cinnamon\n6:Mate\n0:Cancelar")
     desk_pre = str(input(":"))
     if "1" in desk_pre: #XFCE4
@@ -552,18 +533,15 @@ def escritorios():
 while True:
     try:
         clear
-        texto_inicial()
+        palabras.texto_inicial()
         print("1:Instalar Apps y dependencias\n2:Instalar gestores de paquetes\n3:Añadir Escritorios\n4:Añadir repositorios nesesarios\n5:Cambiar Shell\n6:Borrar dependencias de instalacion(Significa que terminaste)\n0:Cancelar")
         pre1 = str(input("Seleccionar una o mas opciones\n:"))
         if "1" in pre1: #Menu de Apps y dependencias
             clear
-            echo ░█▀▀█ █▀▀█ █▀▀█ █▀▀ 　 █░░█ 　 █▀▀▄ █▀▀ █▀▀█ █▀▀ █▀▀▄ █▀▀▄ █▀▀ █▀▀▄ █▀▀ ░▀░ █▀▀█ █▀▀ 
-            echo ▒█▄▄█ █░░█ █░░█ ▀▀█ 　 █▄▄█ 　 █░░█ █▀▀ █░░█ █▀▀ █░░█ █░░█ █▀▀ █░░█ █░░ ▀█▀ █▄▄█ ▀▀█ 
-            echo ▒█░▒█ █▀▀▀ █▀▀▀ ▀▀▀ 　 ▄▄▄█ 　 ▀▀▀░ ▀▀▀ █▀▀▀ ▀▀▀ ▀░░▀ ▀▀▀░ ▀▀▀ ▀░░▀ ▀▀▀ ▀▀▀ ▀░░▀ ▀▀▀
+            palabras.apps_y_dependencias()
             print("1:Solo Dependencias\n2:Solo Apps\n3:Instalar dependencias i3\n4:Instalar dependencias para gaming(Exclusivo graficas y prosesadores intel)\n0:Cancelar")
             pre2 = str(input(":"))
             if "1" in pre2: #Solo dependencias
-                base()
                 yayy = str(input("Instalar yay?(Si no lo quiere al finalizar su instalacion en la seccion de borrar dependencias de instalacion puede borrarlo)-y/n\n:"))
                 if yayy == "y":
                     yay_install()
@@ -571,7 +549,6 @@ while True:
                 clear
                 print("Listo!")
             if "2" in pre2: #Instalar solo Apps
-                base()
                 apps_desarrollo()
                 clear
                 print("Listo!")
@@ -586,7 +563,6 @@ while True:
             if "4" in pre2: #Dependencias Gaming
                 dependenciasG()
             if pre2 == "652_OlD": #Instalador viejo
-                base()
                 apps__OLD()
             if pre2 == "0": #Cancelar
                 pass
@@ -608,9 +584,7 @@ while True:
             cambiar_shell()
         if "6" in pre1: #Borrar basura
             clear
-            echo █▀▀▄ █▀▀█ █▀▀█ █▀▀█ █▀▀█ █▀▀█ 　 █▀▀▄ █▀▀█ █▀▀ █░░█ █▀▀█ █▀▀█ 
-            echo █▀▀▄ █░░█ █▄▄▀ █▄▄▀ █▄▄█ █▄▄▀ 　 █▀▀▄ █▄▄█ ▀▀█ █░░█ █▄▄▀ █▄▄█ 
-            echo ▀▀▀░ ▀▀▀▀ ▀░▀▀ ▀░▀▀ ▀░░▀ ▀░▀▀ 　 ▀▀▀░ ▀░░▀ ▀▀▀ ░▀▀▀ ▀░▀▀ ▀░░▀
+            palabras.borrar_basura()
             print("Elige una o mas opciones\n1:Escriba los paquetes que quiere eliminar seguidos de un salto de linea\n2:Borrado automatico")
             rm_pre = str(input())
             if "1" in rm_pre:
@@ -625,6 +599,7 @@ while True:
                 clear
                 if yay_rem == True:
                     sudo pacman -R yay --noconfirm
+                sudo rm /usr/lib/python3.10/palabras.py
             clear
             print("Saliendo...")
             time.sleep(0.5)
