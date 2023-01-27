@@ -1,6 +1,6 @@
 # Instalador de mis cosas
 
-<img src="https://codeberg.org/Tom5521/mis-imagenes/src/commit/c9a934fa87efe6eded015476de6ab084046988bf/Captura%20de%20pantalla%20de%202023-01-27%2010-18-12.png" width="800" height="170" />
+<img src="https://codeberg.org/Tom5521/mis-imagenes/src/branch/main/Captura%20de%20pantalla%20de%202023-01-27%2010-18-12.png" width="800" height="170" />
 
 Un instalador escrito en xonsh con mis apps favoritas
 
