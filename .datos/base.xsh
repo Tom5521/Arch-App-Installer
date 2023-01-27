@@ -192,7 +192,7 @@ def apps_desarrollo():
         if "2" in apre: #Imagen y video
             clear
             palabras.imagen_y_video()
-            print("Selecciona que instalar\n1:vlc\n2:mpv\n3:gthumb\n4:gimp\n5:krita\n6:kdenlive\n7:Netflix\n0:Atras")
+            print("Selecciona que instalar\n1:vlc\n2:mpv\n3:gthumb\n4:gimp\n5:krita\n6:kdenlive\n7:Netflix\n8:Obs-Studio\n0:Atras")
             pregunta_video = str(input(":"))
             if "1" in pregunta_video: #vlc
                 clear
