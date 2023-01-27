@@ -220,6 +220,9 @@ def apps_desarrollo():
                 cd netflix-nativefier
                 makepkg -si --noconfirm
                 clear
+            if "8" in pregunta_video:
+                clear
+                sudo pacman -S obs-studio --noconfirm
             if "0" in pregunta_video: #Atras
                 pass
         if "3" in apre: #Desarrollo
@@ -384,7 +387,7 @@ def apps_desarrollo():
             break
 def apps__OLD():
     clear
-    yay --noconfirm -S kbackup gimp bitwarden qbittorrent scrcpy kdenlive  htop kruler neofetch python3 clementine obs-studio whatsapp-nativefier spotify firefox lutris btop vi vim neovim visual-studio-code-bin
+    yay --noconfirm -S kbackup gimp bitwarden qbittorrent scrcpy kdenlive htop kruler neofetch python3 clementine obs-studio whatsapp-nativefier spotify firefox lutris btop vi vim neovim visual-studio-code-bin
     clear
     yay -Syu --noconfirm
     clear
