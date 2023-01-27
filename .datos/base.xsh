@@ -619,4 +619,4 @@ while True:
         time.sleep(1.5)
         clear
 clear
-print("Instalacion Terminada")
+palabras.Final()
