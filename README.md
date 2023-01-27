@@ -1,6 +1,6 @@
 # Instalador de mis cosas
 
-<img src="https://github.com/Tom5521/Tom5521/blob/c885cb472da4c11fa8fae5d3a065413daa246b0f/ONEKO%20Corriendo.png" width="800" height="170" />
+<img src="https://github.com/Tom5521/Tom5521/blob/77b027fa170c4b187a92f5eae516979586566df3/prueba.png" width="800" height="170" />
 
 Un instalador escrito en xonsh con mis apps favoritas
 
