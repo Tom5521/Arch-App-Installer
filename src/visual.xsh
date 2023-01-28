@@ -2,7 +2,7 @@
 
 #Creado Por Angel Alderete
 #Instalador de mis cosas V-dev
-#"Donde los commits crashean al iniciar"
+dev ="Arch-Instalator-DEV\nDonde los commits crashean al iniciar" #Borrar Luego
 #Re-estructurado
 
 import palabras
@@ -22,6 +22,7 @@ while True:
     try:
         clear
         palabras.texto_inicial()
+        print(dev)#Borrar luego
         print("1:Apps y dependencias\n2:Gestores de paquetes\n3:Escritorios/WM's\n4:Cambiar Shell\n5:Borrar Basura\n6:Otros\n0:Salir")
         pregunta_inicial = str(input(":"))
         if "1" in pregunta_inicial: #Apps y dependencias
