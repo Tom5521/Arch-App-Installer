@@ -68,13 +68,21 @@ while True:
                 sudo pacman -R - < rem --noconfirm
                 clear
                 rm rem
+                time.sleep(0.5)
+                break
             if "2" in rm_pre:
                 clear
                 yay -c --noconfirm
                 clear
                 if yay_rem == True:
                     sudo pacman -R yay --noconfirm
+                    print("Saliendo...")
+                    time.sleep(0.5)
+                break
                 clear
+            if "0" in rm_pre:
+                clear
+                pass    
             print("Saliendo...")
             time.sleep(0.5)
             break
