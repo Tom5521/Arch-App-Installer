@@ -619,9 +619,6 @@ while True:
             print("Cancelando...")
             break
     except (ValueError):
-        clear
-        print("Pon un numero")
-        time.sleep(1.5)
-        clear
+        print("Error de Valor")
 clear
 palabras.Final()
