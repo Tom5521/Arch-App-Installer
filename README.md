@@ -15,7 +15,6 @@ En fin ire actualizando este proyecto hasta que se me caigan las manos o pierda 
 
 Gracias por Usarlo :D
 
-<img src="https://github.com/Tom5521/Tom5521/blob/f3640e2216a493074bfb8436777524e719a5d3ec/oneko.png" width="141px">
 
 ATT:
 ### ONEKO!
