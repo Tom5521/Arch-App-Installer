@@ -2,12 +2,12 @@
 
 #Creado Por Angel Alderete
 #Instalador de mis cosas V-dev
-dev ="Arch-Instalator-DEV\nDonde los commits crashean al iniciar" #Borrar Luego
+dev ="Arch-Instalator-DEV\nDonde los commits crashean al iniciar" #Borrar Luego --dev
 #Re-estructurado
 
 import palabras
 import time
-import baseINS as base
+import base_defs as base
 ###############################Comprobacion#de#yay###################################
 yay_rem = True
 pacman -Q yay > src/test
@@ -21,8 +21,9 @@ else:
 while True:
     try:
         clear
-        palabras.texto_inicial()
-        print(dev)#Borrar luego
+        palabras.dev()#Cambiar a texto_inicial --dev
+        print(dev)#Borrar luego --dev
+        print("##################################################################")#Borrar luego
         print("1:Apps y dependencias\n2:Gestores de paquetes\n3:Escritorios/WM's\n4:Cambiar Shell\n5:Borrar Basura\n6:Otros\n0:Salir")
         pregunta_inicial = str(input(":"))
         if "1" in pregunta_inicial: #Apps y dependencias
@@ -98,4 +99,4 @@ while True:
         print("Error")
 clear
 rm src/test
-palabras.Final()
+palabras.prueba_terminada()
