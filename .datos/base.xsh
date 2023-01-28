@@ -618,11 +618,6 @@ while True:
             clear
             print("Cancelando...")
             break
-        else: #Error
-            clear
-            print("Pon un numero")
-            time.sleep(1.5)
-            clear
     except (ValueError):
         clear
         print("Pon un numero")
