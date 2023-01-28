@@ -1,8 +1,7 @@
 #!/usr/bin/env xonsh
 
 #Creado Por Angel Alderete
-#Instalador de mis cosas V-dev
-dev ="Arch-Instalator-DEV\nDonde los commits crashean al iniciar" #Borrar Luego --dev
+#Instalador de mis cosas v2.2.0
 #Re-estructurado
 
 import palabras
@@ -21,9 +20,7 @@ else:
 while True:
     try:
         clear
-        palabras.dev()#Cambiar a texto_inicial --dev
-        print(dev)#Borrar luego --dev
-        print("##################################################################")#Borrar luego
+        palabras.texto_inicial()
         print("1:Apps y dependencias\n2:Gestores de paquetes\n3:Escritorios/WM's\n4:Cambiar Shell\n5:Borrar Basura\n6:Otros\n0:Salir")
         pregunta_inicial = str(input(":"))
         if "1" in pregunta_inicial: #Apps y dependencias
@@ -85,7 +82,7 @@ while True:
                 clear
             if "0" in rm_pre:
                 clear
-                pass    
+                pass
             print("Saliendo...")
             time.sleep(0.5)
             break
@@ -99,4 +96,4 @@ while True:
         print("Error")
 clear
 rm src/temp
-palabras.prueba_terminada()
+palabras.Final()
