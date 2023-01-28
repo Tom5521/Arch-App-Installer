@@ -586,62 +586,65 @@ def dependencias_desarrollo():
     print("1:Drivers Graficos\n2:Drivers de Sonido\n3:Bluetooth\n0:Atras")
     pregunta_drivers = str(input(":"))
     if "1" in pregunta_drivers:
-        clear
-        print("Elige tus especificaciones\n1:Nvidia(propietario)\n2:Amd\n3:Intel\n0:Atras")
-        pregunta_drivers_g = int(input(":"))
-        if pregunta_drivers_g == 1: #Nvidia
+        while True:
             clear
-            clear
-            cd /tmp
-            git clone https://aur.archlinux.org/lib32-nvidia-390xx-utils.git
-            cd lib32-nvidia-390xx-utils
-            clear
-            makepkg -si --noconfirm
-            clear
-        if pregunta_drivers_g == 2: #AMD
-            clear
-            print("Drivers...?\n1:Propietarios\n2:Open Source\n0:Atras")
-            pregunta_drivers_1 = int(input(":"))
-            if pregunta_drivers_1 == 1:
+            palabras.nvidia()
+            print("Elige tus especificaciones\n1:Nvidia(propietario)\n2:Amd\n3:Intel\n0:Atras")
+            pregunta_drivers_g = int(input(":"))
+            if pregunta_drivers_g == 1: #Nvidia
+                clear
                 clear
                 cd /tmp
-                git clone https://aur.archlinux.org/amdgpu-pro-installer.git
-                cd amdgpu-pro-installer
+                git clone https://aur.archlinux.org/lib32-nvidia-390xx-utils.git
+                cd lib32-nvidia-390xx-utils
                 clear
                 makepkg -si --noconfirm
                 clear
-            if pregunta_drivers_1 == 2:
+            if pregunta_drivers_g == 2: #AMD
                 clear
-                sudo pacman -S xf86-video-ati xf86-video-amdgpu --noconfirm
-            if pregunta_drivers_1 == 0:
-                pass
+                print("Drivers...?\n1:Propietarios\n2:Open Source\n0:Atras")
+                pregunta_drivers_1 = int(input(":"))
+                if pregunta_drivers_1 == 1:
+                    clear
+                    cd /tmp
+                    git clone https://aur.archlinux.org/amdgpu-pro-installer.git
+                    cd amdgpu-pro-installer
+                    clear
+                    makepkg -si --noconfirm
+                    clear
+                if pregunta_drivers_1 == 2:
+                    clear
+                    sudo pacman -S xf86-video-ati xf86-video-amdgpu --noconfirm
+                if pregunta_drivers_1 == 0:
+                    clear
+                else:
+                    pass
+            if pregunta_drivers_g == 3: #Intel
+                clear
+                sudo pacman -S xf86-video-intel --noconfirm
+            if pregunta_drivers_g == 0: #Atras
+                clear
+                break
             else:
                 pass
-        if pregunta_drivers_g == 3: #Intel
-            clear
-            sudo pacman -S xf86-video-intel --noconfirm
-        if pregunta_drivers_g == 0: #Atras
-            clear
-            pass
-        else:
-            pass
     if "2" in pregunta_drivers:
         clear
         print("Elige una opcion\n1:Servidores de Audio\n2:Drivers de Sonido\n0:Atras")
         pregunta_drivers_s = str(input(":"))
         if "1" in pregunta_drivers_s:
-            clear
-            print("1:PulseAudio\n2:Pipewire\n0:Atras")
-            pregunta_drivers_s_s = str(input(":"))
-            if "1" in pregunta_drivers_s_s:
+            while True:
                 clear
-                sudo pacman -S pulseaudio --noconfirm
-            if "2" in pregunta_drivers_s_s:
-                clear
-                sudo pacman -S pipewire --noconfirm
-            if "0" in pregunta_drivers_s_s:
-                clear
-                pass
+                print("1:PulseAudio\n2:Pipewire\n0:Atras")
+                pregunta_drivers_s_s = str(input(":"))
+                if "1" in pregunta_drivers_s_s:
+                    clear
+                    sudo pacman -S pulseaudio --noconfirm
+                if "2" in pregunta_drivers_s_s:
+                    clear
+                    sudo pacman -S pipewire --noconfirm
+                if "0" in pregunta_drivers_s_s:
+                    clear
+                    break
         if "2" in pregunta_drivers_s:
             while True:    
                 clear

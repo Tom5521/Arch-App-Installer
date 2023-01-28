@@ -10,8 +10,8 @@ import time
 import base_defs as base
 ###############################Comprobacion#de#yay###################################
 yay_rem = True
-pacman -Q yay > src/test
-test_open = open("src/test","r")
+pacman -Q yay > src/temp
+test_open = open("src/temp","r")
 test_read = test_open.read()
 if "yay" in test_read:
     yay_rem = False
@@ -98,5 +98,5 @@ while True:
     except(ValueError,TypeError):
         print("Error")
 clear
-rm src/test
+rm src/temp
 palabras.prueba_terminada()
