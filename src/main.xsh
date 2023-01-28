@@ -1,16 +1,16 @@
 #!/usr/bin/env xonsh
 
 #Creado Por Angel Alderete
-#Instalador de mis cosas-V2
+#Instalador de mis cosas v2.2.0
 #Re-estructurado
 
 import palabras
 import time
-import baseINS as base
+import base_defs as base
 ###############################Comprobacion#de#yay###################################
 yay_rem = True
-pacman -Q yay > src/test
-test_open = open("src/test","r")
+pacman -Q yay > src/temp
+test_open = open("src/temp","r")
 test_read = test_open.read()
 if "yay" in test_read:
     yay_rem = False
@@ -26,7 +26,7 @@ while True:
         if "1" in pregunta_inicial: #Apps y dependencias
             clear
             palabras.apps_y_dependencias()
-            print("1:Apps\n2:Dependencias\n3:Dependencias(gaming,solo intel)\n0:Atras")
+            print("1:Apps\n2:Drivers\n3:Dependencias(gaming,solo intel)\n0:Atras")
             pregunta_apps_y_dependencias = str(input(":"))
             if "1" in pregunta_apps_y_dependencias: #Apps
                 clear
@@ -34,7 +34,7 @@ while True:
                 base.apps_desarrollo()
             if "2" in pregunta_apps_y_dependencias: #Dependencias
                 clear
-                base.el_resto()
+                base.dependencias_desarrollo()
             if "3" in pregunta_apps_y_dependencias: #Dependencias Gaming
                 clear
                 palabras.gaming()
@@ -82,7 +82,7 @@ while True:
                 clear
             if "0" in rm_pre:
                 clear
-                pass    
+                pass
             print("Saliendo...")
             time.sleep(0.5)
             break
@@ -95,5 +95,5 @@ while True:
     except(ValueError,TypeError):
         print("Error")
 clear
-rm src/test
+rm src/temp
 palabras.Final()
