@@ -6,7 +6,7 @@ Un instalador escrito en xonsh/python con mis apps favoritas
 
 Ejecutar con:
 ```
-sh Instalador.sh
+python Ejecutar.py
 ```
 
 En fin ire actualizando este proyecto hasta que se me caigan las manos o pierda de alguna manera mi cuenta
