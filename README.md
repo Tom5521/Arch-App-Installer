@@ -1,6 +1,6 @@
 # Arch Instalator
 
-<img src="https://github.com/Tom5521/Tom5521/blob/77b027fa170c4b187a92f5eae516979586566df3/prueba.png" width="800" height="170" />
+<img src="https://github.com/Tom5521/Tom5521/blob/c6860089d133604605fd6133ccc26514e94a23e6/Arch-Instalator.png" width="870" height="170" />
 
 Un instalador escrito en xonsh con mis apps favoritas
 
