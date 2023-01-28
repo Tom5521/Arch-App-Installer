@@ -1,7 +1,8 @@
 #!/usr/bin/env xonsh
 
 #Creado Por Angel Alderete
-#Instalador de mis cosas-V2
+#Instalador de mis cosas V-dev
+#"Donde los commits crashean al iniciar"
 #Re-estructurado
 
 import palabras
