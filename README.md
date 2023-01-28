@@ -2,7 +2,7 @@
 
 <img src="https://github.com/Tom5521/Tom5521/blob/c6860089d133604605fd6133ccc26514e94a23e6/Arch-Instalator.png" width="1170" height="100" />
 
-Un instalador escrito en xonsh con mis apps favoritas
+Un instalador escrito en xonsh/python con mis apps favoritas
 
 Ejecutar con:
 ```
