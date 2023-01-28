@@ -616,7 +616,7 @@ while True:
             break
         if "0" in pre1: #Salida
             clear
-            print("Cancelando...")
+            print("Saliendo...")
             break
     except (ValueError):
         print("Error de Valor")
