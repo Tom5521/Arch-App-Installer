@@ -391,12 +391,6 @@ def apps_desarrollo():
             print("Saliendo...")
             time.sleep(0.1)
             break
-def apps__OLD():
-    clear
-    yay --noconfirm -S kbackup gimp bitwarden qbittorrent scrcpy kdenlive htop kruler neofetch python3 clementine obs-studio whatsapp-nativefier spotify firefox lutris btop vi vim neovim visual-studio-code-bin
-    clear
-    yay -Syu --noconfirm
-    clear
 def permisos_snapd():
     clear
     sudo systemctl enable --now snapd.socket
@@ -586,3 +580,93 @@ def borrar_basura():
     clear
     palabras.borrar_basura()
     print("Elige una o mas opciones\n1:Escriba los paquetes que quiere eliminar seguidos de un salto de linea\n2:Borrado automatico")
+def dependencias_desarrollo():
+    clear
+    palabras.drivers()
+    print("1:Drivers Graficos\n2:Drivers de Sonido\n3:Bluetooth\n0:Atras")
+    pregunta_drivers = str(input(":"))
+    if "1" in pregunta_drivers:
+        clear
+        print("Elige tus especificaciones\n1:Nvidia(propietario)\n2:Amd\n3:Intel\n0:Atras")
+        pregunta_drivers_g = int(input(":"))
+        if pregunta_drivers_g == 1: #Nvidia
+            clear
+            clear
+            cd /tmp
+            git clone https://aur.archlinux.org/lib32-nvidia-390xx-utils.git
+            cd lib32-nvidia-390xx-utils
+            clear
+            makepkg -si --noconfirm
+            clear
+        if pregunta_drivers_g == 2: #AMD
+            clear
+            print("Drivers...?\n1:Propietarios\n2:Open Source\n0:Atras")
+            pregunta_drivers_1 = int(input(":"))
+            if pregunta_drivers_1 == 1:
+                clear
+                cd /tmp
+                git clone https://aur.archlinux.org/amdgpu-pro-installer.git
+                cd amdgpu-pro-installer
+                clear
+                makepkg -si --noconfirm
+                clear
+            if pregunta_drivers_1 == 2:
+                clear
+                sudo pacman -S xf86-video-ati xf86-video-amdgpu --noconfirm
+            if pregunta_drivers_1 == 0:
+                pass
+            else:
+                pass
+        if pregunta_drivers_g == 3: #Intel
+            clear
+            sudo pacman -S xf86-video-intel --noconfirm
+        if pregunta_drivers_g == 0: #Atras
+            clear
+            pass
+        else:
+            pass
+    if "2" in pregunta_drivers:
+        clear
+        print("Elige una opcion\n1:Servidores de Audio\n2:Drivers de Sonido\n0:Atras")
+        pregunta_drivers_s = str(input(":"))
+        if "1" in pregunta_drivers_s:
+            clear
+            print("1:PulseAudio\n2:Pipewire\n0:Atras")
+            pregunta_drivers_s_s = str(input(":"))
+            if "1" in pregunta_drivers_s_s:
+                clear
+                sudo pacman -S pulseaudio --noconfirm
+            if "2" in pregunta_drivers_s_s:
+                clear
+                sudo pacman -S pipewire --noconfirm
+            if "0" in pregunta_drivers_s_s:
+                clear
+                pass
+        if "2" in pregunta_drivers_s:
+            clear
+            print("Elige una o mas opciones\n1:ALSA\n2:Jack\n3:Flac\n0:Atras")
+            pregunta_drivers_s_d = str(input(":"))
+            if "1" in pregunta_drivers_s_d:
+                clear
+                sudo pacman -S alsa alsa-firmware --noconfirm
+            if "2" in pregunta_drivers_s_d:
+                clear
+                sudo pacman -S jack2 --noconfirm
+            if "3" in pregunta_drivers_s_d:
+                clear 
+                sudo pacman -S flac --noconfirm
+            if "0" in pregunta_drivers_s_d:
+                pass
+            else:
+                pass
+        if "0" in pregunta_drivers_s:
+            clear
+            pass    
+    if "3" in pregunta_drivers:
+        clear
+        sudo pacman -S bluez blueman --noconfirm
+        clear
+        sudo systemctl enable bluetooth.service
+        clear
+    else:
+        pass

@@ -29,7 +29,7 @@ while True:
         if "1" in pregunta_inicial: #Apps y dependencias
             clear
             palabras.apps_y_dependencias()
-            print("1:Apps\n2:Dependencias\n3:Dependencias(gaming,solo intel)\n0:Atras")
+            print("1:Apps\n2:Drivers\n3:Dependencias(gaming,solo intel)\n0:Atras")
             pregunta_apps_y_dependencias = str(input(":"))
             if "1" in pregunta_apps_y_dependencias: #Apps
                 clear
@@ -37,7 +37,7 @@ while True:
                 base.apps_desarrollo()
             if "2" in pregunta_apps_y_dependencias: #Dependencias
                 clear
-                base.el_resto()
+                base.dependencias_desarrollo()
             if "3" in pregunta_apps_y_dependencias: #Dependencias Gaming
                 clear
                 palabras.gaming()
