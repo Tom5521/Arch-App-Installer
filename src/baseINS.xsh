@@ -1,6 +1,7 @@
 #!/usr/bin/env xonsh
 import time
 import palabras
+
 def yay_install():
     clear
     cd /tmp
@@ -585,20 +586,3 @@ def borrar_basura():
     clear
     palabras.borrar_basura()
     print("Elige una o mas opciones\n1:Escriba los paquetes que quiere eliminar seguidos de un salto de linea\n2:Borrado automatico")
-    rm_pre = str(input())
-    if "1" in rm_pre:
-        nano rem
-        clear
-        sudo pacman -R - < rem --noconfirm
-        clear
-        rm rem
-    if "2" in rm_pre:
-        clear
-        yay -c --noconfirm
-        clear
-        if yay_rem == True:
-            sudo pacman -R yay --noconfirm
-        sudo rm /usr/lib/python3.10/palabras.py
-        clear
-    print("Saliendo...")
-    time.sleep(0.5)

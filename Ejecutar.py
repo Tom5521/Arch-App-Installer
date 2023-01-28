@@ -24,7 +24,6 @@ else:
     clear()
     sys("sudo pacman -S git --noconfirm")
     clear()
-sys("rm src/test")
 clear()
 sys("xonsh src/visual.xsh")
 sys("sudo rm /usr/lib/python3.10/baseINS.xsh")
