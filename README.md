@@ -1,4 +1,4 @@
-# Instalador de mis cosas
+# Arch Instalator
 
 <img src="https://github.com/Tom5521/Tom5521/blob/77b027fa170c4b187a92f5eae516979586566df3/prueba.png" width="800" height="170" />
 
