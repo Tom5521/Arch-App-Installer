@@ -643,22 +643,23 @@ def dependencias_desarrollo():
                 clear
                 pass
         if "2" in pregunta_drivers_s:
-            clear
-            print("Elige una o mas opciones\n1:ALSA\n2:Jack\n3:Flac\n0:Atras")
-            pregunta_drivers_s_d = str(input(":"))
-            if "1" in pregunta_drivers_s_d:
+            while True:    
                 clear
-                sudo pacman -S alsa alsa-firmware --noconfirm
-            if "2" in pregunta_drivers_s_d:
-                clear
-                sudo pacman -S jack2 --noconfirm
-            if "3" in pregunta_drivers_s_d:
-                clear 
-                sudo pacman -S flac --noconfirm
-            if "0" in pregunta_drivers_s_d:
-                pass
-            else:
-                pass
+                print("Elige una o mas opciones\n1:ALSA\n2:Jack\n3:Flac\n0:Atras")
+                pregunta_drivers_s_d = str(input(":"))
+                if "1" in pregunta_drivers_s_d:
+                    clear
+                    sudo pacman -S alsa alsa-firmware --noconfirm
+                if "2" in pregunta_drivers_s_d:
+                    clear
+                    sudo pacman -S jack2 --noconfirm
+                if "3" in pregunta_drivers_s_d:
+                    clear 
+                    sudo pacman -S flac --noconfirm
+                if "0" in pregunta_drivers_s_d:
+                    break
+                else:
+                    pass
         if "0" in pregunta_drivers_s:
             clear
             pass    
