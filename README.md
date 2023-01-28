@@ -1,6 +1,6 @@
 
 
-<img src="https://github.com/Tom5521/Tom5521/blob/c6860089d133604605fd6133ccc26514e94a23e6/Arch-Instalator.png" width="1170" height="100" />
+<img src="https://github.com/Tom5521/Arch-Instalator/blob/cf1086bf5ca8d377966c3d13b692722b5feca9a2/Arch-Instalator-DEV.png" width="1170" height="100" />
 
 Un instalador escrito en xonsh/python con mis apps favoritas
 
