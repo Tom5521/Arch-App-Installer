@@ -1,8 +1,8 @@
 #!/usr/bin/env xonsh
 
 #Creado Por Angel Alderete
-#Instalador de mis cosas v2.2.0
-#Re-estructurado
+#Arch-Instalator dev edition
+#Re-Re-estructurado
 
 import palabras
 import time
@@ -20,7 +20,7 @@ else:
 while True:
     try:
         clear
-        palabras.texto_inicial()
+        palabras.dev()
         print("1:Apps y dependencias\n2:Gestores de paquetes\n3:Escritorios/WM's\n4:Cambiar Shell\n5:Borrar Basura\n6:Otros\n0:Salir")
         pregunta_inicial = str(input(":"))
         if "1" in pregunta_inicial: #Apps y dependencias
@@ -61,7 +61,7 @@ while True:
             clear
             palabras.borrar_basura()
             base.borrar_basura()
-            rm_pre = str(input())
+            rm_pre = str(input(":"))
             if "1" in rm_pre:
                 nano rem
                 clear
@@ -95,5 +95,5 @@ while True:
     except(ValueError,TypeError):
         print("Error")
 clear
-rm src/temp
-palabras.Final()
+#rm src/temp --rc
+palabras.prueba_terminada() # --ch

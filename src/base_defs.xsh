@@ -591,7 +591,7 @@ def dependencias_desarrollo():
             palabras.nvidia()
             print("Elige tus especificaciones\n1:Nvidia(propietario)\n2:Amd\n3:Intel\n0:Atras")
             pregunta_drivers_g = int(input(":"))
-            if pregunta_drivers_g == 1: #Nvidia
+            if pregunta_drivers_g == 1: #Nvidia --md
                 clear
                 clear
                 cd /tmp

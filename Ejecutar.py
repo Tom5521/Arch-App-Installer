@@ -7,7 +7,7 @@ def clear():
 clear()
 os.system("sudo cp src/palabras.py /usr/lib/python3.10/")
 os.system("sudo cp src/base_defs.xsh /usr/lib/python3.10/")
-sys("sudo pacman -Sy")
+#sys("sudo pacman -Sy") --rc
 sys("pacman -Q xonsh git > src/temp")
 clear()
 testop = open("src/temp","r")

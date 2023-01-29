@@ -1,0 +1,11 @@
+
+--dev = Indicar que algo esta en desarrollo
+
+--r = Indicar que se tiene que borrar antes de hacer commit
+
+--rc = Indicar que se tiene que descomentar antes de hacer push
+
+--ch = Indicar que debe ser cambiado antes de hacer el push
+
+--md = Indicar que se tiene que modificar luego
+
