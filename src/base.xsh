@@ -1,4 +1,7 @@
 #!/usr/bin/env xonsh
+
+import sys
+sys.path.insert(0, "src/")
 import time
 import palabras
 
@@ -591,7 +594,7 @@ def dependencias_desarrollo():
             palabras.nvidia()
             print("Elige tus especificaciones\n1:Nvidia(propietario)\n2:Amd\n3:Intel\n0:Atras")
             pregunta_drivers_g = int(input(":"))
-            if pregunta_drivers_g == 1: #Nvidia
+            if pregunta_drivers_g == 1: #Nvidia --md
                 clear
                 clear
                 cd /tmp
@@ -629,6 +632,7 @@ def dependencias_desarrollo():
                 pass
     if "2" in pregunta_drivers:
         clear
+        palabras.sonido()
         print("Elige una opcion\n1:Servidores de Audio\n2:Drivers de Sonido\n0:Atras")
         pregunta_drivers_s = str(input(":"))
         if "1" in pregunta_drivers_s:

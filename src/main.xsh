@@ -1,17 +1,18 @@
 #!/usr/bin/env xonsh
 
 #Creado Por Angel Alderete
-#Instalador de mis cosas v2.2.0
-#Re-estructurado
-
+#Arch-Instalator v2.2.0
+#Re-Re-estructurado
+import sys
+sys.path.insert(0, "src/")
 import palabras
 import time
-import base_defs as base
+import base
 ###############################Comprobacion#de#yay###################################
 yay_rem = True
 pacman -Q yay > src/temp
 test_open = open("src/temp","r")
-test_read = test_open.read()
+test_read = test_open.read()            
 if "yay" in test_read:
     yay_rem = False
 else:
@@ -61,7 +62,7 @@ while True:
             clear
             palabras.borrar_basura()
             base.borrar_basura()
-            rm_pre = str(input())
+            rm_pre = str(input(":"))
             if "1" in rm_pre:
                 nano rem
                 clear
