@@ -8,14 +8,16 @@ import palabras
 import time
 import base_defs as base
 ###############################Comprobacion#de#yay###################################
+'''
 yay_rem = True
 pacman -Q yay > src/temp
 test_open = open("src/temp","r")
-test_read = test_open.read()
+test_read = test_open.read()                --rc
 if "yay" in test_read:
     yay_rem = False
 else:
     yay_rem = True
+'''
 ###############################Comprobacion#de#yay###################################
 while True:
     try:
