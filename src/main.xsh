@@ -3,7 +3,8 @@
 #Creado Por Angel Alderete
 #Arch-Instalator dev edition
 #Re-Re-estructurado
-
+import sys
+sys.path.insert(0, "src/")
 import palabras
 import time
 import base_defs as base
@@ -97,5 +98,5 @@ while True:
     except(ValueError,TypeError):
         print("Error")
 clear
-#rm src/temp --rc
+rm src/temp
 palabras.prueba_terminada() # --ch
