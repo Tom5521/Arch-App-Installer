@@ -1,29 +1,27 @@
 #!/usr/bin/env xonsh
 
 #Creado Por Angel Alderete
-#Arch-Instalator dev edition
+#Arch-Instalator v2.2.0
 #Re-Re-estructurado
 import sys
 sys.path.insert(0, "src/")
 import palabras
 import time
-import base_defs as base
+import base
 ###############################Comprobacion#de#yay###################################
-'''
 yay_rem = True
 pacman -Q yay > src/temp
 test_open = open("src/temp","r")
-test_read = test_open.read()                --rc
+test_read = test_open.read()            
 if "yay" in test_read:
     yay_rem = False
 else:
     yay_rem = True
-'''
 ###############################Comprobacion#de#yay###################################
 while True:
     try:
         clear
-        palabras.dev()
+        palabras.texto_inicial()
         print("1:Apps y dependencias\n2:Gestores de paquetes\n3:Escritorios/WM's\n4:Cambiar Shell\n5:Borrar Basura\n6:Otros\n0:Salir")
         pregunta_inicial = str(input(":"))
         if "1" in pregunta_inicial: #Apps y dependencias
@@ -99,4 +97,4 @@ while True:
         print("Error")
 clear
 rm src/temp
-palabras.prueba_terminada() # --ch
+palabras.Final()

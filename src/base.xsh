@@ -632,6 +632,7 @@ def dependencias_desarrollo():
                 pass
     if "2" in pregunta_drivers:
         clear
+        palabras.sonido()
         print("Elige una opcion\n1:Servidores de Audio\n2:Drivers de Sonido\n0:Atras")
         pregunta_drivers_s = str(input(":"))
         if "1" in pregunta_drivers_s:
