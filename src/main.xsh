@@ -22,12 +22,12 @@ while True:
     try:
         clear
         palabras.texto_inicial()
-        print("1:Apps y dependencias\n2:Gestores de paquetes\n3:Escritorios/WM's\n4:Cambiar Shell\n5:Borrar Basura\n6:Otros\n0:Salir")
+        print("1:Apps y Drivers\n2:Gestores de paquetes\n3:Escritorios/WM's\n4:Cambiar Shell\n5:Borrar Basura\n6:Otros\n0:Salir")
         pregunta_inicial = str(input(":"))
         if "1" in pregunta_inicial: #Apps y dependencias
             clear
-            palabras.apps_y_dependencias()
-            print("1:Apps\n2:Drivers\n3:Dependencias(gaming,solo intel)\n0:Atras")
+            palabras.apps_y_drivers()
+            print("1:Apps\n2:Drivers\n0:Atras")
             pregunta_apps_y_dependencias = str(input(":"))
             if "1" in pregunta_apps_y_dependencias: #Apps
                 clear
@@ -36,7 +36,7 @@ while True:
             if "2" in pregunta_apps_y_dependencias: #Dependencias
                 clear
                 base.dependencias_desarrollo()
-            if "3" in pregunta_apps_y_dependencias: #Dependencias Gaming
+            if pregunta_apps_y_dependencias == "DEFG": #Dependencias Gaming
                 clear
                 palabras.gaming()
                 base.dependenciasG()
