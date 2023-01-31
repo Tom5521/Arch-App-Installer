@@ -1,7 +1,7 @@
 #!/usr/bin/env xonsh
 
 #Creado Por Angel Alderete
-#Arch-Instalator v2.2.0
+#Arch-Instalator v2.4.0
 #Re-Re-estructurado
 import sys
 sys.path.insert(0, "src/")
