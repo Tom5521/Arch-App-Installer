@@ -17,6 +17,7 @@ if "yay" in test_read:
     yay_rem = False
 else:
     yay_rem = True
+rm src/temp
 ###############################Comprobacion#de#yay###################################
 while True:
     try:
@@ -96,5 +97,4 @@ while True:
     except(ValueError,TypeError):
         print("Error")
 clear
-rm src/temp
 palabras.Final()

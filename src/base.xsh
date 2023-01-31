@@ -14,24 +14,6 @@ def yay_install():
     makepkg --needed --noconfirm -si
     clear
     cd ~
-def paru_install():
-    clear
-    cd /tmp
-    git clone https://aur.archlinux.org/paru.git
-    clear
-    cd paru
-    makepkg --needed --noconfirm -si
-    clear
-    cd ~
-def pikaur_install():
-    clear
-    cd /tmp
-    git clone https://aur.archlinux.org/pikaur.git
-    clear
-    cd pikaur
-    makepkg -si --needed --noconfirm
-    cd ~
-    clear
 def pamac_install():
     clear
     palabras.pamac()
@@ -486,7 +468,7 @@ def pkgman():
             print("Añadir repo chaotic?(Y-N)")
             add_repoch = str(input(":"))
             if add_repoch == "Y" or "y":
-                sudo sh add-repo-ch.sh
+                sudo sh repos/add-repo-ch.sh
                 clear
                 sudo pacman -S yay --noconfirm
                 clear
@@ -503,15 +485,21 @@ def pkgman():
         clear
     if "2" in pkgpre1: #Paru
         clear
+        cd /tmp
+        git clone https://aur.archlinux.org/paru.git
         clear
-        paru_install()
+        cd paru
+        makepkg --needed --noconfirm -si
         clear
+        cd ~
     if "3" in pkgpre1: #Pikaur
+        clear
         cd /tmp
         git clone https://aur.archlinux.org/pikaur.git
         clear
         cd pikaur
-        makepkg -si --noconfirm
+        makepkg -si --needed --noconfirm
+        cd ~
         clear
     if "4" in pkgpre1: #Snapd
         snapd_inst()
@@ -611,7 +599,7 @@ def otros():
             while True:
                 clear
                 palabras.kernels()
-                print("1:Linux\n2:xanmod\n3:zen")
+                print("1:Linux\n2:xanmod\n3:zen\n0:Atras")
                 pregunta_kernel = str(input(":"))
                 if "1" in pregunta_kernel:
                     clear
@@ -628,6 +616,8 @@ def otros():
                 if "3" in pregunta_kernel:
                     clear
                     sudo pacman -S linux-zen linux-zen-headers --noconfirm
+                if "0" in pregunta_kernel:
+                    break
         if "0" in pregunta_otros:
             break
 def borrar_basura():
