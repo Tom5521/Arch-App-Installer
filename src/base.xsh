@@ -595,14 +595,22 @@ def otros():
             yay --noconfirm -S gnome-screenshot alsa-utils xscreensaver acpid mousepad-git
             clear
         if "2" in pregunta_otros:
-            clear
-            print("Instando repos...")
-            sudo sh repos/add-endOS-repo.sh
-            sudo sh repos/ad-repo-ch.sh
+            while True:
+                clear
+                palabras.repositorios()
+                print("Seleccione repos a instalar\n1:Repositorio endeavour OS\n2:Chaotic-AUR\n0:Atras")
+                pregunta_repos = str(input(":"))
+                if "1" in pregunta_repos: #Endeavour repo
+                    clear
+                    sudo sh repos/add-endOS-repo.sh
+                if "2" in pregunta_repos: #Chaotic-AUR
+                    clear
+                    sudo sh repos/ad-repo-ch.sh
             clear
         if "3" in pregunta_otros:
             while True:
                 clear
+                palabras.kernels()
                 print("1:Linux\n2:xanmod\n3:zen")
                 pregunta_kernel = str(input(":"))
                 if "1" in pregunta_kernel:
