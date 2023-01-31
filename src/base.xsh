@@ -212,7 +212,7 @@ def apps_desarrollo():
             if "6" in pregunta_video: #kdenlive
                 clear
                 sudo pacman -S kdenlive --noconfirm
-            if "7" in pregunta_video:
+            if "7" in pregunta_video: #Netfilx
                 cd /tmp
                 clear
                 git clone https://aur.archlinux.org/netflix-nativefier.git
@@ -220,7 +220,7 @@ def apps_desarrollo():
                 cd netflix-nativefier
                 makepkg -si --noconfirm
                 clear
-            if "8" in pregunta_video:
+            if "8" in pregunta_video: #Obs-studio
                 clear
                 sudo pacman -S obs-studio --noconfirm
             if "0" in pregunta_video: #Atras
@@ -228,7 +228,7 @@ def apps_desarrollo():
         if "3" in apre: #Desarrollo
             clear
             palabras.desarrollo()
-            print("Apps de desarrollo\nElige que apps instalar\n1:VS code\n2:Code OSS\n3:Pycharm Comunity\n4:Eclipse-Java\n5:Kate\n6:Freecad\n7:Android Studio\n8:Anbox\n0:Atras")
+            print("Apps de desarrollo\nElige que apps instalar\n1:VS code\n2:Code OSS\n3:Pycharm Comunity\n4:Eclipse-Java\n5:Kate\n6:Freecad\n7:Android Studio\n8:Anbox\n9:Github-cli\n10:Github-Desktop\n0:Atras")
             pregunta_ide = str(input(":"))
             if "1" in pregunta_ide: #VS Code
                 cd /tmp
@@ -268,7 +268,7 @@ def apps_desarrollo():
                 makepkg -si --noconfirm
                 cd ~
                 clear
-            if "8" in pregunta_ide:
+            if "8" in pregunta_ide: #Anbox
                 cd /tmp
                 clear
                 git clone https://aur.archlinux.org/anbox-git.git
@@ -277,12 +277,24 @@ def apps_desarrollo():
                 makepkg -si --noconfirm
                 clear
                 cd ~
+            if "9" in pregunta_ide: #Github Cli
+                clear
+                sudo pacman -S github-cli --noconfirm
+            if "10" in pregunta_ide:
+                clear
+                cd /tmp
+                git clone https://aur.archlinux.org/github-desktop.git
+                clear
+                cd github-desktop
+                makepkg -si --noconfirm
+                clear
+                cd ~
             if "0" in pregunta_ide: #Atras
                 pass
         if "4" in apre: #Gaming
             clear
             palabras.gaming()
-            print("Escoje que instalar\n1:Steam\n2:Lutris\n3:Wine\n4:proton-ge\n5:Play on Linux\n0:Atras")
+            print("Escoje que instalar\n1:Steam\n2:Lutris\n3:Wine\n4:proton-ge\n5:Play on Linux\n6:Mindustry\n7:Drivers\n0:Atras")
             pregunta_juegos = str(input(":"))
             if "1" in pregunta_juegos: #Steam
                 clear
@@ -311,6 +323,17 @@ def apps_desarrollo():
                 makepkg -si --noconfirm
                 clear
                 cd ~
+            if "6" in pregunta_juegos: #Mindustry
+                clear
+                cd /tmp
+                git clone https://aur.archlinux.org/mindustry-bin.git
+                cd mindustry-bin
+                clear
+                makepkg -si --noconfirm
+                clear
+            if "7" in pregunta_juegos: #Drivers
+                clear
+                dependencias_desarrollo()
             if "0" in pregunta_juegos: #Atras
                 pass
             clear
@@ -572,14 +595,22 @@ def otros():
             yay --noconfirm -S gnome-screenshot alsa-utils xscreensaver acpid mousepad-git
             clear
         if "2" in pregunta_otros:
-            clear
-            print("Instando repos...")
-            sudo sh repos/add-endOS-repo.sh
-            sudo sh repos/ad-repo-ch.sh
+            while True:
+                clear
+                palabras.repositorios()
+                print("Seleccione repos a instalar\n1:Repositorio endeavour OS\n2:Chaotic-AUR\n0:Atras")
+                pregunta_repos = str(input(":"))
+                if "1" in pregunta_repos: #Endeavour repo
+                    clear
+                    sudo sh repos/add-endOS-repo.sh
+                if "2" in pregunta_repos: #Chaotic-AUR
+                    clear
+                    sudo sh repos/ad-repo-ch.sh
             clear
         if "3" in pregunta_otros:
             while True:
                 clear
+                palabras.kernels()
                 print("1:Linux\n2:xanmod\n3:zen")
                 pregunta_kernel = str(input(":"))
                 if "1" in pregunta_kernel:
