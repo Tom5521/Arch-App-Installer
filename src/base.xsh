@@ -208,71 +208,78 @@ def apps_desarrollo():
             if "0" in pregunta_video: #Atras
                 pass
         if "3" in apre: #Desarrollo
-            clear
-            palabras.desarrollo()
-            print("Apps de desarrollo\nElige que apps instalar\n1:VS code\n2:Code OSS\n3:Pycharm Comunity\n4:Eclipse-Java\n5:Kate\n6:Freecad\n7:Android Studio\n8:Anbox\n9:Github-cli\n10:Github-Desktop\n0:Atras")
-            pregunta_ide = str(input(":"))
-            if "1" in pregunta_ide: #VS Code
-                cd /tmp
+            while True:
                 clear
-                git clone https://aur.archlinux.org/visual-studio-code-bin.git
-                cd visual-studio-code-bin
-                clear
-                makepkg -si --noconfirm
-                clear
-                cd ~
-            if "2" in pregunta_ide: #Code OSS
-                clear
-                sudo pacman -S code --noconfirm
-            if "3" in pregunta_ide: #Pycharm Comunity
-                clear
-                sudo pacman -S pycharm-community-edition --noconfirm
-            if "4" in pregunta_ide: #Eclipse-Java
-                clear
-                cd /tmp
-                git clone https://aur.archlinux.org/eclipse-java.git
-                clear
-                cd eclipse-java
-                makepkg -si --noconfirm
-                cd ~
-            if "5" in pregunta_ide: #Kate
-                clear
-                sudo pacman -S kate --noconfirm
-            if "6" in pregunta_ide: #Freecad
-                clear
-                sudo pacman -S freecad --noconfirm
-            if "7" in pregunta_ide: #Android Studio
-                cd /tmp
-                clear
-                git clone https://aur.archlinux.org/android-studio.git
-                cd android-studio
-                clear
-                makepkg -si --noconfirm
-                cd ~
-                clear
-            if "8" in pregunta_ide: #Anbox
-                cd /tmp
-                clear
-                git clone https://aur.archlinux.org/anbox-git.git
-                clear
-                cd anbox-git
-                makepkg -si --noconfirm
-                clear
-                cd ~
-            if "9" in pregunta_ide: #Github Cli
-                clear
-                sudo pacman -S github-cli --noconfirm
-            if "10" in pregunta_ide:
-                clear
-                cd /tmp
-                git clone https://aur.archlinux.org/github-desktop.git
-                clear
-                cd github-desktop
-                makepkg -si --noconfirm
-                clear
-                cd ~
-            if "0" in pregunta_ide: #Atras
-                pass
+                palabras.desarrollo()
+                print("Apps de desarrollo\nElige que apps instalar\n1:VS code\n2:Code OSS\n3:Pycharm Comunity\n4:Eclipse-Java\n5:Kate\n6:Freecad\n7:Android Studio\n8:Anbox\n9:Github-cli\n10:Github-Desktop\n0:Atras")
+                pregunta_ide = str(input(":"))
+                if "1" in pregunta_ide: #VS Code
+                    if pregunta_ide == "10":
+                        pass
+                    else:
+                        cd /tmp
+                        clear
+                        git clone https://aur.archlinux.org/visual-studio-code-bin.git
+                        cd visual-studio-code-bin
+                        clear
+                        makepkg -si --noconfirm
+                        clear
+                        cd ~
+                if "2" in pregunta_ide: #Code OSS
+                    clear
+                    sudo pacman -S code --noconfirm
+                if "3" in pregunta_ide: #Pycharm Comunity
+                    clear
+                    sudo pacman -S pycharm-community-edition --noconfirm
+                if "4" in pregunta_ide: #Eclipse-Java
+                    clear
+                    cd /tmp
+                    git clone https://aur.archlinux.org/eclipse-java.git
+                    clear
+                    cd eclipse-java
+                    makepkg -si --noconfirm
+                    cd ~
+                if "5" in pregunta_ide: #Kate
+                    clear
+                    sudo pacman -S kate --noconfirm
+                if "6" in pregunta_ide: #Freecad
+                    clear
+                    sudo pacman -S freecad --noconfirm
+                if "7" in pregunta_ide: #Android Studio
+                    cd /tmp
+                    clear
+                    git clone https://aur.archlinux.org/android-studio.git
+                    cd android-studio
+                    clear
+                    makepkg -si --noconfirm
+                    cd ~
+                    clear
+                if "8" in pregunta_ide: #Anbox
+                    cd /tmp
+                    clear
+                    git clone https://aur.archlinux.org/anbox-git.git
+                    clear
+                    cd anbox-git
+                    makepkg -si --noconfirm
+                    clear
+                    cd ~
+                if "9" in pregunta_ide: #Github Cli
+                    clear
+                    sudo pacman -S github-cli --noconfirm
+                if "10" in pregunta_ide:
+                    if pregunta_ide == "1" and "0":
+                        pass
+                    else:   
+                        clear
+                        cd /tmp
+                        git clone https://aur.archlinux.org/github-desktop.git
+                        clear
+                        cd github-desktop
+                        makepkg -si --noconfirm
+                        clear
+                        cd ~
+                if pregunta_ide == "0": #Atras
+                    break
         if "4" in apre: #Gaming
             clear
             palabras.gaming()
