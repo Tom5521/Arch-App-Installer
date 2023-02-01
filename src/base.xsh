@@ -14,44 +14,7 @@ def yay_install():
     makepkg --needed --noconfirm -si
     clear
     cd ~
-def pamac_install():
-    clear
-    palabras.pamac()
-    print("1:Instalar pamac AUR\n2:Instalar pamac Flatpak\n3:Instalar pamac nosnap\n0:Cancelar")
-    pamac_pre1 = int(input(":"))
-    if pamac_pre1 == 1: #pamac-aur
-        clear
-        cd /tmp
-        git clone https://aur.archlinux.org/pamac-aur.git
-        cd pamac-aur
-        clear
-        makepkg -si --needed --noconfirm
-        cd ~
-        clear
-    if pamac_pre1 == 2: #pamac-flatpak
-        clear
-        cd /tmp
-        git clone https://aur.archlinux.org/pamac-flatpak.git
-        cd pamac-flatpak
-        clear
-        makepkg -si --needed --noconfirm
-        cd ~
-        clear
-    if pamac_pre1 == 3: #pamac-nosnap
-        clear
-        cd /tmp
-        git clone https://aur.archlinux.org/pamac-nosnap.git
-        cd pamac-nosnap
-        clear
-        makepkg -si --needed --noconfirm
-    if pamac_pre1 == 0: #Salida
-        clear
-        pass
-    if pamac_pre1 > 3: #Error
-        clear
-        print("Selecciona solo una opcion")
-        time.sleep(0.5)
-        clear
+
 def dependenciasG():
     clear
     echo Instalando dependencias para gaming...
@@ -59,12 +22,14 @@ def dependenciasG():
     clear
     yes | yay
     clear
+
 def el_resto():
     clear
     yay --noconfirm -S mkinitcpio-firmware python-lsp-server
     clear
     yay -Syu --noconfirm
     clear
+
 def apps_desarrollo():
     while True:
         clear
@@ -406,6 +371,7 @@ def apps_desarrollo():
             print("Saliendo...")
             time.sleep(0.1)
             break
+
 def permisos_snapd():
     clear
     sudo systemctl enable --now snapd.socket
@@ -414,6 +380,7 @@ def permisos_snapd():
     sudo apparmor_parser -r /etc/apparmor.d/*snap-confine*
     sudo apparmor_parser -r /var/lib/snapd/apparmor/profiles/snap confine*
     clear
+
 def cambiar_shell():
     clear
     palabras.cambiar_shell()
@@ -440,6 +407,7 @@ def cambiar_shell():
     if shellpre == 0:
         pass
     clear
+
 def snapd_inst():
     clear
     pr1 = int(input("Quieres descargar el paquete por...?\n1=yay(debe estar instalado)\n2=git clone\n:"))
@@ -463,6 +431,7 @@ def snapd_inst():
         clear
         print("Selecciona Correctamente")
         time.sleep(0.5)
+
 def pkgman():
     clear
     palabras.gestores_de_paquetes()
@@ -515,9 +484,46 @@ def pkgman():
         sudo pacman -S flatpak --noconfirm
         clear
     if "6" in pkgpre1: #Pamac
-        pamac_install()
-    if "0" in pkgpre1: #Cancelar
-        pass
+        clear
+        palabras.pamac()
+        print("1:Instalar pamac AUR\n2:Instalar pamac Flatpak\n3:Instalar pamac nosnap\n0:Cancelar")
+        pamac_pre1 = int(input(":"))
+        if pamac_pre1 == 1: #pamac-aur
+            clear
+            cd /tmp
+            git clone https://aur.archlinux.org/pamac-aur.git
+            cd pamac-aur
+            clear
+            makepkg -si --needed --noconfirm
+            cd ~
+            clear
+        if pamac_pre1 == 2: #pamac-flatpak
+            clear
+            cd /tmp
+            git clone https://aur.archlinux.org/pamac-flatpak.git
+            cd pamac-flatpak
+            clear
+            makepkg -si --needed --noconfirm
+            cd ~
+            clear
+        if pamac_pre1 == 3: #pamac-nosnap
+            clear
+            cd /tmp
+            git clone https://aur.archlinux.org/pamac-nosnap.git
+            cd pamac-nosnap
+            clear
+            makepkg -si --needed --noconfirm
+        if pamac_pre1 == 0: #Salida
+            clear
+            pass
+        if pamac_pre1 > 3: #Error
+            clear
+            print("Selecciona solo una opcion")
+            time.sleep(0.5)
+            clear
+        if "0" in pkgpre1: #Cancelar
+            pass
+
 def escritorios():
     clear
     palabras.escritorios_wms()
@@ -577,6 +583,7 @@ def escritorios():
     if "0" in pregunta_wm:
         clear
         pass
+
 def otros():
     while True:
         clear
@@ -627,10 +634,12 @@ def otros():
                     break
         if "0" in pregunta_otros:
             break
+
 def borrar_basura():
     clear
     palabras.borrar_basura()
     print("Elige una o mas opciones\n1:Escriba los paquetes que quiere eliminar seguidos de un salto de linea\n2:Borrado automatico")
+
 def dependencias_desarrollo():
     while True:
         clear
