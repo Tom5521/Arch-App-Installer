@@ -4,6 +4,38 @@ import sys
 sys.path.insert(0, "src/")
 import time
 import palabras
+def add_repos():
+    while True:
+        clear
+        palabras.repositorios()
+        print("Seleccione repos a instalar\n1:Repositorio endeavour OS\n2:Chaotic-AUR\n0:Atras")
+        pregunta_repos = str(input(":"))
+        if "1" in pregunta_repos: #Endeavour repo
+            clear
+            sudo pacman-key --keyserver keyserver.ubuntu.com -r 003DB8B0CB23504F
+            sudo pacman-key --lsign 003DB8B0CB23504F
+            clear
+            sudo echo "[endeavouros]" >> /etc/pacman.conf
+            sudo echo "SigLevel = PackageRequired" >> /etc/pacman.conf
+            sudo echo "Include = /etc/pacman.d/endeavouros-mirrorlist" >> /etc/pacman.conf
+            sudo cp src/endeavouros-mirrorlist /etc/pacman.d/
+            clear
+            sudo pacman -Sy
+            clear
+            echo Exito!
+        if "2" in pregunta_repos: #Chaotic-AUR
+            sudo pacman-key --recv-key FBA220DFC880C036 --keyserver keyserver.ubuntu.com
+            sudo pacman-key --lsign-key FBA220DFC880C036
+            sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
+            clear
+            sudo pacman -Sy
+            clear
+            sudo echo "[chaotic-aur]" >> /etc/pacman.conf
+            sudo echo "Include = /etc/pacman.d/chaotic-mirrorlist" >> /etc/pacman.conf
+            sudo pacman -Syy
+            clear
+        if pregunta_repos == "0":
+            break
 
 def yay_install():
     clear
@@ -597,17 +629,7 @@ def otros():
             yay --noconfirm -S gnome-screenshot alsa-utils xscreensaver acpid mousepad-git
             clear
         if "2" in pregunta_otros:
-            while True:
-                clear
-                palabras.repositorios()
-                print("Seleccione repos a instalar\n1:Repositorio endeavour OS\n2:Chaotic-AUR\n0:Atras")
-                pregunta_repos = str(input(":"))
-                if "1" in pregunta_repos: #Endeavour repo
-                    clear
-                    sudo sh repos/add-endOS-repo.sh
-                if "2" in pregunta_repos: #Chaotic-AUR
-                    clear
-                    sudo sh repos/ad-repo-ch.sh
+            add_repos()
             clear
         if "3" in pregunta_otros:
             while True:
