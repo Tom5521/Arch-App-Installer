@@ -404,15 +404,6 @@ def apps_desarrollo():
             time.sleep(0.1)
             break
 
-def permisos_snapd():
-    clear
-    sudo systemctl enable --now snapd.socket
-    sudo ln -s /var/lib/snapd/snap /snap
-    sudo systemctl enable --now snapd.apparmor
-    sudo apparmor_parser -r /etc/apparmor.d/*snap-confine*
-    sudo apparmor_parser -r /var/lib/snapd/apparmor/profiles/snap confine*
-    clear
-
 def cambiar_shell():
     clear
     palabras.cambiar_shell()
@@ -446,7 +437,12 @@ def snapd_inst():
     if pr1 == 1:
         clear
         yay --noconfirm -S snapd
-        permisos_snapd()
+        clear
+        sudo systemctl enable --now snapd.socket
+        sudo ln -s /var/lib/snapd/snap /snap
+        sudo systemctl enable --now snapd.apparmor
+        sudo apparmor_parser -r /etc/apparmor.d/*snap-confine*
+        sudo apparmor_parser -r /var/lib/snapd/apparmor/profiles/snap confine*
         clear
         print("\nListo!\n")
     if pr1 == 2:
@@ -455,7 +451,13 @@ def snapd_inst():
         git clone https://aur.archlinux.org/snapd.git
         cd snapd
         makepkg --noconfirm -si
-        permisos_snapd()
+        clear
+        sudo systemctl enable --now snapd.socket
+        sudo ln -s /var/lib/snapd/snap /snap
+        sudo systemctl enable --now snapd.apparmor
+        sudo apparmor_parser -r /etc/apparmor.d/*snap-confine*
+        sudo apparmor_parser -r /var/lib/snapd/apparmor/profiles/snap confine*
+        clear
         cd ~
         clear
         print("\nListo!\n")
