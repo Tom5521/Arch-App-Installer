@@ -73,16 +73,12 @@ while True:
                 clear
                 if yay_rem == True:
                     sudo pacman -R yay --noconfirm
-                    print("Saliendo...")
-                    time.sleep(0.5)
-                break
+                    break
                 clear
+                break
             if "0" in rm_pre:
                 clear
                 pass
-            print("Saliendo...")
-            time.sleep(0.5)
-            break
         if "6" in pregunta_inicial: #Otros
             clear
             base.otros()

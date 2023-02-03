@@ -662,7 +662,7 @@ def otros():
 def borrar_basura():
     clear
     palabras.borrar_basura()
-    print("Elige una o mas opciones\n1:Escriba los paquetes que quiere eliminar seguidos de un salto de linea\n2:Borrado automatico")
+    print("Elige una o mas opciones\n1:Escriba los paquetes que quiere eliminar seguidos de un salto de linea\n2:Borrado automatico\n0:Atras")
 
 def dependencias_desarrollo():
     while True:
