@@ -287,7 +287,7 @@ def apps_desarrollo():
                 sudo pacman -S steam --noconfirm
             if "2" in pregunta_juegos: #Lutris
                 clear
-                sudo pacman -S lutris --
+                sudo pacman -S lutris --noconfirm
             if "3" in pregunta_juegos: #Wine
                 clear
                 sudo pacman -S wine --noconfirm
@@ -295,7 +295,7 @@ def apps_desarrollo():
                 cd /tmp
                 clear
                 git clone https://aur.archlinux.org/proton-ge-custom-bin.git
-                cd proton-ge-custom-
+                cd proton-ge-custom-bin
                 clear
                 makepkg -si --noconfirm
                 clear
