@@ -2,8 +2,10 @@
 from time import sleep as sl
 
 import palabras
-
+from os import getcwd
+from os import chdir
 from os import system as sys
+current_directory = getcwd()
 
 def clear():
     sys("clear")
@@ -27,12 +29,12 @@ def dependencias_desarrollo():
                     pregunta_drivers_nvidia = str(input(":"))
                     if "1" in pregunta_drivers_nvidia:
                         clear()
-                        sys("cd /tmp")
+                        chdir("/tmp")
                         sys("git clone https://aur.archlinux.org/nvidia-340xx.git")
-                        sys("cd nvidia-340xx")
+                        chdir("nvidia-340xx")
                         clear()
                         sys("makepkg -si --noconfirm")
-                        sys("cd ~")
+                        chdir(current_directory)
                         clear()
                     if "2" in pregunta_drivers_nvidia:
                         clear()
@@ -44,9 +46,9 @@ def dependencias_desarrollo():
                     pregunta_drivers_1 = int(input(":"))
                     if pregunta_drivers_1 == 1:
                         clear()
-                        sys("cd /tmp")
+                        chdir("/tmp")
                         sys("git clone https://aur.archlinux.org/amdgpu-pro-installer.git")
-                        sys("cd amdgpu-pro-installer")
+                        chdir("amdgpu-pro-installer")
                         clear()
                         sys("makepkg -si --noconfirm")
                         clear()
@@ -153,13 +155,13 @@ def add_repos():
 
 def yay_install():
     clear()
-    ("cd /tmp")
-    ("git clone https://aur.archlinux.org/yay.git")
+    chdir("/tmp")
+    sys("git clone https://aur.archlinux.org/yay.git")
     clear()
-    ("cd yay")
-    ("makepkg --needed --noconfirm -si")
-    ("clear")
-    ("cd ~")
+    chdir("yay")
+    sys("makepkg --needed --noconfirm -si")
+    sys("clear")
+    chdir("~")
 
 def dependenciasG():
     clear()
@@ -202,22 +204,22 @@ def apps_desarrollo():
                     sys("sudo pacman -S opera --noconfirm")
                 if "4" in pregunta_navegador: #Brave
                     clear()
-                    sys("cd /tmp")
+                    chdir("/tmp")
                     sys("git clone https://aur.archlinux.org/brave.git")
                     clear()
-                    sys("cd brave")
+                    chdir("brave")
                     sys("makepkg -si --noconfirm")
                     clear()
-                    sys("cd ~")
+                    chdir(current_directory)
                 if "5" in pregunta_navegador: #Chrome
                     clear()
-                    sys("cd /tmp")
+                    chdir("/tmp")
                     sys("git clone https://aur.archlinux.org/google-chrome.git")
                     clear()
-                    sys("cd google-chrome")
+                    chdir("google-chrome")
                     sys("makepkg -si --noconfirm")
                     clear()
-                    sys("cd ~")
+                    chdir(current_directory)
                 if "6" in pregunta_navegador: #Tor
                     clear()
                     sys("sudo pacman -S tor --noconfirm")
@@ -232,14 +234,14 @@ def apps_desarrollo():
                     clear()
                     sys("sudo pacman -S thunderbird --noconfirm")
                 if "2" in pregunta_correo: #Mailspring
-                    sys("cd /tmp")
+                    chdir("/tmp")
                     clear()
                     sys("git clone https://aur.archlinux.org/mailspring.git")
                     clear()
-                    sys("cd mailspring")
+                    chdir("mailspring")
                     sys("makepkg -si --noconfirm")
                     clear()
-                    sys("cd ~")
+                    chdir(current_directory)
                 if "3" in pregunta_correo: #Kmail
                     clear()
                     sys("sudo pacman -S kmail --noconfirm")
@@ -254,14 +256,14 @@ def apps_desarrollo():
                     clear()
                     sys("sudo pacman -S discord --noconfirm")
                 if "2" in pregunta_mensajes: #Skype
-                    sys("cd /tmp")
+                    chdir("/tmp")
                     clear()
                     sys("git clone https://aur.archlinux.org/skypeforlinux-stable-bin.git")
-                    sys("cd skypeforlinux-stable-bin")
+                    chdir("skypeforlinux-stable-bin")
                     clear()
                     sys("makepkg -si --noconfirm")
                     clear()
-                    sys("cd ~")
+                    chdir(current_directory)
                 if "3" in pregunta_mensajes: #Teamspeak
                     clear()
                     sys("sudo pacman -S teamspeak3 --noconfirm")
@@ -270,12 +272,12 @@ def apps_desarrollo():
                     sys("sudo pacman -S telegram-desktop --noconfirm")
                 if "5" in pregunta_mensajes: #Zoom
                     clear()
-                    sys("cd /tmp")
+                    chdir("/tmp")
                     sys("git clone https://aur.archlinux.org/zoom.git")
                     clear()
-                    sys("cd zoom")
+                    chdir("zoom")
                     sys("makepkg -si --noconfirm")
-                    sys("cd ~")
+                    chdir(current_directory)
                     clear()
                 if "0" in pregunta_mensajes: #Atras
                     pass
@@ -305,11 +307,11 @@ def apps_desarrollo():
                 clear()
                 sys("sudo pacman -S kdenlive --noconfirm")
             if "7" in pregunta_video: #Netfilx
-                sys("cd /tmp")
+                chdir("/tmp")
                 clear()
                 sys("git clone https://aur.archlinux.org/netflix-nativefier.git")
                 clear()
-                sys("cd netflix-nativefier")
+                chdir("netflix-nativefier")
                 sys("makepkg -si --noconfirm")
                 clear()
             if "8" in pregunta_video: #Obs-studio
@@ -327,14 +329,14 @@ def apps_desarrollo():
                     if pregunta_ide == "10":
                         pass
                     else:
-                        sys("cd /tmp")
+                        chdir("/tmp")
                         clear()
                         sys("git clone https://aur.archlinux.org/visual-studio-code-bin.git")
-                        sys("cd visual-studio-code-bin")
+                        chdir("visual-studio-code-bin")
                         clear()
                         sys("makepkg -si --noconfirm")
                         clear()
-                        sys("cd ~")
+                        chdir(current_directory)
                 if "2" in pregunta_ide: #Code OSS
                     clear()
                     sys("sudo pacman -S code --noconfirm")
@@ -343,12 +345,12 @@ def apps_desarrollo():
                     sys("sudo pacman -S pycharm-community-edition --noconfirm")
                 if "4" in pregunta_ide: #Eclipse-Java
                     clear()
-                    sys("cd /tmp")
+                    chdir("/tmp")
                     sys("git clone https://aur.archlinux.org/eclipse-java.git")
                     clear()
-                    sys("cd eclipse-java")
+                    chdir("eclipse-java")
                     sys("makepkg -si --noconfirm")
-                    sys("cd ~")
+                    chdir(current_directory)
                 if "5" in pregunta_ide: #Kate
                     clear()
                     sys("sudo pacman -S kate --noconfirm")
@@ -356,23 +358,23 @@ def apps_desarrollo():
                     clear()
                     sys("sudo pacman -S freecad --noconfirm")
                 if "7" in pregunta_ide: #Android Studio
-                    sys("cd /tmp")
+                    chdir("/tmp")
                     clear()
                     sys("git clone https://aur.archlinux.org/android-studio.git")
-                    ("cd android-studio")
+                    chdir("android-studio")
                     clear()
                     sys("makepkg -si --noconfirm")
-                    sys("cd ~")
+                    chdir(current_directory)
                     clear()
                 if "8" in pregunta_ide: #Anbox
-                    sys("cd /tmp")
+                    chdir("/tmp")
                     clear()
                     sys("git clone https://aur.archlinux.org/anbox-git.git")
                     clear()
-                    sys("cd anbox-git")
+                    chdir("anbox-git")
                     sys("makepkg -si --noconfirm")
                     clear()
-                    sys("cd ~")
+                    chdir(current_directory)
                 if "9" in pregunta_ide: #Github Cli
                     clear()
                     sys("sudo pacman -S github-cli --noconfirm")
@@ -381,13 +383,13 @@ def apps_desarrollo():
                         pass
                     else:   
                         clear()
-                        sys("cd /tmp")
+                        chdir("/tmp")
                         sys("git clone https://aur.archlinux.org/github-desktop.git")
                         clear()
-                        sys("cd github-desktop")
+                        chdir("github-desktop")
                         sys("makepkg -si --noconfirm")
                         clear()
-                        sys("cd ~")
+                        chdir(current_directory)
                 if pregunta_ide == "0": #Atras
                     break
         if "4" in apre: #Gaming
@@ -405,28 +407,28 @@ def apps_desarrollo():
                 clear()
                 ("sudo pacman -S wine --noconfirm")
             if "4" in pregunta_juegos: #Proton-ge-custom-bin
-                sys("cd /tmp")
+                chdir("/tmp")
                 clear()
                 sys("git clone https://aur.archlinux.org/proton-ge-custom-bin.git")
-                sys("cd proton-ge-custom-bin")
+                chdir("proton-ge-custom-bin")
                 clear()
                 sys("makepkg -si --noconfirm")
                 clear()
-                sys("cd ~")
+                chdir(current_directory)
             if "5" in pregunta_juegos: #Play on Linux
-                sys("cd /tmp")
+                chdir("/tmp")
                 clear()
                 sys("git clone https://aur.archlinux.org/playonlinux.git")
-                sys("cd playonlinux")
+                chdir("playonlinux")
                 clear()
                 sys("makepkg -si --noconfirm")
                 clear()
-                sys("cd ~")
+                chdir(current_directory)
             if "6" in pregunta_juegos: #Mindustry
                 clear()
-                sys("cd /tmp")
+                chdir("/tmp")
                 sys("git clone https://aur.archlinux.org/mindustry-bin.git")
-                sys("cd mindustry-bin")
+                chdir("mindustry-bin")
                 clear()
                 sys("makepkg -si --noconfirm")
                 clear()
@@ -445,18 +447,18 @@ def apps_desarrollo():
                 clear()
                 ("sudo pacman -S spotify-launcher --noconfirm")
             if "2" in pregunta_musica: #Spotify Adblock
-                sys("cd /tmp")
+                chdir("/tmp")
                 clear()
                 sys("git clone https://aur.archlinux.org/spotify-adblock.git")
-                sys("cd spotify-adblock")
+                chdir("spotify-adblock")
                 clear()
                 sys("makepkg -si --noconfirm")
                 clear()
             if "3" in pregunta_musica: #Spotube
-                sys("cd /tmp")
+                chdir("/tmp")
                 clear()
                 sys("git clone https://aur.archlinux.org/spotube-bin.git")
-                sys("cd spotube-bin")
+                chdir("spotube-bin")
                 clear()
                 sys("makepkg -si --noconfirm")
                 clear()
@@ -464,10 +466,10 @@ def apps_desarrollo():
                 clear()
                 sys("sudo pacman -S clementine --noconfirm")
             if "5" in pregunta_musica: #YT Music
-                sys("cd /tmp")
+                chdir("/tmp")
                 clear()
                 sys("git clone https://aur.archlinux.org/youtube-music.git")
-                sys("cd youtube-music")
+                chdir("youtube-music")
                 clear()
                 sys("makepkg -si --noconfirm")
                 clear()
@@ -486,29 +488,29 @@ def apps_desarrollo():
                 clear()
                 ("sudo pacman -S libreoffice --noconfirm")
             if "2" in pregunta_oficina:
-                sys("cd /tmp")
+                chdir("/tmp")
                 clear()
                 sys("git clone https://aur.archlinux.org/openoffice-bin.git")
-                sys("cd openoffice-bin")
+                chdir("openoffice-bin")
                 clear()
                 sys("makepkg -si --noconfirm")
-                sys("cd ~")
+                chdir(current_directory)
             if "3" in pregunta_oficina:
-                ("cd /tmp")
+                (" /tmp")
                 clear()
                 sys("git clone https://aur.archlinux.org/onlyoffice-bin.git")
-                sys("cd onlyoffice-bin")
+                chdir("onlyoffice-bin")
                 clear()
                 sys("makepkg -si --noconfirm")
-                sys("cd ~")
+                chdir(current_directory)
             if "4" in pregunta_oficina:
-                sys("cd /tmp")
+                chdir("/tmp")
                 clear()
                 sys("git clone https://aur.archlinux.org/wps-office-all-dicts-win-languages.git")
-                sys("cd wps-office-all-dicts-win-languages")
+                chdir("wps-office-all-dicts-win-languages")
                 clear()
                 sys("makepkg -si --noconfirm")
-                sys("cd ~")
+                chdir(current_directory)
             if "0" in pregunta_oficina:
                 pass
         if "0" in apre: #Salir
@@ -560,10 +562,10 @@ def snapd_inst():
         print("\nListo!\n")
     if pr1 == 2:
         clear()
-        ("cd /tmp")
-        ("git clone https://aur.archlinux.org/snapd.git")
-        ("cd snapd")
-        ("makepkg --noconfirm -si")
+        chdir("/tmp")
+        sys("git clone https://aur.archlinux.org/snapd.git")
+        chdir("snapd")
+        sys("makepkg --noconfirm -si")
         clear()
         sys("sudo systemctl enable --now snapd.socket")
         sys("sudo ln -s /var/lib/snapd/snap /snap")
@@ -571,7 +573,7 @@ def snapd_inst():
         sys("sudo apparmor_parser -r /etc/apparmor.d/*snap-confine*")
         sys("sudo apparmor_parser -r /var/lib/snapd/apparmor/profiles/snap confine*")
         clear()
-        sys("cd ~")
+        chdir(current_directory)
         clear()
         print("\nListo!\n")
     if pr1 < 2:
@@ -585,44 +587,25 @@ def pkgman():
     print("1:yay\n2:paru\n3:pikaur\n4:snapd\n5:flatpak\n6:Pamac\n0:Cancelar")
     pkgpre1 = str(input(":"))
     if "1" in pkgpre1: #Yay
-        print("Instalar yay atravez de...\n1:Repositorio chaotic(Requiere añadirlo en la seccion de repos nesesarios)\n2:git clone(lento))")
-        yayprk = int(input(":"))
-        if yayprk == 1:
-            print("Añadir repo chaotic?(Y-N)")
-            add_repoch = str(input(":"))
-            if add_repoch == "Y" or "y":
-                sys("sudo sh repos/add-repo-ch.sh")
-                clear()
-                sys("sudo pacman -S yay --noconfirm")
-                clear()
-                yay_rem = False
-            if add_repoch == "N" or "n":
-                yay_rem = False
-                clear()
-                yay_install()
-            else:
-                clear()
-                print("No se seleciono ninguno")
-                sl(0.5)
-                pass
+        yay_install()
         clear()
     if "2" in pkgpre1: #Paru
         clear()
-        sys("cd /tmp")
+        chdir("/tmp")
         sys("git clone https://aur.archlinux.org/paru.git")
         clear()
-        sys("cd paru")
+        chdir("paru")
         sys("makepkg --needed --noconfirm -si")
         clear()
-        sys("cd ~")
+        chdir(current_directory)
     if "3" in pkgpre1: #Pikaur
         clear()
-        sys("cd /tmp")
+        chdir("/tmp")
         sys("git clone https://aur.archlinux.org/pikaur.git")
         clear()
-        sys("cd pikaur")
+        chdir("pikaur")
         sys("makepkg -si --needed --noconfirm")
-        sys("cd ~")
+        chdir(current_directory)
         clear()
     if "4" in pkgpre1: #Snapd
         snapd_inst()
@@ -637,27 +620,27 @@ def pkgman():
         pamac_pre1 = int(input(":"))
         if pamac_pre1 == 1: #pamac-aur
             clear()
-            sys("cd /tmp")
+            chdir("/tmp")
             sys("git clone https://aur.archlinux.org/pamac-aur.git")
-            sys("cd pamac-aur")
+            sys(" pamac-aur")
             clear()
             sys("makepkg -si --needed --noconfirm")
-            sys("cd ~")
+            chdir(current_directory)
             clear()
         if pamac_pre1 == 2: #pamac-flatpak
             clear()
-            sys("cd /tmp")
+            chdir("/tmp")
             sys("git clone https://aur.archlinux.org/pamac-flatpak.git")
-            sys("cd pamac-flatpak")
+            chdir("pamac-flatpak")
             clear()
             sys("makepkg -si --needed --noconfirm")
-            sys("cd ~")
+            chdir(current_directory)
             clear()
         if pamac_pre1 == 3: #pamac-nosnap
             clear()
-            sys("cd /tmp")
+            chdir("/tmp")
             sys("git clone https://aur.archlinux.org/pamac-nosnap.git")
-            sys("cd pamac-nosnap")
+            chdir("pamac-nosnap")
             clear()
             sys("makepkg -si --needed --noconfirm")
         if pamac_pre1 == 0: #Salida
@@ -757,13 +740,13 @@ def otros():
                     sys("sudo pacman -S linux linux-headers --noconfirm")
                 if "2" in pregunta_kernel:
                     clear()
-                    sys("cd /tmp")
+                    chdir("/tmp")
                     sys("git clone https://aur.archlinux.org/linux-xanmod.git")
-                    sys("cd linux-xanmod")
+                    chdir("linux-xanmod")
                     clear()
                     sys("makepkg -si --noconfirm")
                     clear()
-                    sys("cd ~")
+                    chdir(current_directory)
                 if "3" in pregunta_kernel:
                     clear()
                     sys("sudo pacman -S linux-zen linux-zen-headers --noconfirm")
