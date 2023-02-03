@@ -32,7 +32,6 @@ while True:
             pregunta_apps_y_dependencias = str(input(":"))
             if "1" in pregunta_apps_y_dependencias: #Apps
                 clear
-                palabras.apps()
                 base.apps_desarrollo()
             if "2" in pregunta_apps_y_dependencias: #Dependencias
                 clear
@@ -46,22 +45,18 @@ while True:
                 pass
         if "2" in pregunta_inicial: #Gestores de paquetes
             clear
-            palabras.gestores_de_paquetes()
             base.pkgman()
             pass
         if "3" in pregunta_inicial: #Escritorios/wm's
             clear
-            palabras.escritorios()
             base.escritorios()
             pass
         if "4" in pregunta_inicial: #Cambiar shell
             clear
-            palabras.cambiar_shell()
             base.cambiar_shell()
             pass
         if "5" in pregunta_inicial: #Borrar basura
             clear
-            palabras.borrar_basura()
             base.borrar_basura()
             rm_pre = str(input(":"))
             if "1" in rm_pre:
@@ -90,7 +85,6 @@ while True:
             break
         if "6" in pregunta_inicial: #Otros
             clear
-            palabras.otros()
             base.otros()
         if "0" in pregunta_inicial:#Salir
             break
