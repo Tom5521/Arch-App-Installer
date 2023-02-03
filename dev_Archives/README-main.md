@@ -1,7 +1,7 @@
 
-<img src="https://github.com/Tom5521/Tom5521/blob/c6860089d133604605fd6133ccc26514e94a23e6/Arch-Instalator.png" width="1170" height="100" />
+<img src="https://github.com/Tom5521/Arch-Instalator/blob/816db2715873cf7cb4992c1ae094ad6df1fcd5a7/dev_Archives/Arch-Instalator.png" width="1180" height="90" />
 
-Un instalador escrito en xonsh/python con mis apps favoritas
+## Un script instalador escrito en Xonsh/Python con mis apps favoritas
 
 Ejecutar con:
 ```
@@ -9,6 +9,8 @@ python Ejecutar.py
 ```
 
 En fin ire actualizando este proyecto hasta que se me caigan las manos o pierda de alguna manera mi cuenta
+
+o me quede sin ideas 
 
 
 
@@ -22,5 +24,5 @@ ATT:
 
 
 
-
+Me estoy quedando sin ideas xdd
 
