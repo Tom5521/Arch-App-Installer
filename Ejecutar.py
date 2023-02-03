@@ -1,12 +1,24 @@
 
+import os
 from os import system as sys
 
 def clear():
     sys("clear")
+    pass
+
+
+syupd = os.listdir("/tmp")
+if "inst-temp" in syupd:
+    pass
+else:
+    sys("sudo pacman -Sy")
+    os.mkdir("/tmp/inst-temp")
+def clear():
+    sys("clear")
+    pass
 
 clear()
 
-sys("sudo pacman -Sy")
 sys("pacman -Q git > src/temp")
 
 clear()
@@ -19,8 +31,5 @@ if "git" in test:
 else:
     clear()
     sys("sudo pacman -S git --noconfirm")
-    clear()
-
-clear()
 
 sys("python src/main.py")
