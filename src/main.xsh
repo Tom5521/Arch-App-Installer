@@ -2,7 +2,7 @@
 
 #Creado Por Angel Alderete
 
-#Arch-Instalator v1.2.1
+#Arch-Instalator v1.2.2
 
 #Re-Re-estructurado
 import sys
