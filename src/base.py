@@ -1,5 +1,5 @@
 
-import time
+from time import sleep as sl
 import palabras
 from os import system as sys
 
@@ -402,7 +402,160 @@ def apps_desarrollo():
         if "0" in apre: #Salir
             clear()
             print("Saliendo...")
-            time.sleep(0.1)
+            sl(0.1)
             break
 
+def cambiar_shell():
+    clear()
+    palabras.cambiar_shell()
+    print("1:fish\n2:zsh\n3:bash\n0:Atras")
+    shellpre = int(input("Que shell deseas poner?\n:"))
+    if shellpre == 1: #Shell fish
+        clear()
+        sys("sudo pacman -S fish --noconfirm")
+        clear()
+        sys("chsh -s /bin/fish")
+        clear()
+    if shellpre == 2: #Shell zsh
+        clear()
+        sys("sudo pacman -S zsh --noconfirm")
+        clear()
+        sys("chsh -s /bin/zsh")
+        clear()
+    if shellpre == 3: #Shell Bash
+        clear()
+        sys("sudo pacman -S bash --noconfirm")
+        clear()
+        sys("chsh -s /bin/bash")
+        clear()
+    if shellpre == 0:
+        pass
+    clear()
+
+def snapd_inst():
+    clear()
+    pr1 = int(input("Quieres descargar el paquete por...?\n1=yay(debe estar instalado)\n2=git clone\n:"))
+    if pr1 == 1:
+        clear()
+        sys("yay --noconfirm -S snapd")
+        clear()
+        sys("sudo systemctl enable --now snapd.socket")
+        sys("sudo ln -s /var/lib/snapd/snap /snap")
+        sys("sudo systemctl enable --now snapd.apparmor")
+        sys("sudo apparmor_parser -r /etc/apparmor.d/*snap-confine*")
+        sys("sudo apparmor_parser -r /var/lib/snapd/apparmor/profiles/snap confine*")
+        clear()
+        print("\nListo!\n")
+    if pr1 == 2:
+        clear()
+        ("cd /tmp")
+        ("git clone https://aur.archlinux.org/snapd.git")
+        ("cd snapd")
+        ("makepkg --noconfirm -si")
+        clear()
+        sys("sudo systemctl enable --now snapd.socket")
+        sys("sudo ln -s /var/lib/snapd/snap /snap")
+        sys("sudo systemctl enable --now snapd.apparmor")
+        sys("sudo apparmor_parser -r /etc/apparmor.d/*snap-confine*")
+        sys("sudo apparmor_parser -r /var/lib/snapd/apparmor/profiles/snap confine*")
+        clear()
+        sys("cd ~")
+        clear()
+        print("\nListo!\n")
+    if pr1 < 2:
+        clear("")
+        print("Selecciona Correctamente")
+        sl(0.5)
+
+def pkgman():
+    clear()
+    palabras.gestores_de_paquetes()
+    print("1:yay\n2:paru\n3:pikaur\n4:snapd\n5:flatpak\n6:Pamac\n0:Cancelar")
+    pkgpre1 = str(input(":"))
+    if "1" in pkgpre1: #Yay
+        print("Instalar yay atravez de...\n1:Repositorio chaotic(Requiere añadirlo en la seccion de repos nesesarios)\n2:git clone(lento))")
+        yayprk = int(input(":"))
+        if yayprk == 1:
+            print("Añadir repo chaotic?(Y-N)")
+            add_repoch = str(input(":"))
+            if add_repoch == "Y" or "y":
+                sys("sudo sh repos/add-repo-ch.sh")
+                clear()
+                sys("sudo pacman -S yay --noconfirm")
+                clear()
+                yay_rem = False
+            if add_repoch == "N" or "n":
+                yay_rem = False
+                clear()
+                yay_install()
+            else:
+                clear()
+                print("No se seleciono ninguno")
+                sl(0.5)
+                pass
+        clear()
+    if "2" in pkgpre1: #Paru
+        clear()
+        sys("cd /tmp")
+        sys("git clone https://aur.archlinux.org/paru.git")
+        clear()
+        sys("cd paru")
+        sys("makepkg --needed --noconfirm -si")
+        clear()
+        sys("cd ~")
+    if "3" in pkgpre1: #Pikaur
+        clear()
+        sys("cd /tmp")
+        sys("git clone https://aur.archlinux.org/pikaur.git")
+        clear()
+        sys("cd pikaur")
+        sys("makepkg -si --needed --noconfirm")
+        sys("cd ~")
+        clear()
+    if "4" in pkgpre1: #Snapd
+        snapd_inst()
+    if "5" in pkgpre1: #Flatpak
+        clear()
+        sys("sudo pacman -S flatpak --noconfirm")
+        clear()
+    if "6" in pkgpre1: #Pamac
+        clear()
+        palabras.pamac()
+        print("1:Instalar pamac AUR\n2:Instalar pamac Flatpak\n3:Instalar pamac nosnap\n0:Cancelar")
+        pamac_pre1 = int(input(":"))
+        if pamac_pre1 == 1: #pamac-aur
+            clear()
+            sys("cd /tmp")
+            sys("git clone https://aur.archlinux.org/pamac-aur.git")
+            sys("cd pamac-aur")
+            clear()
+            sys("makepkg -si --needed --noconfirm")
+            sys("cd ~")
+            clear()
+        if pamac_pre1 == 2: #pamac-flatpak
+            clear()
+            sys("cd /tmp")
+            sys("git clone https://aur.archlinux.org/pamac-flatpak.git")
+            sys("cd pamac-flatpak")
+            clear()
+            sys("makepkg -si --needed --noconfirm")
+            sys("cd ~")
+            clear()
+        if pamac_pre1 == 3: #pamac-nosnap
+            clear()
+            sys("cd /tmp")
+            sys("git clone https://aur.archlinux.org/pamac-nosnap.git")
+            sys("cd pamac-nosnap")
+            clear()
+            sys("makepkg -si --needed --noconfirm")
+        if pamac_pre1 == 0: #Salida
+            clear()
+            pass
+        if pamac_pre1 > 3: #Error
+            clear()
+            print("Selecciona solo una opcion")
+            sl(0.5)
+            clear()
+        if "0" in pkgpre1: #Cancelar
+            pass
 
