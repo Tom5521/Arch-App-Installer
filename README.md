@@ -1,12 +1,7 @@
 
+<img src="https://github.com/Tom5521/Arch-Instalator/blob/816db2715873cf7cb4992c1ae094ad6df1fcd5a7/dev_Archives/Arch-Instalator.png" width="1180" height="90" />
 
-<img src="https://github.com/Tom5521/Arch-Instalator/blob/cf1086bf5ca8d377966c3d13b692722b5feca9a2/Arch-Instalator-DEV.png" width="1170" height="100" />
-
-La veción dev de Arch Instalator los commits aqui son el colmo de bugeados e inestables(A veses nisiquiera se ejecutan)
-
-No es recomendable ejecutar esta vercion a menos de que quieras ver funciones nuevas/en desarrollo
-
-Luego de haber hecho suficiente los cambios se añadiran a la rama main como una nueva verción
+## Un script instalador escrito en Python con mis apps favoritas
 
 Ejecutar con:
 ```
@@ -14,6 +9,8 @@ python Ejecutar.py
 ```
 
 En fin ire actualizando este proyecto hasta que se me caigan las manos o pierda de alguna manera mi cuenta
+
+o me quede sin ideas 
 
 
 
@@ -27,11 +24,5 @@ ATT:
 
 
 
-
-
-
-
-
-
-
+Me estoy quedando sin ideas xdd
 
