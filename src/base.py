@@ -1,10 +1,122 @@
 
 from time import sleep as sl
+
 import palabras
+
 from os import system as sys
 
 def clear():
     sys("clear")
+
+def dependencias_desarrollo():
+    while True:
+        clear()
+        palabras.drivers()
+        print("1:Drivers Graficos\n2:Drivers de Sonido\n3:Bluetooth\n0:Atras")
+        pregunta_drivers = str(input(":"))
+        if "1" in pregunta_drivers:
+            while True:
+                clear()
+                palabras.drivers_graficos()
+                print("Elige tus especificaciones\n1:Nvidia\n2:Amd\n3:Intel(Open Source)\n0:Atras")
+                pregunta_drivers_g = int(input(":"))
+                if pregunta_drivers_g == 1: #Nvidia
+                    clear()
+                    palabras.nvidia()
+                    print("Elige una vercion\n1:Propietario\n2:Open Source\n0:Atras")
+                    pregunta_drivers_nvidia = str(input(":"))
+                    if "1" in pregunta_drivers_nvidia:
+                        clear()
+                        sys("cd /tmp")
+                        sys("git clone https://aur.archlinux.org/nvidia-340xx.git")
+                        sys("cd nvidia-340xx")
+                        clear()
+                        sys("makepkg -si --noconfirm")
+                        sys("cd ~")
+                        clear()
+                    if "2" in pregunta_drivers_nvidia:
+                        clear()
+                        sys("sudo pacman -S nvidia-open --noconfirm ")
+                if pregunta_drivers_g == 2: #AMD
+                    clear()
+                    palabras.amd()
+                    print("Drivers...?\n1:Propietarios\n2:Open Source\n0:Atras")
+                    pregunta_drivers_1 = int(input(":"))
+                    if pregunta_drivers_1 == 1:
+                        clear()
+                        sys("cd /tmp")
+                        sys("git clone https://aur.archlinux.org/amdgpu-pro-installer.git")
+                        sys("cd amdgpu-pro-installer")
+                        clear()
+                        sys("makepkg -si --noconfirm")
+                        clear()
+                    if pregunta_drivers_1 == 2:
+                        clear()
+                        sys("sudo pacman -S xf86-video-ati xf86-video-amdgpu --noconfirm")
+                    if pregunta_drivers_1 == 0:
+                        clear()
+                    else:
+                        pass
+                if pregunta_drivers_g == 3: #Intel
+                    clear()
+                    sys("sudo pacman -S xf86-video-intel --noconfirm")
+                if pregunta_drivers_g == 0: #Atras
+                    clear()
+                    break
+                else:
+                    pass
+        if "2" in pregunta_drivers:
+            clear()
+            palabras.sonido()
+            print("Elige una opcion\n1:Servidores de Audio\n2:Drivers de Sonido\n0:Atras")
+            pregunta_drivers_s = str(input(":"))
+            if "1" in pregunta_drivers_s:
+                while True:
+                    clear()
+                    palabras.servidores_de_audio()
+                    print("1:PulseAudio\n2:Pipewire\n0:Atras")
+                    pregunta_drivers_s_s = str(input(":"))
+                    if "1" in pregunta_drivers_s_s:
+                        clear()
+                        sys("sudo pacman -S pulseaudio --noconfirm")
+                    if "2" in pregunta_drivers_s_s:
+                        clear()
+                        sys("sudo pacman -S pipewire --noconfirm")
+                    if "0" in pregunta_drivers_s_s:
+                        clear()
+                        break
+            if "2" in pregunta_drivers_s:
+                while True:    
+                    clear()
+                    palabras.drivers_de_audio()
+                    print("Elige una o mas opciones\n1:ALSA\n2:Jack\n3:Flac\n0:Atras")
+                    pregunta_drivers_s_d = str(input(":"))
+                    if "1" in pregunta_drivers_s_d:
+                        clear()
+                        sys("sudo pacman -S alsa alsa-firmware --noconfirm")
+                    if "2" in pregunta_drivers_s_d:
+                        clear()
+                        sys("sudo pacman -S jack2 --noconfirm")
+                    if "3" in pregunta_drivers_s_d:
+                        clear() 
+                        sys("sudo pacman -S flac --noconfirm")
+                    if "0" in pregunta_drivers_s_d:
+                        break
+                    else:
+                        pass
+            if "0" in pregunta_drivers_s:
+                clear()
+                pass    
+        if "3" in pregunta_drivers:
+            clear()
+            sys("sudo pacman -S bluez blueman --noconfirm")
+            clear()
+            sys("sudo systemctl enable bluetooth.service")
+            clear()
+        if "0" in pregunta_drivers:
+            break
+        else:
+            pass
 
 def add_repos():
     while True:
@@ -320,7 +432,7 @@ def apps_desarrollo():
                 clear()
             if "7" in pregunta_juegos: #Drivers
                 clear()
-                #dependencias_desarrollo() --rc
+                dependencias_desarrollo()
             if "0" in pregunta_juegos: #Atras
                 pass
             clear()
@@ -559,3 +671,108 @@ def pkgman():
         if "0" in pkgpre1: #Cancelar
             pass
 
+def escritorios():
+    clear()
+    palabras.escritorios_wms()
+    print("1:WM's\n2:Escritorios\n0:Atras")
+    pregunta_wm = str(input(":"))
+    if "1" in pregunta_wm:
+        clear()
+        palabras.wms()
+        print("1:i3wm\n2:awesome\n3:icewm\n4:bspwm\n0:Atras")
+        pregunta_wm_1 = str(input(":"))
+        if "1" in pregunta_wm_1:
+            clear()
+            sys("sudo pacman -S i3 --noconfirm")
+        if "2" in pregunta_wm_1:
+            clear()
+            sys("sudo pacman -S awesome --noconfirm")
+        if "3" in pregunta_wm_1:
+            clear()
+            sys("sudo pacman -S icewm --noconfirm")
+        if "4" in pregunta_wm_1:
+            clear()
+            sys("sudo pacman -S bspwm -- noconfirm")
+        if "0" in pregunta_wm_1:
+            clear()
+            pass
+    if "2" in pregunta_wm:
+        clear()
+        palabras.escritorios()
+        print("1:XFCE4\n2:GNOME\n3:KDE Plasma\n4:LXDE\n5:Cinnamon\n6:Mate\n0:Cancelar")
+        desk_pre = str(input(":"))
+        if "1" in desk_pre: #XFCE4
+            clear()
+            sys("sudo pacman -S xfce4 xfce4-goodies --noconfirm")
+            clear()
+        if "2" in desk_pre: #GNOME
+            clear()
+            sys("sudo pacman -S gnome gnome-extra --noconfirm")
+            clear()
+        if "3" in desk_pre: #KDE Plasma
+            clear()
+            sys("sudo pacman -S plasma --noconfirm")
+            clear()
+        if "4" in desk_pre: #LXDE
+            clear()
+            sys("sudo pacman -S lxde --noconfirm")
+            clear()
+        if "5" in desk_pre: #Cinnamon
+            clear()
+            sys("sudo pacman -S cinnamon --noconfirm")
+            clear()
+        if "6" in desk_pre: #Mate
+            clear()
+            sys("sudo pacman -S mate --noconfirm")
+            clear()
+        if "0" in desk_pre: #Cancelar
+            pass
+    if "0" in pregunta_wm:
+        clear()
+        pass
+
+def otros():
+    while True:
+        clear()
+        palabras.otros()
+        print("1:Intalar dependencias i3(requiere yay)\n2:Instalar repos\n3:Instalar Kernels\n0:Atras")
+        pregunta_otros = str(input(":"))
+        if "1" in pregunta_otros:
+            clear()
+            sys("yay --noconfirm -S - < lista-de-paquetes-i3")
+            clear()
+            sys("yay --noconfirm -S gnome-screenshot alsa-utils xscreensaver acpid mousepad-git")
+            clear()
+        if "2" in pregunta_otros:
+            add_repos()
+            clear()
+        if "3" in pregunta_otros:
+            while True:
+                clear()
+                palabras.kernels()
+                print("1:Linux\n2:xanmod\n3:zen\n0:Atras")
+                pregunta_kernel = str(input(":"))
+                if "1" in pregunta_kernel:
+                    clear()
+                    sys("sudo pacman -S linux linux-headers --noconfirm")
+                if "2" in pregunta_kernel:
+                    clear()
+                    sys("cd /tmp")
+                    sys("git clone https://aur.archlinux.org/linux-xanmod.git")
+                    sys("cd linux-xanmod")
+                    clear()
+                    sys("makepkg -si --noconfirm")
+                    clear()
+                    sys("cd ~")
+                if "3" in pregunta_kernel:
+                    clear()
+                    sys("sudo pacman -S linux-zen linux-zen-headers --noconfirm")
+                if "0" in pregunta_kernel:
+                    break
+        if "0" in pregunta_otros:
+            break
+
+def borrar_basura():
+    clear()
+    palabras.borrar_basura()
+    print("Elige una o mas opciones\n1:Escriba los paquetes que quiere eliminar seguidos de un salto de linea\n2:Borrado automatico\n0:Atras")
