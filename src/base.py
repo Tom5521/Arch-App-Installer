@@ -2,10 +2,15 @@
 from time import sleep as sl
 
 import palabras
+import pacman
 from os import getcwd
 from os import chdir
 from os import system as sys
 current_directory = getcwd()
+
+def installed():
+    print("Instalado")
+    sl(1)
 
 def clear():
     sys("clear")
@@ -38,7 +43,8 @@ def dependencias_desarrollo():
                         clear()
                     if "2" in pregunta_drivers_nvidia:
                         clear()
-                        sys("sudo pacman -S nvidia-open --noconfirm ")
+                        pacman.install("nvidia-open")
+                        installed()
                 if pregunta_drivers_g == 2: #AMD
                     clear()
                     palabras.amd()
@@ -54,14 +60,16 @@ def dependencias_desarrollo():
                         clear()
                     if pregunta_drivers_1 == 2:
                         clear()
-                        sys("sudo pacman -S xf86-video-ati xf86-video-amdgpu --noconfirm")
+                        pacman.install(["xf86-video-ati","xf86-video-amdgpu"])
+                        installed()
                     if pregunta_drivers_1 == 0:
                         clear()
                     else:
                         pass
                 if pregunta_drivers_g == 3: #Intel
                     clear()
-                    sys("sudo pacman -S xf86-video-intel --noconfirm")
+                    pacman.install("xf86-video-intel")
+                    installed()
                 if pregunta_drivers_g == 0: #Atras
                     clear()
                     break
@@ -80,10 +88,12 @@ def dependencias_desarrollo():
                     pregunta_drivers_s_s = str(input(":"))
                     if "1" in pregunta_drivers_s_s:
                         clear()
-                        sys("sudo pacman -S pulseaudio --noconfirm")
+                        pacman.install("pulseaudio")
+                        installed()
                     if "2" in pregunta_drivers_s_s:
                         clear()
-                        sys("sudo pacman -S pipewire --noconfirm")
+                        pacman.install("pipewire")
+                        installed()
                     if "0" in pregunta_drivers_s_s:
                         clear()
                         break
@@ -95,13 +105,16 @@ def dependencias_desarrollo():
                     pregunta_drivers_s_d = str(input(":"))
                     if "1" in pregunta_drivers_s_d:
                         clear()
-                        sys("sudo pacman -S alsa alsa-firmware --noconfirm")
+                        pacman.install(["alsa","alsa-firmware"])
+                        installed()
                     if "2" in pregunta_drivers_s_d:
                         clear()
-                        sys("sudo pacman -S jack2 --noconfirm")
+                        pacman.install("jack2")
+                        installed()
                     if "3" in pregunta_drivers_s_d:
                         clear() 
-                        sys("sudo pacman -S flac --noconfirm")
+                        pacman.install("flac")
+                        installed()
                     if "0" in pregunta_drivers_s_d:
                         break
                     else:
@@ -111,10 +124,11 @@ def dependencias_desarrollo():
                 pass    
         if "3" in pregunta_drivers:
             clear()
-            sys("sudo pacman -S bluez blueman --noconfirm")
+            pacman.install(["bluez","blueman"])
             clear()
             sys("sudo systemctl enable bluetooth.service")
             clear()
+            installed()
         if "0" in pregunta_drivers:
             break
         else:
@@ -136,7 +150,7 @@ def add_repos():
             sys('sudo echo "Include = /etc/pacman.d/endeavouros-mirrorlist" >> /etc/pacman.conf')
             sys("sudo cp src/endeavouros-mirrorlist /etc/pacman.d/")
             clear()
-            sys("sudo pacman -Sy")
+            pacman.refresh()
             clear()
             sys("echo Exito!")
         if "2" in pregunta_repos: #Chaotic-AUR
@@ -144,11 +158,11 @@ def add_repos():
             sys("sudo pacman-key --lsign-key FBA220DFC880C036")
             sys("sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'")
             clear()
-            sys("sudo pacman -Sy")
+            pacman.refresh()
             clear()
             sys('sudo echo "[chaotic-aur]" >> /etc/pacman.conf')
             sys('sudo echo "Include = /etc/pacman.d/chaotic-mirrorlist" >> /etc/pacman.conf')
-            sys('sudo pacman -Syy')
+            pacman.refresh()
             clear()
         if pregunta_repos == "0":
             break
@@ -167,7 +181,7 @@ def dependenciasG():
     clear()
     sys("yay --noconfirm -S wine mangohud game-devices-udev gamemode linux-xanmod linux-xanmod-headers vulkan-icd-loader lib32-vulkan-icd-loader lib32-vulkan-intel vulkan-intel vkd3d lib32-vkd3d")
     clear()
-    sys("sudo pacman -Syu")
+    pacman.refresh()
     clear()
 
 def el_resto():
@@ -195,13 +209,16 @@ def apps_desarrollo():
                 pregunta_navegador = str(input(":"))
                 if "1" in pregunta_navegador: #Firefox
                     clear()
-                    sys("sudo pacman -S firefox --noconfirm")
+                    pacman.install("firefox")
+                    installed()
                 if "2" in pregunta_navegador: #Chromium
                     clear()
-                    sys("sudo pacman -S chromium --noconfirm")
+                    pacman.install("chromium")
+                    installed()
                 if "3" in pregunta_navegador: #Opera
                     clear()
-                    sys("sudo pacman -S opera --noconfirm")
+                    pacman.install("opera")
+                    installed()
                 if "4" in pregunta_navegador: #Brave
                     clear()
                     chdir("/tmp")
@@ -222,7 +239,7 @@ def apps_desarrollo():
                     chdir(current_directory)
                 if "6" in pregunta_navegador: #Tor
                     clear()
-                    sys("sudo pacman -S tor --noconfirm")
+                    pacman.install("tor")
                 if "0" in pregunta_navegador: #Cancelar
                     pass
             if "2" in apre1: #Correo
@@ -232,7 +249,8 @@ def apps_desarrollo():
                 pregunta_correo = str(input(":"))
                 if "1" in pregunta_correo: #Thunderbird
                     clear()
-                    sys("sudo pacman -S thunderbird --noconfirm")
+                    pacman.install("thunderbird")
+                    installed()
                 if "2" in pregunta_correo: #Mailspring
                     chdir("/tmp")
                     clear()
@@ -244,7 +262,8 @@ def apps_desarrollo():
                     chdir(current_directory)
                 if "3" in pregunta_correo: #Kmail
                     clear()
-                    sys("sudo pacman -S kmail --noconfirm")
+                    pacman.install("kmail")
+                    installed()
                 if "0" in pregunta_correo: #Atras
                     pass
             if "3" in apre1: #Mensajeria
@@ -254,7 +273,8 @@ def apps_desarrollo():
                 pregunta_mensajes = str(input(":"))
                 if "1" in pregunta_mensajes: #Discord
                     clear()
-                    sys("sudo pacman -S discord --noconfirm")
+                    pacman.install("discord")
+                    installed()
                 if "2" in pregunta_mensajes: #Skype
                     chdir("/tmp")
                     clear()
@@ -266,10 +286,12 @@ def apps_desarrollo():
                     chdir(current_directory)
                 if "3" in pregunta_mensajes: #Teamspeak
                     clear()
-                    sys("sudo pacman -S teamspeak3 --noconfirm")
+                    pacman.install("teamspeak3")
+                    installed()
                 if "4" in pregunta_mensajes: #Telegram
                     clear()
-                    sys("sudo pacman -S telegram-desktop --noconfirm")
+                    pacman.install("telegram-desktop")
+                    installed()
                 if "5" in pregunta_mensajes: #Zoom
                     clear()
                     chdir("/tmp")
@@ -290,22 +312,28 @@ def apps_desarrollo():
             pregunta_video = str(input(":"))
             if "1" in pregunta_video: #vlc
                 clear()
-                sys("sudo pacman -S vlc --noconfirm")
+                pacman.install("vlc")
+                installed()
             if "2" in pregunta_video: #mpv
                 clear()
-                sys("sudo pacman -S mpv --noconfirm")
+                pacman.install("mpv")
+                installed()
             if "3" in pregunta_video: #gthumb
                 clear()
-                sys("sudo pacman -S gthumb --noconfirm")
+                pacman.install("gthumb")
+                installed()
             if "4" in pregunta_video: #gimp
                 clear()
-                sys("sudo pacman -S gimp --noconfirm")
+                pacman.install("gimp")
+                installed()
             if "5" in pregunta_video: #krita
                 clear()
-                sys("sudo pacman -S krita --noconfirm")
+                pacman.install("krita")
+                installed()
             if "6" in pregunta_video: #kdenlive
                 clear()
-                sys("sudo pacman -S kdenlive --noconfirm")
+                pacman.install("kdenlive")
+                installed()
             if "7" in pregunta_video: #Netfilx
                 chdir("/tmp")
                 clear()
@@ -316,7 +344,8 @@ def apps_desarrollo():
                 clear()
             if "8" in pregunta_video: #Obs-studio
                 clear()
-                sys("sudo pacman -S obs-studio --noconfirm")
+                pacman.install("obs-studio")
+                installed()
             if "0" in pregunta_video: #Atras
                 pass
         if "3" in apre: #Desarrollo
@@ -339,10 +368,12 @@ def apps_desarrollo():
                         chdir(current_directory)
                 if "2" in pregunta_ide: #Code OSS
                     clear()
-                    sys("sudo pacman -S code --noconfirm")
+                    pacman.install("code")
+                    installed()
                 if "3" in pregunta_ide: #Pycharm Comunity
                     clear()
-                    sys("sudo pacman -S pycharm-community-edition --noconfirm")
+                    pacman.install("pycharm-community-edition")
+                    installed()
                 if "4" in pregunta_ide: #Eclipse-Java
                     clear()
                     chdir("/tmp")
@@ -353,10 +384,12 @@ def apps_desarrollo():
                     chdir(current_directory)
                 if "5" in pregunta_ide: #Kate
                     clear()
-                    sys("sudo pacman -S kate --noconfirm")
+                    pacman.install("kate")
+                    installed()
                 if "6" in pregunta_ide: #Freecad
                     clear()
-                    sys("sudo pacman -S freecad --noconfirm")
+                    pacman.install("freecad")
+                    installed()
                 if "7" in pregunta_ide: #Android Studio
                     chdir("/tmp")
                     clear()
@@ -377,7 +410,8 @@ def apps_desarrollo():
                     chdir(current_directory)
                 if "9" in pregunta_ide: #Github Cli
                     clear()
-                    sys("sudo pacman -S github-cli --noconfirm")
+                    pacman.install("github-cli")
+                    installed()
                 if "10" in pregunta_ide:
                     if pregunta_ide == "1" and "0":
                         pass
@@ -399,13 +433,16 @@ def apps_desarrollo():
             pregunta_juegos = str(input(":"))
             if "1" in pregunta_juegos: #Steam
                 clear()
-                ("sudo pacman -S steam --noconfirm")
+                pacman.install("steam")
+                installed()
             if "2" in pregunta_juegos: #Lutris
                 clear()
-                ("sudo pacman -S lutris --noconfirm")
+                pacman.install("lutris")
+                installed()
             if "3" in pregunta_juegos: #Wine
                 clear()
-                ("sudo pacman -S wine --noconfirm")
+                pacman.install("wine")
+                installed()
             if "4" in pregunta_juegos: #Proton-ge-custom-bin
                 chdir("/tmp")
                 clear()
@@ -445,7 +482,8 @@ def apps_desarrollo():
             pregunta_musica = str(input(":"))
             if "1" in pregunta_musica: #Spotify
                 clear()
-                ("sudo pacman -S spotify-launcher --noconfirm")
+                pacman.install("spotify-launcher")
+                installed()
             if "2" in pregunta_musica: #Spotify Adblock
                 chdir("/tmp")
                 clear()
@@ -464,7 +502,8 @@ def apps_desarrollo():
                 clear()
             if "4" in pregunta_musica: #Clementine
                 clear()
-                sys("sudo pacman -S clementine --noconfirm")
+                pacman.install("clementine")
+                installed()
             if "5" in pregunta_musica: #YT Music
                 chdir("/tmp")
                 clear()
@@ -475,7 +514,8 @@ def apps_desarrollo():
                 clear()
             if "6" in pregunta_musica: #Audacity
                 clear()
-                sys("sudo pacman -S audacity --noconfirm")
+                pacman.install("audacity")
+                installed()
             if "0" in pregunta_musica: #Atras
                 pass
             clear()
@@ -526,19 +566,19 @@ def cambiar_shell():
     shellpre = int(input("Que shell deseas poner?\n:"))
     if shellpre == 1: #Shell fish
         clear()
-        sys("sudo pacman -S fish --noconfirm")
+        pacman.install("fish")
         clear()
         sys("chsh -s /bin/fish")
         clear()
     if shellpre == 2: #Shell zsh
         clear()
-        sys("sudo pacman -S zsh --noconfirm")
+        pacman.install("zsh")
         clear()
         sys("chsh -s /bin/zsh")
         clear()
     if shellpre == 3: #Shell Bash
         clear()
-        sys("sudo pacman -S bash --noconfirm")
+        pacman.install("bash")
         clear()
         sys("chsh -s /bin/bash")
         clear()
@@ -611,7 +651,8 @@ def pkgman():
         snapd_inst()
     if "5" in pkgpre1: #Flatpak
         clear()
-        sys("sudo pacman -S flatpak --noconfirm")
+        pacman.install("flatpak")
+        installed()
         clear()
     if "6" in pkgpre1: #Pamac
         clear()
@@ -666,16 +707,20 @@ def escritorios():
         pregunta_wm_1 = str(input(":"))
         if "1" in pregunta_wm_1:
             clear()
-            sys("sudo pacman -S i3 --noconfirm")
+            pacman.install("i3")
+            installed()
         if "2" in pregunta_wm_1:
             clear()
-            sys("sudo pacman -S awesome --noconfirm")
+            pacman.install("awesome")
+            installed()
         if "3" in pregunta_wm_1:
             clear()
-            sys("sudo pacman -S icewm --noconfirm")
+            pacman.install("icewm")
+            installed()
         if "4" in pregunta_wm_1:
             clear()
-            sys("sudo pacman -S bspwm -- noconfirm")
+            pacman.install("bspwm")
+            installed()
         if "0" in pregunta_wm_1:
             clear()
             pass
@@ -686,27 +731,33 @@ def escritorios():
         desk_pre = str(input(":"))
         if "1" in desk_pre: #XFCE4
             clear()
-            sys("sudo pacman -S xfce4 xfce4-goodies --noconfirm")
+            pacman.install(["xfce4","xfce4-goodies"])
+            installed()
             clear()
         if "2" in desk_pre: #GNOME
             clear()
-            sys("sudo pacman -S gnome gnome-extra --noconfirm")
+            pacman.install(["gnome","gnome-extra"])
+            installed()
             clear()
         if "3" in desk_pre: #KDE Plasma
             clear()
-            sys("sudo pacman -S plasma --noconfirm")
+            pacman.install("plasma")
+            installed()
             clear()
         if "4" in desk_pre: #LXDE
             clear()
-            sys("sudo pacman -S lxde --noconfirm")
+            pacman.install("lxde")
+            installed()
             clear()
         if "5" in desk_pre: #Cinnamon
             clear()
-            sys("sudo pacman -S cinnamon --noconfirm")
+            pacman.install("cinnamon")
+            installed()
             clear()
         if "6" in desk_pre: #Mate
             clear()
-            sys("sudo pacman -S mate --noconfirm")
+            pacman.install("mate")
+            installed()
             clear()
         if "0" in desk_pre: #Cancelar
             pass
@@ -737,7 +788,8 @@ def otros():
                 pregunta_kernel = str(input(":"))
                 if "1" in pregunta_kernel:
                     clear()
-                    sys("sudo pacman -S linux linux-headers --noconfirm")
+                    pacman.install(["linux","linux-headers"])
+                    installed()
                 if "2" in pregunta_kernel:
                     clear()
                     chdir("/tmp")
@@ -749,7 +801,8 @@ def otros():
                     chdir(current_directory)
                 if "3" in pregunta_kernel:
                     clear()
-                    sys("sudo pacman -S linux-zen linux-zen-headers --noconfirm")
+                    pacman.install(["linux-zen","linux-zen-headers"])
+                    installed()
                 if "0" in pregunta_kernel:
                     break
         if "0" in pregunta_otros:
