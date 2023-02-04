@@ -32,4 +32,4 @@ else:
     clear()
     sys("sudo pacman -S git --noconfirm")
 
-sys("python src/main.py")
+sys("sudo python src/main.py")
