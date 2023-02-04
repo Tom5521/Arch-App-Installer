@@ -15,6 +15,7 @@ def installed():
 class pacman:
     def install(nombre_pacman):
         sys("clear")
+        print("Instalando...")
         sys("sudo pacman -S " + nombre_pacman + " --noconfirm|ls > .out && rm -rf .out")
         sys("clear")
         installed()
@@ -29,10 +30,12 @@ def aur(nombre):
     clear()
     url = "https://aur.archlinux.org/" + nombre + ".git"
     chdir("/tmp")
-    sys("git clone "+ url)
+    print("Clonando...")
+    sys("git clone "+ url + " |ls > .out && rm -rf .out")
     clear()
     chdir(nombre)
-    sys("makepkg -si --noconfirm")
+    print("Instalando...")
+    sys("makepkg -si --noconfirm|ls > .out && rm -rf .out")
     clear()
     chdir(getcwd())
     installed()
