@@ -1,7 +1,7 @@
 
 #Creado Por Angel Alderete
 
-#PY-arch-Instalator v1.0.0 DEV
+#PY-arch-Instalator v3.2.0
 
 from time import sleep as sl
 import palabras
