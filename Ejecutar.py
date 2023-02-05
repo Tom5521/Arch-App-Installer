@@ -13,10 +13,6 @@ if "inst-temp" in syupd:
 else:
     sys("sudo pacman -Sy")
     os.mkdir("/tmp/inst-temp")
-def clear():
-    sys("clear")
-    pass
-
 clear()
 
 sys("pacman -Q git > src/temp")
