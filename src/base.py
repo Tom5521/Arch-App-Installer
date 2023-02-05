@@ -2,11 +2,8 @@
 from time import sleep as sl
 
 import palabras
-#import pacman
-from os import getcwd
-from os import chdir
+from os import chdir,getcwd
 from os import system as sys
-
 
 def installed():
     print("Instalado")
@@ -14,31 +11,32 @@ def installed():
 
 class pacman:
     def install(nombre_pacman):
-        sys("clear")
+        clear()
         print("Instalando...")
         sys("sudo pacman -S " + nombre_pacman + " --noconfirm|ls > .out && rm -rf .out")
-        sys("clear")
+        clear()
         installed()
+    
     def refresh():
-        sys(clear)
+        clear()
         sys("sudo pacman -Syy|ls > .out && rm -rf .out")
+    
+    def aur(nombre_aur):
+        clear()
+        url = "https://aur.archlinux.org/" + nombre_aur + ".git"
+        chdir("/tmp")
+        print("Clonando...")
+        sys("git clone "+ url + " |ls > .out && rm -rf .out")
+        clear()
+        chdir(nombre_aur)
+        print("Instalando...")
+        sys("makepkg -si --noconfirm|ls > .out && rm -rf .out")
+        clear()
+        chdir(getcwd())
+        installed()
 
 def clear():
     sys("clear")
-
-def aur(nombre):
-    clear()
-    url = "https://aur.archlinux.org/" + nombre + ".git"
-    chdir("/tmp")
-    print("Clonando...")
-    sys("git clone "+ url + " |ls > .out && rm -rf .out")
-    clear()
-    chdir(nombre)
-    print("Instalando...")
-    sys("makepkg -si --noconfirm|ls > .out && rm -rf .out")
-    clear()
-    chdir(getcwd())
-    installed()
 
 def dependencias_desarrollo():
     while True:
@@ -58,9 +56,8 @@ def dependencias_desarrollo():
                     print("Elige una vercion\n1:Propietario\n2:Open Source\n0:Atras")
                     pregunta_drivers_nvidia = str(input(":"))
                     if "1" in pregunta_drivers_nvidia:
-                        aur("nvidia-340xx")
+                        pacman.aur("nvidia-340xx")
                     if "2" in pregunta_drivers_nvidia:
-                        clear()
                         pacman.install("nvidia-open")
                 if pregunta_drivers_g == 2: #AMD
                     clear()
@@ -68,16 +65,14 @@ def dependencias_desarrollo():
                     print("Drivers...?\n1:Propietarios\n2:Open Source\n0:Atras")
                     pregunta_drivers_1 = int(input(":"))
                     if pregunta_drivers_1 == 1:
-                        aur("amdgpu-pro-installer")
+                        pacman.aur("amdgpu-pro-installer")
                     if pregunta_drivers_1 == 2:
                         clear()
-                        pacman.install(["xf86-video-ati","xf86-video-amdgpu"])
+                        pacman.install("xf86-video-ati xf86-video-amdgpu")
                     if pregunta_drivers_1 == 0:
                         clear()
-                    else:
                         pass
                 if pregunta_drivers_g == 3: #Intel
-                    clear()
                     pacman.install("xf86-video-intel")
                 if pregunta_drivers_g == 0: #Atras
                     clear()
@@ -96,10 +91,8 @@ def dependencias_desarrollo():
                     print("1:PulseAudio\n2:Pipewire\n0:Atras")
                     pregunta_drivers_s_s = str(input(":"))
                     if "1" in pregunta_drivers_s_s:
-                        clear()
                         pacman.install("pulseaudio")
                     if "2" in pregunta_drivers_s_s:
-                        clear()
                         pacman.install("pipewire")
                     if "0" in pregunta_drivers_s_s:
                         clear()
@@ -111,13 +104,10 @@ def dependencias_desarrollo():
                     print("Elige una o mas opciones\n1:ALSA\n2:Jack\n3:Flac\n0:Atras")
                     pregunta_drivers_s_d = str(input(":"))
                     if "1" in pregunta_drivers_s_d:
-                        clear()
-                        pacman.install(["alsa","alsa-firmware"])
+                        pacman.install("alsa alsa-firmware")
                     if "2" in pregunta_drivers_s_d:
-                        clear()
                         pacman.install("jack2")
                     if "3" in pregunta_drivers_s_d:
-                        clear() 
                         pacman.install("flac")
                     if "0" in pregunta_drivers_s_d:
                         break
@@ -127,8 +117,7 @@ def dependencias_desarrollo():
                 clear()
                 pass    
         if "3" in pregunta_drivers:
-            clear()
-            pacman.install(["bluez","blueman"])
+            pacman.install("bluez blueman")
             clear()
             sys("sudo systemctl enable bluetooth.service")
             clear()
@@ -201,20 +190,16 @@ def apps_desarrollo():
                 print("1:Firefox\n2:Chromium\n3:Opera\n4:Brave\n5:Chrome\n6:Tor\n0:Cancelar")
                 pregunta_navegador = str(input(":"))
                 if "1" in pregunta_navegador: #Firefox
-                    clear()
                     pacman.install("firefox")
                 if "2" in pregunta_navegador: #Chromium
-                    clear()
                     pacman.install("chromium")
                 if "3" in pregunta_navegador: #Opera
-                    clear()
                     pacman.install("opera")
                 if "4" in pregunta_navegador: #Brave
-                    aur("brave")
+                    pacman.aur("brave")
                 if "5" in pregunta_navegador: #Chrome
-                    aur("google-chrome")
+                    pacman.aur("google-chrome")
                 if "6" in pregunta_navegador: #Tor
-                    clear()
                     pacman.install("tor")
                 if "0" in pregunta_navegador: #Cancelar
                     pass
@@ -224,12 +209,10 @@ def apps_desarrollo():
                 print("Seleciona la o las apps que quieres instalar\n1:Thunderbird\n2:Mailspring\n3:Kmail\n0:Atras")
                 pregunta_correo = str(input(":"))
                 if "1" in pregunta_correo: #Thunderbird
-                    clear()
                     pacman.install("thunderbird")
                 if "2" in pregunta_correo: #Mailspring
-                    aur("mailspring")
+                    pacman.aur("mailspring")
                 if "3" in pregunta_correo: #Kmail
-                    clear()
                     pacman.install("kmail")
                 if "0" in pregunta_correo: #Atras
                     pass
@@ -239,18 +222,15 @@ def apps_desarrollo():
                 print("Elige lo que quieres instalar:\n1:Discord\n2:Skype\n3:Teamspeak\n4:Telegram\n5:Zoom\n0:Atras")
                 pregunta_mensajes = str(input(":"))
                 if "1" in pregunta_mensajes: #Discord
-                    clear()
                     pacman.install("discord")
                 if "2" in pregunta_mensajes: #Skype
-                    aur("skypeforlinux-stable-bin")
+                    pacman.aur("skypeforlinux-stable-bin")
                 if "3" in pregunta_mensajes: #Teamspeak
-                    clear()
                     pacman.install("teamspeak3")
                 if "4" in pregunta_mensajes: #Telegram
-                    clear()
                     pacman.install("telegram-desktop")
                 if "5" in pregunta_mensajes: #Zoom
-                    aur("zoom")
+                    pacman.aur("zoom")
                 if "0" in pregunta_mensajes: #Atras
                     pass
             if "0" in apre1: #Atras
@@ -261,27 +241,20 @@ def apps_desarrollo():
             print("Selecciona que instalar\n1:vlc\n2:mpv\n3:gthumb\n4:gimp\n5:krita\n6:kdenlive\n7:Netflix\n8:Obs-Studio\n0:Atras")
             pregunta_video = str(input(":"))
             if "1" in pregunta_video: #vlc
-                clear()
                 pacman.install("vlc")
             if "2" in pregunta_video: #mpv
-                clear()
                 pacman.install("mpv")
             if "3" in pregunta_video: #gthumb
-                clear()
                 pacman.install("gthumb")
             if "4" in pregunta_video: #gimp
-                clear()
                 pacman.install("gimp")
             if "5" in pregunta_video: #krita
-                clear()
                 pacman.install("krita")
             if "6" in pregunta_video: #kdenlive
-                clear()
                 pacman.install("kdenlive")
             if "7" in pregunta_video: #Netfilx
-                aur("netflix-nativefier")
+                pacman.aur("netflix-nativefier")
             if "8" in pregunta_video: #Obs-studio
-                clear()
                 pacman.install("obs-studio")
             if "0" in pregunta_video: #Atras
                 pass
@@ -295,33 +268,28 @@ def apps_desarrollo():
                     if pregunta_ide == "10":
                         pass
                     else:
-                        aur("visual-studio-code-bin")
+                        pacman.aur("visual-studio-code-bin")
                 if "2" in pregunta_ide: #Code OSS
-                    clear()
                     pacman.install("code")
                 if "3" in pregunta_ide: #Pycharm Comunity
-                    clear()
                     pacman.install("pycharm-community-edition")
                 if "4" in pregunta_ide: #Eclipse-Java
-                    aur("eclipse-java")
+                    pacman.aur("eclipse-java")
                 if "5" in pregunta_ide: #Kate
-                    clear()
                     pacman.install("kate")
                 if "6" in pregunta_ide: #Freecad
-                    clear()
                     pacman.install("freecad")
                 if "7" in pregunta_ide: #Android Studio
-                    aur("android-studio")
+                    pacman.aur("android-studio")
                 if "8" in pregunta_ide: #Anbox
-                    aur("anbox-git")
+                    pacman.aur("anbox-git")
                 if "9" in pregunta_ide: #Github Cli
-                    clear()
                     pacman.install("github-cli")
                 if "10" in pregunta_ide:
                     if pregunta_ide == "1" and "0":
                         pass
                     else:   
-                        aur("github-desktop")
+                        pacman.aur("github-desktop")
                 if pregunta_ide == "0": #Atras
                     break
         if "4" in apre: #Gaming
@@ -330,20 +298,17 @@ def apps_desarrollo():
             print("Escoje que instalar\n1:Steam\n2:Lutris\n3:Wine\n4:proton-ge\n5:Play on Linux\n6:Mindustry\n7:Drivers\n0:Atras")
             pregunta_juegos = str(input(":"))
             if "1" in pregunta_juegos: #Steam
-                clear()
                 pacman.install("steam")
             if "2" in pregunta_juegos: #Lutris
-                clear()
                 pacman.install("lutris")
             if "3" in pregunta_juegos: #Wine
-                clear()
                 pacman.install("wine")
             if "4" in pregunta_juegos: #Proton-ge-custom-bin
-                aur("proton-ge-custom-bin")
+                pacman.aur("proton-ge-custom-bin")
             if "5" in pregunta_juegos: #Play on Linux
-                aur("playonlinux")
+                pacman.aur("playonlinux")
             if "6" in pregunta_juegos: #Mindustry
-                aur("mindustry-bin")
+                pacman.aur("mindustry-bin")
             if "7" in pregunta_juegos: #Drivers
                 clear()
                 dependencias_desarrollo()
@@ -356,19 +321,16 @@ def apps_desarrollo():
             print("Seleciona una o mas opciones\n1:Spotify\n2:Spotify-Adblock\n3:Spotube\n4:Clementine\n5:YT Music\n6:Audacity\n0:Atras")
             pregunta_musica = str(input(":"))
             if "1" in pregunta_musica: #Spotify
-                clear()
                 pacman.install("spotify-launcher")
             if "2" in pregunta_musica: #Spotify Adblock
-                aur("spotify-adblock")
+                pacman.aur("spotify-adblock")
             if "3" in pregunta_musica: #Spotube
-                aur("spotube-bin")
+                pacman.aur("spotube-bin")
             if "4" in pregunta_musica: #Clementine
-                clear()
                 pacman.install("clementine")
             if "5" in pregunta_musica: #YT Music
-                aur("youtube-music")
+                pacman.aur("youtube-music")
             if "6" in pregunta_musica: #Audacity
-                clear()
                 pacman.install("audacity")
             if "0" in pregunta_musica: #Atras
                 pass
@@ -382,11 +344,11 @@ def apps_desarrollo():
                 clear()
                 ("sudo pacman -S libreoffice --noconfirm")
             if "2" in pregunta_oficina:
-                aur("openoffice-bin")
+                pacman.aur("openoffice-bin")
             if "3" in pregunta_oficina:
-                aur("onlyoffice-bin")
+                pacman.aur("onlyoffice-bin")
             if "4" in pregunta_oficina:
-                aur("wps-office-all-dicts-win-languages")
+                pacman.aur("wps-office-all-dicts-win-languages")
             if "0" in pregunta_oficina:
                 pass
         if "0" in apre: #Salir
@@ -401,21 +363,15 @@ def cambiar_shell():
     print("1:fish\n2:zsh\n3:bash\n0:Atras")
     shellpre = int(input("Que shell deseas poner?\n:"))
     if shellpre == 1: #Shell fish
-        clear()
         pacman.install("fish")
-        clear()
         sys("chsh -s /bin/fish")
         clear()
     if shellpre == 2: #Shell zsh
-        clear()
         pacman.install("zsh")
-        clear()
         sys("chsh -s /bin/zsh")
         clear()
     if shellpre == 3: #Shell Bash
-        clear()
         pacman.install("bash")
-        clear()
         sys("chsh -s /bin/bash")
         clear()
     if shellpre == 0:
@@ -429,23 +385,21 @@ def snapd_inst():
         clear()
         sys("yay --noconfirm -S snapd")
         clear()
-        sys("sudo systemctl enable --now snapd.socket")
-        sys("sudo ln -s /var/lib/snapd/snap /snap")
-        sys("sudo systemctl enable --now snapd.apparmor")
-        sys("sudo apparmor_parser -r /etc/apparmor.d/*snap-confine*")
-        sys("sudo apparmor_parser -r /var/lib/snapd/apparmor/profiles/snap confine*")
+        def snapd_perms():
+            sys("sudo systemctl enable --now snapd.socket")
+            sys("sudo ln -s /var/lib/snapd/snap /snap")
+            sys("sudo systemctl enable --now snapd.apparmor")
+            sys("sudo apparmor_parser -r /etc/apparmor.d/*snap-confine*")
+            sys("sudo apparmor_parser -r /var/lib/snapd/apparmor/profiles/snap confine*")
+        snapd_perms()
         clear()
         print("\nListo!\n")
     if pr1 == 2:
-        aur("snapd")
+        pacman.aur("snapd")
         clear()
-        sys("sudo systemctl enable --now snapd.socket")
-        sys("sudo ln -s /var/lib/snapd/snap /snap")
-        sys("sudo systemctl enable --now snapd.apparmor")
-        sys("sudo apparmor_parser -r /etc/apparmor.d/*snap-confine*")
-        sys("sudo apparmor_parser -r /var/lib/snapd/apparmor/profiles/snap confine*")
+        snapd_perms()
         clear()
-        chdir(current_directory)
+        chdir(getcwd())
         clear()
         print("\nListo!\n")
     if pr1 < 2:
@@ -459,30 +413,28 @@ def pkgman():
     print("1:yay\n2:paru\n3:pikaur\n4:snapd\n5:flatpak\n6:Pamac\n0:Cancelar")
     pkgpre1 = str(input(":"))
     if "1" in pkgpre1: #Yay
-        aur("yay")
+        pacman.aur("yay")
         clear()
     if "2" in pkgpre1: #Paru
         clear()
-        aur("paru")
+        pacman.aur("paru")
     if "3" in pkgpre1: #Pikaur
-        aur("pikaur")
+        pacman.aur("pikaur")
     if "4" in pkgpre1: #Snapd
         snapd_inst()
     if "5" in pkgpre1: #Flatpak
-        clear()
         pacman.install("flatpak")
-        clear()
     if "6" in pkgpre1: #Pamac
         clear()
         palabras.pamac()
         print("1:Instalar pamac AUR\n2:Instalar pamac Flatpak\n3:Instalar pamac nosnap\n0:Cancelar")
         pamac_pre1 = int(input(":"))
         if pamac_pre1 == 1: #pamac-aur
-            aur("pamac-aur")
+            pacman.aur("pamac-aur")
         if pamac_pre1 == 2: #pamac-flatpak
-            aur("pamac-flatpak")
+            pacman.aur("pamac-flatpak")
         if pamac_pre1 == 3: #pamac-nosnap
-            aur("pamac-nosnap")
+            pacman.aur("pamac-nosnap")
         if pamac_pre1 == 0: #Salida
             clear()
             pass
@@ -505,16 +457,12 @@ def escritorios():
         print("1:i3wm\n2:awesome\n3:icewm\n4:bspwm\n0:Atras")
         pregunta_wm_1 = str(input(":"))
         if "1" in pregunta_wm_1:
-            clear()
             pacman.install("i3")
         if "2" in pregunta_wm_1:
-            clear()
             pacman.install("awesome")
         if "3" in pregunta_wm_1:
-            clear()
             pacman.install("icewm")
         if "4" in pregunta_wm_1:
-            clear()
             pacman.install("bspwm")
         if "0" in pregunta_wm_1:
             clear()
@@ -525,29 +473,17 @@ def escritorios():
         print("1:XFCE4\n2:GNOME\n3:KDE Plasma\n4:LXDE\n5:Cinnamon\n6:Mate\n0:Cancelar")
         desk_pre = str(input(":"))
         if "1" in desk_pre: #XFCE4
-            clear()
-            pacman.install(["xfce4","xfce4-goodies"])
-            clear()
+            pacman.install("xfce4 xfce4-goodies")
         if "2" in desk_pre: #GNOME
-            clear()
-            pacman.install(["gnome","gnome-extra"])
-            clear()
+            pacman.install("gnome-extra gnome")
         if "3" in desk_pre: #KDE Plasma
-            clear()
             pacman.install("plasma")
-            clear()
         if "4" in desk_pre: #LXDE
-            clear()
             pacman.install("lxde")
-            clear()
         if "5" in desk_pre: #Cinnamon
-            clear()
             pacman.install("cinnamon")
-            clear()
         if "6" in desk_pre: #Mate
-            clear()
             pacman.install("mate")
-            clear()
         if "0" in desk_pre: #Cancelar
             pass
     if "0" in pregunta_wm:
@@ -576,13 +512,11 @@ def otros():
                 print("1:Linux\n2:xanmod\n3:zen\n0:Atras")
                 pregunta_kernel = str(input(":"))
                 if "1" in pregunta_kernel:
-                    clear()
-                    pacman.install(["linux","linux-headers"])
+                    pacman.install("linux linux-headers")
                 if "2" in pregunta_kernel:
-                    aur("linux-xanmod")
+                    pacman.aur("linux-xanmod")
                 if "3" in pregunta_kernel:
-                    clear()
-                    pacman.install(["linux-zen","linux-zen-headers"])
+                    pacman.install("linux-zen linux-zen-headers")
                 if "0" in pregunta_kernel:
                     break
         if "0" in pregunta_otros:
