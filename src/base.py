@@ -12,7 +12,7 @@ def installed():
 class pacman:
     def install(nombre_pacman):
         clear()
-        print("Instalando...")
+        print("Instalando " + nombre_pacman + "...")
         sys("sudo pacman -S " + nombre_pacman + " --noconfirm|ls > .out && rm -rf .out")
         clear()
         installed()
@@ -25,11 +25,11 @@ class pacman:
         clear()
         url = "https://aur.archlinux.org/" + nombre_aur + ".git"
         chdir("/tmp")
-        print("Clonando...")
+        print("Clonando " + nombre_aur + "...")
         sys("git clone "+ url + " |ls > .out && rm -rf .out")
         clear()
         chdir(nombre_aur)
-        print("Instalando...")
+        print("Instalando " + nombre_aur + "...")
         sys("makepkg -si --noconfirm|ls > .out && rm -rf .out")
         clear()
         chdir(getcwd())
