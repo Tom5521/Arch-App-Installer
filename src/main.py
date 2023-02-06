@@ -1,7 +1,7 @@
 
 #Creado Por Angel Alderete
 
-#PY-arch-Instalator v3.2.0
+#Arch-Instalator v3.2.2
 
 from time import sleep as sl
 import palabras
@@ -60,7 +60,8 @@ while True:
             pass
         if "5" in pregunta_inicial: #Borrar basura
             clear()
-            base.borrar_basura()
+            palabras.borrar_basura()
+            print("Elige una o mas opciones\n1:Escriba los paquetes que quiere eliminar seguidos de un salto de linea\n2:Borrado automatico\n0:Atras")
             rm_pre = str(input(":"))
             if "1" in rm_pre:
                 ("nano rem")

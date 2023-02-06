@@ -1,6 +1,11 @@
 
 #Creado por Angel Alderete
 
+def snapd():
+    print("█▀▀ █▀▀▄ █▀▀█ █▀▀█ █▀▀▄") 
+    print("▀▀█ █░░█ █▄▄█ █░░█ █░░█") 
+    print("▀▀▀ ▀░░▀ ▀░░▀ █▀▀▀ ▀▀▀░")
+
 def kernels():
     print("█░█ █▀▀ █▀▀█ █▀▀▄ █▀▀ █░░ █▀▀") 
     print("█▀▄ █▀▀ █▄▄▀ █░░█ █▀▀ █░░ ▀▀█") 

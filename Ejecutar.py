@@ -6,12 +6,14 @@ def clear():
     sys("clear")
     pass
 
+clear()
 
 syupd = os.listdir("/tmp")
 if "inst-temp" in syupd:
     pass
 else:
-    sys("sudo pacman -Sy")
+    print("Actualizando Repositorios...")
+    sys("sudo pacman -Sy|ls > .out && rm -rf .out")
     os.mkdir("/tmp/inst-temp")
 clear()
 
