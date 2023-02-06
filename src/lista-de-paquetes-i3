@@ -10,11 +10,6 @@ eos-qogir-icons
 gthumb
 gtk-engine-murrine
 gvfs
-gvfs-afc
-gvfs-gphoto2
-gvfs-mtp
-gvfs-nfs
-gvfs-smb
 i3-gaps
 i3blocks
 i3lock
@@ -41,7 +36,8 @@ nitrogen
 kate
 picom
 mousepad-git
-xfce4-clipman-plugin
 automounter
 gnome-keyring
 clipman
+kdeconnect
+firefox
