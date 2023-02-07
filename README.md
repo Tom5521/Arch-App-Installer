@@ -31,8 +31,7 @@ Ademas de un gestor grafico de ellos osea pamac
 - Y por ultimo podras instalar la app blueman para manejar bluetooth
 
 #### En Conclusion
-En fin ire actualizando este proyecto hasta que se me caigan las manos o pierda de alguna manera mi cuenta
-o hasta que me quede sin ideas 
+Este script estara en constante parcheo y actualizacion por lo cual en el futuro se añadiran/corregiran nuevas funciones 
 
 
 
