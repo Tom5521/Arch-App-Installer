@@ -13,7 +13,7 @@ if "inst-temp" in syupd:
     pass
 else:
     print("Actualizando Repositorios...")
-    sys("sudo pacman -Sy|ls > .out && rm -rf .out")
+    sys("sudo pacman -Syy >/dev/null 2>&1")
     os.mkdir("/tmp/inst-temp")
 clear()
 
