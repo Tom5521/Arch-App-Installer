@@ -1,7 +1,7 @@
 
 #Creado Por Angel Alderete
 
-#Arch-Instalator v3.2.2
+#Arch-Instalator v3.3.0
 
 from time import sleep as sl
 import palabras
