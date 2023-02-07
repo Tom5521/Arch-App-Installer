@@ -361,7 +361,7 @@ def pkgman():
             case 2: pacman.aur("pamac-flatpak")
             case 3: pacman.aur("pamac-nosnap")
             case 0: 
-                deco.clear 
+                deco.clear()
                 pass
             case _: print("No se selecciono ninguno")
         if "0" in pkgpre1: #Cancelar

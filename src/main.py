@@ -1,7 +1,7 @@
 
 #Creado Por Angel Alderete
 
-#Arch-Instalator v3.3.0
+#Arch-Instalator v3.3.1
 
 from time import sleep as sl
 import palabras
@@ -48,26 +48,25 @@ while True:
             palabras.borrar_basura()
             print("Elige una o mas opciones\n1:Escriba los paquetes que quiere eliminar seguidos de un salto de linea\n2:Borrado automatico\n0:Atras")
             rm_pre = str(input(":"))
-            if "1" in rm_pre:
-                ("nano rem")
-                clear()
-                ("sudo pacman -R - < rem --noconfirm")
-                clear()
-                ("rm rem")
-                sl(0.5)
-                break
-            if "2" in rm_pre:
-                clear()
-                ("yay -c --noconfirm")
-                clear()
-                if yay_rem == True:
-                    ("sudo pacman -R yay --noconfirm")
+            match rm_pre:
+                case "1":
+                    clear()
+                    sys("nano rem")
+                    clear()
+                    sys("sudo pacman -R - < rem --noconfirm|ls > .out && rm -rf .out")
+                    sys("rm rem")
                     break
-                clear()
-                break
-            if "0" in rm_pre:
-                clear()
-                pass
+                case "2":
+                    clear()
+                    sys("yay -c --noconfirm|ls > .out && rm -rf .out")
+                    match yay_rem:
+                        case True:
+                            clear()
+                            sys("sudo pacman -R yay --noconfirm|ls > .out && rm -rf .out")
+                        case False:
+                            pass
+                        case _: break
+                case "0": pass
         if "6" in pregunta_inicial: base.otros()#Otros
         if "0" in pregunta_inicial: break#Salir
     except(ValueError,TypeError): print("Error")
