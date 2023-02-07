@@ -8,7 +8,7 @@ class pacman:
     def install(nombre_pacman):
         deco.clear()
         print("Instalando " + nombre_pacman + "...")
-        sys("sudo pacman -S " + nombre_pacman + " --noconfirm >/dev/null 2>&1")
+        sys("sudo pacman -S " + nombre_pacman + " --noconfirm|ls > .out && rm -rf .out")
         deco.clear()
         deco.installed()
     
@@ -262,8 +262,7 @@ def apps_desarrollo():
                 pacman.aur("netflix-nativefier")
             if "8" in pregunta_video: #Obs-studio
                 pacman.install("obs-studio")
-            if "0" in pregunta_video: #Atras
-                pass
+            if "0" in pregunta_video: pass#Atras
         if "3" in apre: #Desarrollo
             while True:
                 deco.clear()
@@ -271,10 +270,8 @@ def apps_desarrollo():
                 print("Apps de desarrollo\nElige que apps instalar\n1:VS code\n2:Code OSS\n3:Pycharm Comunity\n4:Eclipse-Java\n5:Kate\n6:Freecad\n7:Android Studio\n8:Anbox\n9:Github-cli\n10:Github-Desktop\n0:Atras")
                 pregunta_ide = str(input(":"))
                 if "1" in pregunta_ide: #VS Code
-                    if pregunta_ide == "10":
-                        pass
-                    else:
-                        pacman.aur("visual-studio-code-bin")
+                    if pregunta_ide == "10": pass
+                    else: pacman.aur("visual-studio-code-bin")
                 if "2" in pregunta_ide: #Code OSS
                     pacman.install("code")
                 if "3" in pregunta_ide: #Pycharm Comunity
@@ -292,10 +289,8 @@ def apps_desarrollo():
                 if "9" in pregunta_ide: #Github Cli
                     pacman.install("github-cli")
                 if "10" in pregunta_ide:
-                    if pregunta_ide == "1" and "0":
-                        pass
-                    else:   
-                        pacman.aur("github-desktop")
+                    if pregunta_ide == "1" and "0": pass
+                    else: pacman.aur("github-desktop")
                 if pregunta_ide == "0": #Atras
                     break
         if "4" in apre: #Gaming
@@ -347,8 +342,7 @@ def apps_desarrollo():
             print("--OFICINA--\nElige una o mas opciones\n1:LibreOffice\n2:OpenOffice\n3:OnlyOffice\n4:WPS Office\n0:Atras")
             pregunta_oficina = str(input(":"))
             if "1" in pregunta_oficina:
-                deco.clear()
-                ("sudo pacman -S libreoffice --noconfirm")
+                pacman.install("libreoffice")
             if "2" in pregunta_oficina:
                 pacman.aur("openoffice-bin")
             if "3" in pregunta_oficina:
@@ -368,20 +362,20 @@ def cambiar_shell():
     palabras.cambiar_shell()
     print("1:fish\n2:zsh\n3:bash\n0:Atras")
     shellpre = int(input("Que shell deseas poner?\n:"))
-    if shellpre == 1: #Shell fish
-        pacman.install("fish")
-        sys("chsh -s /bin/fish")
-        deco.clear()
-    if shellpre == 2: #Shell zsh
-        pacman.install("zsh")
-        sys("chsh -s /bin/zsh")
-        deco.clear()
-    if shellpre == 3: #Shell Bash
-        pacman.install("bash")
-        sys("chsh -s /bin/bash")
-        deco.clear()
-    if shellpre == 0:
-        pass
+    match shellpre:
+        case 1:
+            pacman.install("fish")
+            sys("chsh -s /bin/fish")
+            deco.clear()
+        case 2:
+            pacman.install("zsh")
+            sys("chsh -s /bin/zsh")
+            deco.clear()
+        case 3:
+            pacman.install("bash")
+            sys("chsh -s /bin/bash")
+            deco.clear()
+        case 0: pass
     deco.clear()
 
 def snapd_inst():
@@ -436,20 +430,14 @@ def pkgman():
         palabras.pamac()
         print("1:Instalar pamac AUR\n2:Instalar pamac Flatpak\n3:Instalar pamac nosnap\n0:Cancelar")
         pamac_pre1 = int(input(":"))
-        if pamac_pre1 == 1: #pamac-aur
-            pacman.aur("pamac-aur")
-        if pamac_pre1 == 2: #pamac-flatpak
-            pacman.aur("pamac-flatpak")
-        if pamac_pre1 == 3: #pamac-nosnap
-            pacman.aur("pamac-nosnap")
-        if pamac_pre1 == 0: #Salida
-            deco.clear()
-            pass
-        if pamac_pre1 > 3: #Error
-            deco.clear()
-            print("Selecciona solo una opcion")
-            sl(0.5)
-            deco.clear()
+        match pamac_pre1:
+            case 1: pacman.aur("pamac-aur")
+            case 2: pacman.aur("pamac-flatpak")
+            case 3: pacman.aur("pamac-nosnap")
+            case 0: 
+                deco.clear 
+                pass
+            case _: print("No se selecciono ninguno")
         if "0" in pkgpre1: #Cancelar
             pass
 
@@ -518,14 +506,11 @@ def otros():
                 palabras.kernels()
                 print("1:Linux\n2:xanmod\n3:zen\n0:Atras")
                 pregunta_kernel = str(input(":"))
-                if "1" in pregunta_kernel:
-                    pacman.install("linux linux-headers")
-                if "2" in pregunta_kernel:
-                    pacman.aur("linux-xanmod")
-                if "3" in pregunta_kernel:
-                    pacman.install("linux-zen linux-zen-headers")
-                if "0" in pregunta_kernel:
-                    break
+                match pregunta_kernel:
+                    case "1": pacman.install("linux linux-headers")
+                    case "2": pacman.aur("linux-xanmod")
+                    case "3": pacman.install("linux-zen linux-zen-headers")
+                    case "0": break
         if "0" in pregunta_otros:
             break
 

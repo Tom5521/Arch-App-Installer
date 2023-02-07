@@ -13,10 +13,8 @@ yay_rem = True
 sys("pacman -Q yay > src/temp")
 test_open = open("src/temp","r")
 test_read = test_open.read()            
-if "yay" in test_read:
-    yay_rem = False
-else:
-    yay_rem = True
+if "yay" in test_read: yay_rem = False
+else: yay_rem = True
 sys("rm src/temp")
 ###############################Comprobacion#de#yay###################################
 def clear():
@@ -33,12 +31,8 @@ while True:
             palabras.apps_y_drivers()
             print("1:Apps\n2:Drivers\n0:Atras")
             pregunta_apps_y_dependencias = str(input(":"))
-            if "1" in pregunta_apps_y_dependencias: #Apps
-                clear()
-                base.apps_desarrollo()
-            if "2" in pregunta_apps_y_dependencias: #Dependencias
-                clear()
-                base.dependencias_desarrollo()
+            if "1" in pregunta_apps_y_dependencias: base.apps_desarrollo()#Apps
+            if "2" in pregunta_apps_y_dependencias: base.dependencias_desarrollo()#Dependencias
             if pregunta_apps_y_dependencias == "DEFG": #Dependencias Gaming
                 clear()
                 palabras.gaming()
@@ -46,18 +40,9 @@ while True:
             if "0" in pregunta_apps_y_dependencias: #Atras
                 clear()
                 pass
-        if "2" in pregunta_inicial: #Gestores de paquetes
-            clear()
-            base.pkgman()
-            pass
-        if "3" in pregunta_inicial: #Escritorios/wm's
-            clear()
-            base.escritorios()
-            pass
-        if "4" in pregunta_inicial: #Cambiar shell
-            clear()
-            base.cambiar_shell()
-            pass
+        if "2" in pregunta_inicial: base.pkgman()#Gestores de paquetes
+        if "3" in pregunta_inicial: base.escritorios()#Escritorios/wm's
+        if "4" in pregunta_inicial: base.cambiar_shell()#Cambiar shell
         if "5" in pregunta_inicial: #Borrar basura
             clear()
             palabras.borrar_basura()
@@ -83,12 +68,8 @@ while True:
             if "0" in rm_pre:
                 clear()
                 pass
-        if "6" in pregunta_inicial: #Otros
-            clear()
-            base.otros()
-        if "0" in pregunta_inicial:#Salir
-            break
-    except(ValueError,TypeError):
-        print("Error")
+        if "6" in pregunta_inicial: base.otros()#Otros
+        if "0" in pregunta_inicial: break#Salir
+    except(ValueError,TypeError): print("Error")
 clear()
 palabras.Final()
