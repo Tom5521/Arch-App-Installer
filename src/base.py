@@ -331,32 +331,15 @@ def cambiar_shell():
 def snapd_inst():
     deco.clear()
     palabras.snapd()
-    pr1 = int(input("Quieres descargar el paquete por...?\n1=yay(debe estar instalado)\n2=git clone\n:"))
-    if pr1 == 1:
-        deco.clear()
-        sys("yay --noconfirm -S snapd")
-        deco.clear()
-        def snapd_perms():
-            sys("sudo systemctl enable --now snapd.socket")
-            sys("sudo ln -s /var/lib/snapd/snap /snap")
-            sys("sudo systemctl enable --now snapd.apparmor")
-            sys("sudo apparmor_parser -r /etc/apparmor.d/*snap-confine*")
-            sys("sudo apparmor_parser -r /var/lib/snapd/apparmor/profiles/snap confine*")
-        snapd_perms()
-        deco.clear()
-        print("\nListo!\n")
-    if pr1 == 2:
-        pacman.aur("snapd")
-        deco.clear()
-        snapd_perms()
-        deco.clear()
-        chdir(getcwd())
-        deco.clear()
-        print("\nListo!\n")
-    if pr1 < 2:
-        deco.clear()
-        print("Selecciona Correctamente")
-        sl(0.5)
+    pacman.aur("snapd")
+    deco.clear()
+    sys("sudo systemctl enable --now snapd.socket")
+    sys("sudo ln -s /var/lib/snapd/snap /snap")
+    sys("sudo systemctl enable --now snapd.apparmor")
+    sys("sudo apparmor_parser -r /etc/apparmor.d/*snap-confine*")
+    sys("sudo apparmor_parser -r /var/lib/snapd/apparmor/profiles/snap confine*")
+    deco.clear()
+    print("\nListo!\n")
 
 def pkgman():
     deco.clear()
