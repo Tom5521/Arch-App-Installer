@@ -8,25 +8,25 @@ class pacman:
     def install(nombre_pacman):
         deco.clear()
         print("Instalando " + nombre_pacman + "...")
-        sys("sudo pacman -S " + nombre_pacman + " --noconfirm|ls > .out && rm -rf .out")
+        sys("sudo pacman -S " + nombre_pacman + " --noconfirm >/dev/null 2>&1")
         deco.clear()
         deco.installed()
     
     def refresh():
         deco.clear()
         print("Actualizando repos...")
-        sys("sudo pacman -Syy|ls > .out && rm -rf .out")
+        sys("sudo pacman -Syy >/dev/null 2>&1")
 
     def aur(nombre_aur):
         deco.clear()
         url = "https://aur.archlinux.org/" + nombre_aur + ".git"
         chdir("/tmp")
         print("Clonando " + nombre_aur + "...")
-        sys("git clone "+ url + "|ls > .out && rm -rf .out")
+        sys("git clone "+ url + ">/dev/null 2>&1")
         deco.clear()
         chdir(nombre_aur)
         print("Instalando " + nombre_aur + "...")
-        sys("makepkg -si --noconfirm|ls > .out && rm -rf .out")
+        sys("makepkg -si --noconfirm >/dev/null 2>&1")
         deco.clear()
         chdir(getcwd())
         deco.installed()
@@ -34,7 +34,7 @@ class pacman:
     def upgrade():
         deco.clear()
         print("Actualizando...")
-        sys("sudo pacman -Syu --noconfirm|ls > .out && rm -rf .out")
+        sys("sudo pacman -Syu --noconfirm >/dev/null 2>&1")
 
 class deco:
     def clear():
