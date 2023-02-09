@@ -2,9 +2,11 @@
 import os
 from os import system as sys
 
+
 def clear():
     sys("clear")
     pass
+
 
 clear()
 
@@ -21,7 +23,7 @@ sys("pacman -Q git > src/temp")
 
 clear()
 
-testop = open("src/temp","r")
+testop = open("src/temp", "r")
 test = testop.read()
 
 if "git" in test:
