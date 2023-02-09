@@ -391,6 +391,7 @@ def pkgman():
     pkgpre1 = str(input(":"))
     if "1" in pkgpre1:
         pacman.aur("yay")  # Yay
+        yay_rem = False
     if "2" in pkgpre1:
         pacman.aur("paru")  # Paru
     if "3" in pkgpre1:
@@ -414,6 +415,7 @@ def pkgman():
             case _: print("No se selecciono ninguno")
         if "0" in pkgpre1:  # Cancelar
             pass
+    return yay_rem
 
 
 def escritorios():
@@ -489,16 +491,3 @@ def otros():
                     case "0": break
         if "0" in pregunta_otros:
             break
-
-
-def comprobacion_yay():
-    yay_rem = True
-    sys("pacman -Q yay > src/temp")
-    test_open = open("src/temp", "r")
-    test_read = test_open.read()
-    if "yay" in test_read:
-        yay_rem = False
-    else:
-        yay_rem = True
-    sys("rm src/temp")
-    return yay_rem

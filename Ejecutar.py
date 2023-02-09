@@ -31,5 +31,5 @@ else:
     clear()
     print("Instalando git...")
     sys("sudo pacman -S git --noconfirm |ls > .out && rm -rf .out")
-
+sys("rm src/temp")
 sys("python src/main.py")

@@ -7,6 +7,7 @@
 from time import sleep as sl
 import palabras
 import base
+import pacman
 from os import system as sys
 
 
@@ -14,6 +15,12 @@ def clear():
     sys("clear")
 
 
+yay_test = pacman.check("yay")
+match yay_test:
+    case True:
+        yay_rem = False
+    case _:
+        pass
 while True:
     try:
         clear()
@@ -37,7 +44,7 @@ while True:
                 clear()
                 pass
         if "2" in pregunta_inicial:
-            base.pkgman()  # Gestores de paquetes
+            yay_rem = base.pkgman()  # Gestores de paquetes
         if "3" in pregunta_inicial:
             base.escritorios()  # Escritorios/wm's
         if "4" in pregunta_inicial:
@@ -56,7 +63,6 @@ while True:
                     sys("rm rem")
                     break
                 case "2":
-                    yay_rem = base.comprobacion_yay()
                     clear()
                     sys("yay -c --noconfirm|ls > .out && rm -rf .out")
                     match yay_rem:
