@@ -9,7 +9,6 @@ def clear():
 
 
 clear()
-
 syupd = os.listdir("/tmp")
 if "inst-temp" in syupd:
     pass
@@ -30,6 +29,7 @@ if "git" in test:
     pass
 else:
     clear()
-    sys("sudo pacman -S git --noconfirm")
+    print("Instalando git...")
+    sys("sudo pacman -S git --noconfirm |ls > .out && rm -rf .out")
 
 sys("python src/main.py")
