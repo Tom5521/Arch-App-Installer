@@ -1,5 +1,9 @@
+# Creado por Tom5521 o Angel pa'los cuates
+# Bajo la licencia GPL 3.0
 
-import os
+# Arch-Instalator EJECUTOR v3.4.1
+
+from os import listdir, mkdir
 from os import system as sys
 
 
@@ -9,13 +13,13 @@ def clear():
 
 
 clear()
-syupd = os.listdir("/tmp")
+syupd = listdir("/tmp")
 if "inst-temp" in syupd:
     pass
 else:
     print("Actualizando Repositorios...")
     sys("sudo pacman -Syy >/dev/null 2>&1")
-    os.mkdir("/tmp/inst-temp")
+    mkdir("/tmp/inst-temp")
 clear()
 
 sys("pacman -Q git > src/temp")

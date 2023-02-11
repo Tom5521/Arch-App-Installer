@@ -1,8 +1,7 @@
-
 # Creado por Tom5521 o Angel pa'los cuates
 # Bajo la licencia GPL 3.0
 
-# Arch-Instalator BASE v3.4.0
+# Arch-Instalator BASE v3.4.1
 
 from time import sleep as sl
 import palabras
@@ -19,23 +18,6 @@ class deco:
         sl(1)
 
 
-class basura:  # Esto es mrd que pronto se eliminara
-
-    def dependenciasG():
-        deco.clear()
-        sys("yay --noconfirm -S wine mangohud game-devices-udev gamemode linux-xanmod linux-xanmod-headers vulkan-icd-loader lib32-vulkan-icd-loader lib32-vulkan-intel vulkan-intel vkd3d lib32-vkd3d")
-        deco.clear()
-        pacman.refresh()
-        deco.clear()
-
-    def el_resto():
-        deco.clear()
-        sys("yay --noconfirm -S mkinitcpio-firmware python-lsp-server")
-        deco.clear()
-        sys("yay -Syu --noconfirm")
-        deco.clear()
-
-
 def dependencias_desarrollo():
     while True:
         deco.clear()
@@ -47,28 +29,36 @@ def dependencias_desarrollo():
                 deco.clear()
                 palabras.drivers_graficos()
                 print(
-                    "Elige tus especificaciones\n1:Nvidia\n2:Amd\n3:Intel(Open Source)\n0:Atrás")
+                    "Elige tus especificaciones\n1:Nvidia\n2:Amd\n3:Intel(Open Source)\n0:Atrás"
+                )
                 pregunta_drivers_g = float(input(":"))
                 match pregunta_drivers_g:
                     case 1:  # Nvidia
                         deco.clear()
                         palabras.nvidia()
                         print(
-                            "Elige una version\n1:Propietario\n2:Open Source\n0:Atrás")
+                            "Elige una version\n1:Propietario\n2:Open Source\n0:Atrás"
+                        )
                         pregunta_drivers_nvidia = int(input(":"))
                         match pregunta_drivers_nvidia:
-                            case 1: pacman.aur("nvidia-340xx")
-                            case 2: pacman.install("nvidia-open")
+                            case 1:
+                                pacman.aur("nvidia-340xx")
+                            case 2:
+                                pacman.install("nvidia-open")
                     case 2:  # AMD
                         deco.clear()
                         palabras.amd()
                         print("Drivers...?\n1:Propietarios\n2:Open Source\n0:Atrás")
                         pregunta_drivers_1 = int(input(":"))
                         match pregunta_drivers_1:
-                            case 1: pacman.aur("amdgpu-pro-installer")
-                            case 2: pacman.install("xf86-video-ati xf86-video-amdgpu")
-                            case _: pass
-                    case 3: pacman.install("xf86-video-intel")  # Intel
+                            case 1:
+                                pacman.aur("amdgpu-pro-installer")
+                            case 2:
+                                pacman.install("xf86-video-ati xf86-video-amdgpu")
+                            case _:
+                                pass
+                    case 3:
+                        pacman.install("xf86-video-intel")  # Intel
                     case 0:  # Atrás
                         deco.clear()
                         break
@@ -77,7 +67,9 @@ def dependencias_desarrollo():
         if "2" in pregunta_drivers:
             deco.clear()
             palabras.sonido()
-            print("Elige una opcion\n1:Servidores de Audio\n2:Drivers de Sonido\n0:Atrás")
+            print(
+                "Elige una opcion\n1:Servidores de Audio\n2:Drivers de Sonido\n0:Atrás"
+            )
             pregunta_drivers_s = str(input(":"))
             if "1" in pregunta_drivers_s:
                 while True:
@@ -125,7 +117,9 @@ def add_repos():
     while True:
         deco.clear()
         palabras.repositorios()
-        print("Seleccione repos a instalar\n1:Repositorio endeavour OS\n2:Chaotic-AUR\n0:Atrás")
+        print(
+            "Seleccione repos a instalar\n1:Repositorio endeavour OS\n2:Chaotic-AUR\n0:Atrás"
+        )
         pregunta_repos = str(input(":"))
         if "1" in pregunta_repos:  # Endeavour repo
             deco.clear()
@@ -134,21 +128,29 @@ def add_repos():
             deco.clear()
             sys('sudo echo "[endeavouros]" >> /etc/pacman.conf')
             sys('sudo echo "SigLevel = PackageRequired" >> /etc/pacman.conf')
-            sys('sudo echo "Include = /etc/pacman.d/endeavouros-mirrorlist" >> /etc/pacman.conf')
+            sys(
+                'sudo echo "Include = /etc/pacman.d/endeavouros-mirrorlist" >> /etc/pacman.conf'
+            )
             sys("sudo cp src/endeavouros-mirrorlist /etc/pacman.d/")
             deco.clear()
             pacman.refresh()
             deco.clear()
             sys("echo Exito!")
         if "2" in pregunta_repos:  # Chaotic-AUR
-            sys("sudo pacman-key --recv-key FBA220DFC880C036 --keyserver keyserver.ubuntu.com")
+            sys(
+                "sudo pacman-key --recv-key FBA220DFC880C036 --keyserver keyserver.ubuntu.com"
+            )
             sys("sudo pacman-key --lsign-key FBA220DFC880C036")
-            sys("sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'")
+            sys(
+                "sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'"
+            )
             deco.clear()
             pacman.refresh()
             deco.clear()
             sys('sudo echo "[chaotic-aur]" >> /etc/pacman.conf')
-            sys('sudo echo "Include = /etc/pacman.d/chaotic-mirrorlist" >> /etc/pacman.conf')
+            sys(
+                'sudo echo "Include = /etc/pacman.d/chaotic-mirrorlist" >> /etc/pacman.conf'
+            )
             pacman.refresh()
             deco.clear()
         if pregunta_repos == "0":
@@ -159,7 +161,9 @@ def apps_desarrollo():
     while True:
         deco.clear()
         palabras.apps()
-        print("Escoje una categoria de apps a instalar\n1:Internet\n2:Imagen y Video\n3:Desarrollo\n4:Gaming\n5:Musica\n6:Oficina\n0:Salir")
+        print(
+            "Escoje una categoria de apps a instalar\n1:Internet\n2:Imagen y Video\n3:Desarrollo\n4:Gaming\n5:Musica\n6:Oficina\n0:Salir"
+        )
         apre = str(input(":"))
         if "1" in apre:  # Internet
             deco.clear()
@@ -170,7 +174,8 @@ def apps_desarrollo():
                 deco.clear()
                 palabras.navegadores()
                 print(
-                    "1:Firefox\n2:Chromium\n3:Opera\n4:Brave\n5:Chrome\n6:Tor\n0:Cancelar")
+                    "1:Firefox\n2:Chromium\n3:Opera\n4:Brave\n5:Chrome\n6:Tor\n0:Cancelar"
+                )
                 pregunta_navegador = str(input(":"))
                 if "1" in pregunta_navegador:
                     pacman.install("firefox")  # Firefox
@@ -190,7 +195,8 @@ def apps_desarrollo():
                 deco.clear()
                 palabras.mail()
                 print(
-                    "Seleciona la o las apps que quieres instalar\n1:Thunderbird\n2:Mailspring\n3:Kmail\n0:Atrás")
+                    "Seleciona la o las apps que quieres instalar\n1:Thunderbird\n2:Mailspring\n3:Kmail\n0:Atrás"
+                )
                 pregunta_correo = str(input(":"))
                 if "1" in pregunta_correo:
                     pacman.install("thunderbird")  # Thunderbird
@@ -204,7 +210,8 @@ def apps_desarrollo():
                 deco.clear()
                 palabras.mensajeria()
                 print(
-                    "Elige lo que quieres instalar:\n1:Discord\n2:Skype\n3:Teamspeak\n4:Telegram\n5:Zoom\n0:Atrás")
+                    "Elige lo que quieres instalar:\n1:Discord\n2:Skype\n3:Teamspeak\n4:Telegram\n5:Zoom\n0:Atrás"
+                )
                 pregunta_mensajes = str(input(":"))
                 if "1" in pregunta_mensajes:
                     pacman.install("discord")  # Discord
@@ -223,7 +230,9 @@ def apps_desarrollo():
         if "2" in apre:  # Imagen y video
             deco.clear()
             palabras.imagen_y_video()
-            print("Selecciona que instalar\n1:vlc\n2:mpv\n3:gthumb\n4:gimp\n5:krita\n6:kdenlive\n7:Netflix\n8:Obs-Studio\n0:Atrás")
+            print(
+                "Selecciona que instalar\n1:vlc\n2:mpv\n3:gthumb\n4:gimp\n5:krita\n6:kdenlive\n7:Netflix\n8:Obs-Studio\n0:Atrás"
+            )
             pregunta_video = str(input(":"))
             if "1" in pregunta_video:
                 pacman.install("vlc")  # vlc
@@ -247,7 +256,9 @@ def apps_desarrollo():
             while True:
                 deco.clear()
                 palabras.desarrollo()
-                print("Apps de desarrollo\nElige que apps instalar\n1:VS code\n2:Code OSS\n3:Pycharm Comunity\n4:Eclipse-Java\n5:Kate\n6:Freecad\n7:Android Studio\n8:Anbox\n9:Github-cli\n10:Github-Desktop\n0:Atrás")
+                print(
+                    "Apps de desarrollo\nElige que apps instalar\n1:VS code\n2:Code OSS\n3:Pycharm Comunity\n4:Eclipse-Java\n5:Kate\n6:Freecad\n7:Android Studio\n8:Anbox\n9:Github-cli\n10:Github-Desktop\n0:Atrás"
+                )
                 pregunta_ide = str(input(":"))
                 if "1" in pregunta_ide:  # VS Code
                     if pregunta_ide == "10":
@@ -281,7 +292,9 @@ def apps_desarrollo():
         if "4" in apre:  # Gaming
             deco.clear()
             palabras.gaming()
-            print("Escoje que instalar\n1:Steam\n2:Lutris\n3:Wine\n4:proton-ge\n5:Play on Linux\n6:Mindustry\n7:Tlauncher\n8:Grapejuice(Roblox)\n9:Drivers\n0:Atrás")
+            print(
+                "Escoje que instalar\n1:Steam\n2:Lutris\n3:Wine\n4:proton-ge\n5:Play on Linux\n6:Mindustry\n7:Tlauncher\n8:Grapejuice(Roblox)\n9:Drivers\n0:Atrás"
+            )
             pregunta_juegos = str(input(":"))
             if "1" in pregunta_juegos:
                 pacman.install("steam")  # Steam
@@ -307,15 +320,19 @@ def apps_desarrollo():
         if "5" in apre:  # Musica
             deco.clear()
             palabras.musica()
-            print("Seleciona una o mas opciones\n1:Spotify\n2:Spotify-Adblock\n3:Spotube\n4:Clementine\n5:YT Music\n6:Audacity\n0:Atrás")
+            print(
+                "Seleciona una o mas opciones\n1:Spotify\n2:Spotify-Adblock\n3:Spotube\n4:Clementine\n5:YT Music\n6:Audacity\n0:Atrás"
+            )
             pregunta_musica = str(input(":"))
             if "1" in pregunta_musica:
                 pacman.aur("spotify")  # Spotify
             if "2" in pregunta_musica:  # Spotify
                 spotify_check = pacman.check("spotify")
                 match spotify_check:
-                    case True: pass
-                    case False: pacman.aur("spotify")
+                    case True:
+                        pass
+                    case False:
+                        pacman.aur("spotify")
                 pacman.aur("spotify-adblock")
             if "3" in pregunta_musica:
                 pacman.aur("spotube-bin")  # Spotube
@@ -331,7 +348,9 @@ def apps_desarrollo():
         if "6" in apre:  # Oficina
             deco.clear()
             palabras.oficina()
-            print("--OFICINA--\nElige una o mas opciones\n1:LibreOffice\n2:OpenOffice\n3:OnlyOffice\n4:WPS Office\n0:Atrás")
+            print(
+                "--OFICINA--\nElige una o mas opciones\n1:LibreOffice\n2:OpenOffice\n3:OnlyOffice\n4:WPS Office\n0:Atrás"
+            )
             pregunta_oficina = str(input(":"))
             if "1" in pregunta_oficina:
                 pacman.install("libreoffice")
@@ -366,22 +385,9 @@ def cambiar_shell():
             pacman.install("bash")
             sys("chsh -s /bin/bash")
             deco.clear()
-        case 0: pass
+        case 0:
+            pass
     deco.clear()
-
-
-def snapd_inst():
-    deco.clear()
-    palabras.snapd()
-    pacman.aur("snapd")
-    deco.clear()
-    sys("sudo systemctl enable --now snapd.socket")
-    sys("sudo ln -s /var/lib/snapd/snap /snap")
-    sys("sudo systemctl enable --now snapd.apparmor")
-    sys("sudo apparmor_parser -r /etc/apparmor.d/*snap-confine*")
-    sys("sudo apparmor_parser -r /var/lib/snapd/apparmor/profiles/snap confine*")
-    deco.clear()
-    print("\nListo!\n")
 
 
 def pkgman():
@@ -391,31 +397,45 @@ def pkgman():
     pkgpre1 = str(input(":"))
     if "1" in pkgpre1:
         pacman.aur("yay")  # Yay
-        yay_rem = False
     if "2" in pkgpre1:
         pacman.aur("paru")  # Paru
     if "3" in pkgpre1:
         pacman.aur("pikaur")  # Pikaur
     if "4" in pkgpre1:
-        snapd_inst()  # Snapd
+        deco.clear()  # Snapd
+        palabras.snapd()
+        pacman.aur("snapd")
+        deco.clear()
+        sys("sudo systemctl enable --now snapd.socket")
+        sys("sudo ln -s /var/lib/snapd/snap /snap")
+        sys("sudo systemctl enable --now snapd.apparmor")
+        sys("sudo apparmor_parser -r /etc/apparmor.d/*snap-confine*")
+        sys("sudo apparmor_parser -r /var/lib/snapd/apparmor/profiles/snap confine*")
+        deco.clear()
+        print("\nListo!\n")
     if "5" in pkgpre1:
         pacman.install("flatpak")  # Flatpak
     if "6" in pkgpre1:  # Pamac
         deco.clear()
         palabras.pamac()
-        print("1:Instalar pamac AUR\n2:Instalar pamac Flatpak\n3:Instalar pamac nosnap\n0:Cancelar")
+        print(
+            "1:Instalar pamac AUR\n2:Instalar pamac Flatpak\n3:Instalar pamac nosnap\n0:Cancelar"
+        )
         pamac_pre1 = int(input(":"))
         match pamac_pre1:
-            case 1: pacman.aur("pamac-aur")
-            case 2: pacman.aur("pamac-flatpak")
-            case 3: pacman.aur("pamac-nosnap")
+            case 1:
+                pacman.aur("pamac-aur")
+            case 2:
+                pacman.aur("pamac-flatpak")
+            case 3:
+                pacman.aur("pamac-nosnap")
             case 0:
                 deco.clear()
                 pass
-            case _: print("No se selecciono ninguno")
+            case _:
+                print("No se selecciono ninguno")
         if "0" in pkgpre1:  # Cancelar
             pass
-    return yay_rem
 
 
 def escritorios():
@@ -467,13 +487,17 @@ def otros():
     while True:
         deco.clear()
         palabras.otros()
-        print("1:Intalar dependencias i3(requiere yay)\n2:Instalar repos\n3:Instalar Kernels\n0:Atrás")
+        print(
+            "1:Intalar dependencias i3(requiere repo chaotic)\n2:Instalar repos\n3:Instalar Kernels\n0:Atrás"
+        )
         pregunta_otros = str(input(":"))
         if "1" in pregunta_otros:
             deco.clear()
-            sys("yay --noconfirm -S - < lista-de-paquetes-i3")
+            sys("sudo pacman -S - < lista-de-paquetes-i3 --noconfirm ")
             deco.clear()
-            sys("yay --noconfirm -S gnome-screenshot alsa-utils xscreensaver acpid mousepad-git")
+            sys(
+                "sudo pacman -S gnome-screenshot alsa-utils xscreensaver acpid mousepad-git --noconfirm"
+            )
             deco.clear()
         if "2" in pregunta_otros:
             add_repos()
@@ -485,9 +509,13 @@ def otros():
                 print("1:Linux\n2:xanmod\n3:zen\n0:Atrás")
                 pregunta_kernel = str(input(":"))
                 match pregunta_kernel:
-                    case "1": pacman.install("linux linux-headers")
-                    case "2": pacman.aur("linux-xanmod", "linux-xanmod-headers")
-                    case "3": pacman.install("linux-zen linux-zen-headers")
-                    case "0": break
+                    case "1":
+                        pacman.install("linux linux-headers")
+                    case "2":
+                        pacman.aur("linux-xanmod", "linux-xanmod-headers")
+                    case "3":
+                        pacman.install("linux-zen linux-zen-headers")
+                    case "0":
+                        break
         if "0" in pregunta_otros:
             break
