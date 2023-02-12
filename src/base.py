@@ -162,109 +162,113 @@ def apps_desarrollo():
         deco.clear()
         palabras.apps()
         print(
-            "Escoje una categoria de apps a instalar\n1:Internet\n2:Imagen y Video\n3:Desarrollo\n4:Gaming\n5:Musica\n6:Oficina\n0:Salir"
+            "Escoje una categoria de apps a instalar\n1:Internet\n2:Imagen y Video\n3:IDE's\n4:Herramientas desarrollo\n5:Gaming\n6:Musica\n7:Oficina\n0:Salir"
         )
         apre = str(input(":"))
         if "1" in apre:  # Internet
-            deco.clear()
-            palabras.internet()
-            print("Escoje una Categoria\n1:Navegador\n2:Email\n3:Mensajeria\n0:Atrás")
-            apre1 = str(input(":"))
-            if "1" in apre1:  # Navegador
+            while True:
                 deco.clear()
-                palabras.navegadores()
+                palabras.internet()
                 print(
-                    "1:Firefox\n2:Chromium\n3:Opera\n4:Brave\n5:Chrome\n6:Tor\n0:Cancelar"
+                    "Escoje una Categoria\n1:Navegador\n2:Email\n3:Mensajeria\n0:Atrás"
                 )
-                pregunta_navegador = str(input(":"))
-                if "1" in pregunta_navegador:
-                    pacman.install("firefox")  # Firefox
-                if "2" in pregunta_navegador:
-                    pacman.install("chromium")  # Chromium
-                if "3" in pregunta_navegador:
-                    pacman.install("opera")  # Opera
-                if "4" in pregunta_navegador:
-                    pacman.aur("brave")  # Brave
-                if "5" in pregunta_navegador:
-                    pacman.aur("google-chrome")  # Chrome
-                if "6" in pregunta_navegador:
-                    pacman.install("tor")  # Tor
-                if "0" in pregunta_navegador:
-                    pass  # Cancelar
-            if "2" in apre1:  # Correo
-                deco.clear()
-                palabras.mail()
-                print(
-                    "Seleciona la o las apps que quieres instalar\n1:Thunderbird\n2:Mailspring\n3:Kmail\n0:Atrás"
-                )
-                pregunta_correo = str(input(":"))
-                if "1" in pregunta_correo:
-                    pacman.install("thunderbird")  # Thunderbird
-                if "2" in pregunta_correo:
-                    pacman.aur("mailspring")  # Mailspring
-                if "3" in pregunta_correo:
-                    pacman.install("kmail")  # Kmail
-                if "0" in pregunta_correo:
-                    pass  # Atrás
-            if "3" in apre1:  # Mensajeria
-                deco.clear()
-                palabras.mensajeria()
-                print(
-                    "Elige lo que quieres instalar:\n1:Discord\n2:Skype\n3:Teamspeak\n4:Telegram\n5:Zoom\n0:Atrás"
-                )
-                pregunta_mensajes = str(input(":"))
-                if "1" in pregunta_mensajes:
-                    pacman.install("discord")  # Discord
-                if "2" in pregunta_mensajes:
-                    pacman.aur("skypeforlinux-stable-bin")  # Skype
-                if "3" in pregunta_mensajes:
-                    pacman.install("teamspeak3")  # Teamspeak
-                if "4" in pregunta_mensajes:
-                    pacman.install("telegram-desktop")  # Telegram
-                if "5" in pregunta_mensajes:
-                    pacman.aur("zoom")  # Zoom
-                if "0" in pregunta_mensajes:
-                    pass  # Atrás
-            if "0" in apre1:  # Atrás
-                pass
+                apre1 = str(input(":"))
+                if "1" in apre1:  # Navegador
+                    while True:
+                        deco.clear()
+                        palabras.navegadores()
+                        print(
+                            "1:Firefox\n2:Chromium\n3:Opera\n4:Brave\n5:Chrome\n6:Tor\n0:Cancelar"
+                        )
+                        pregunta_navegador = str(input(":"))
+                        if "1" in pregunta_navegador:
+                            pacman.install("firefox")  # Firefox
+                        if "2" in pregunta_navegador:
+                            pacman.install("chromium")  # Chromium
+                        if "3" in pregunta_navegador:
+                            pacman.install("opera")  # Opera
+                        if "4" in pregunta_navegador:
+                            pacman.aur("brave")  # Brave
+                        if "5" in pregunta_navegador:
+                            pacman.aur("google-chrome")  # Chrome
+                        if "6" in pregunta_navegador:
+                            pacman.install("tor")  # Tor
+                        if "0" in pregunta_navegador:
+                            break  # Cancelar
+                if "2" in apre1:  # Correo
+                    while True:
+                        deco.clear()
+                        palabras.mail()
+                        print(
+                            "Seleciona la o las apps que quieres instalar\n1:Thunderbird\n2:Mailspring\n3:Kmail\n0:Atrás"
+                        )
+                        pregunta_correo = str(input(":"))
+                        if "1" in pregunta_correo:
+                            pacman.install("thunderbird")  # Thunderbird
+                        if "2" in pregunta_correo:
+                            pacman.aur("mailspring")  # Mailspring
+                        if "3" in pregunta_correo:
+                            pacman.install("kmail")  # Kmail
+                        if "0" in pregunta_correo:
+                            break  # Atrás
+                if "3" in apre1:  # Mensajeria
+                    while True:
+                        deco.clear()
+                        palabras.mensajeria()
+                        print(
+                            "Elige lo que quieres instalar:\n1:Discord\n2:Skype\n3:Teamspeak\n4:Telegram\n5:Zoom\n0:Atrás"
+                        )
+                        pregunta_mensajes = str(input(":"))
+                        if "1" in pregunta_mensajes:
+                            pacman.install("discord")  # Discord
+                        if "2" in pregunta_mensajes:
+                            pacman.aur("skypeforlinux-stable-bin")  # Skype
+                        if "3" in pregunta_mensajes:
+                            pacman.install("teamspeak3")  # Teamspeak
+                        if "4" in pregunta_mensajes:
+                            pacman.install("telegram-desktop")  # Telegram
+                        if "5" in pregunta_mensajes:
+                            pacman.aur("zoom")  # Zoom
+                        if "0" in pregunta_mensajes:
+                            break  # Atrás
+                if "0" in apre1:  # Atrás
+                    break
         if "2" in apre:  # Imagen y video
-            deco.clear()
-            palabras.imagen_y_video()
-            print(
-                "Selecciona que instalar\n1:vlc\n2:mpv\n3:gthumb\n4:gimp\n5:krita\n6:kdenlive\n7:Netflix\n8:Obs-Studio\n0:Atrás"
-            )
-            pregunta_video = str(input(":"))
-            if "1" in pregunta_video:
-                pacman.install("vlc")  # vlc
-            if "2" in pregunta_video:
-                pacman.install("mpv")  # mpv
-            if "3" in pregunta_video:
-                pacman.install("gthumb")  # gthumb
-            if "4" in pregunta_video:
-                pacman.install("gimp")  # gimp
-            if "5" in pregunta_video:
-                pacman.install("krita")  # krita
-            if "6" in pregunta_video:
-                pacman.install("kdenlive")  # kdenlive
-            if "7" in pregunta_video:
-                pacman.aur("netflix-nativefier")  # Netfilx
-            if "8" in pregunta_video:
-                pacman.install("obs-studio")  # Obs-studio
-            if "0" in pregunta_video:
-                pass  # Atrás
-        if "3" in apre:  # Desarrollo
+            while True:
+                deco.clear()
+                palabras.imagen_y_video()
+                print(
+                    "Selecciona que instalar\n1:vlc\n2:mpv\n3:gthumb\n4:gimp\n5:krita\n6:kdenlive\n7:Netflix\n8:Obs-Studio\n0:Atrás"
+                )
+                pregunta_video = str(input(":"))
+                if "1" in pregunta_video:
+                    pacman.install("vlc")  # vlc
+                if "2" in pregunta_video:
+                    pacman.install("mpv")  # mpv
+                if "3" in pregunta_video:
+                    pacman.install("gthumb")  # gthumb
+                if "4" in pregunta_video:
+                    pacman.install("gimp")  # gimp
+                if "5" in pregunta_video:
+                    pacman.install("krita")  # krita
+                if "6" in pregunta_video:
+                    pacman.install("kdenlive")  # kdenlive
+                if "7" in pregunta_video:
+                    pacman.aur("netflix-nativefier")  # Netfilx
+                if "8" in pregunta_video:
+                    pacman.install("obs-studio")  # Obs-studio
+                if "0" in pregunta_video:
+                    break  # Atrás
+        if "3" in apre:  # IDE's
             while True:
                 deco.clear()
                 palabras.desarrollo()
                 print(
-                    "Apps de desarrollo\nElige que apps instalar\n1:VS code\n2:Code OSS\n3:Pycharm Comunity\n4:Eclipse-Java\n5:Kate\n6:Freecad\n7:Android Studio\n8:Anbox\n9:Github-cli\n10:Github-Desktop\n0:Atrás"
+                    "Apps de desarrollo\nElige que apps instalar\n1:VS code\n2:Code OSS\n3:Pycharm Comunity\n4:Eclipse-Java\n5:Sublime Text\n6:Android Studio\n7:Anbox\n0:Atrás"
                 )
                 pregunta_ide = str(input(":"))
                 if "1" in pregunta_ide:  # VS Code
-                    if pregunta_ide == "10":
-                        pass
-                    else:
-                        pacman.aur("visual-studio-code-bin")
+                    pacman.aur("visual-studio-code-bin")
                 if "2" in pregunta_ide:
                     pacman.install("code")  # Code OSS
                 if "3" in pregunta_ide:
@@ -273,214 +277,239 @@ def apps_desarrollo():
                 if "4" in pregunta_ide:
                     pacman.aur("eclipse-java")  # Eclipse-Java
                 if "5" in pregunta_ide:
-                    pacman.install("kate")  # Kate
+                    pacman.aur("sublime-text-4")  # Sublime Text
                 if "6" in pregunta_ide:
-                    pacman.install("freecad")  # Freecad
-                if "7" in pregunta_ide:
                     pacman.aur("android-studio")  # Android Studio
-                if "8" in pregunta_ide:
+                if "7" in pregunta_ide:
                     pacman.aur("anbox-git")  # Anbox
-                if "9" in pregunta_ide:
-                    pacman.install("github-cli")  # Github Cli
-                if "10" in pregunta_ide:
-                    if pregunta_ide == "1" and "0":
-                        pass
-                    else:
-                        pacman.aur("github-desktop")
                 if pregunta_ide == "0":
                     break  # Atrás
-        if "4" in apre:  # Gaming
-            deco.clear()
-            palabras.gaming()
-            print(
-                "Escoje que instalar\n1:Steam\n2:Lutris\n3:Wine\n4:proton-ge\n5:Play on Linux\n6:Mindustry\n7:Tlauncher\n8:Grapejuice(Roblox)\n9:Drivers\n0:Atrás"
-            )
-            pregunta_juegos = str(input(":"))
-            if "1" in pregunta_juegos:
-                pacman.install("steam")  # Steam
-            if "2" in pregunta_juegos:
-                pacman.install("lutris")  # Lutris
-            if "3" in pregunta_juegos:
-                pacman.install("wine")  # Wine
-            if "4" in pregunta_juegos:
-                pacman.aur("proton-ge-custom-bin")  # Proton-ge-custom-bin
-            if "5" in pregunta_juegos:
-                pacman.aur("playonlinux")  # Play on Linux
-            if "6" in pregunta_juegos:
-                pacman.aur("mindustry-bin")  # Mindustry
-            if "7" in pregunta_juegos:
-                pacman.aur("tlauncher")
-            if "8" in pregunta_juegos:
-                pacman.aur("grapejuice")  # Grapejuice
-            if "9" in pregunta_juegos:
-                dependencias_desarrollo()  # Drivers
-            if "0" in pregunta_juegos:  # Atrás
-                pass
-            deco.clear()
-        if "5" in apre:  # Musica
-            deco.clear()
-            palabras.musica()
-            print(
-                "Seleciona una o mas opciones\n1:Spotify\n2:Spotify-Adblock\n3:Spotube\n4:Clementine\n5:YT Music\n6:Audacity\n0:Atrás"
-            )
-            pregunta_musica = str(input(":"))
-            if "1" in pregunta_musica:
-                pacman.aur("spotify")  # Spotify
-            if "2" in pregunta_musica:  # Spotify
-                spotify_check = pacman.check("spotify")
-                match spotify_check:
-                    case True:
-                        pass
-                    case False:
-                        pacman.aur("spotify")
-                pacman.aur("spotify-adblock")
-            if "3" in pregunta_musica:
-                pacman.aur("spotube-bin")  # Spotube
-            if "4" in pregunta_musica:
-                pacman.install("clementine")  # Clementine
-            if "5" in pregunta_musica:
-                pacman.aur("youtube-music")  # YT Music
-            if "6" in pregunta_musica:
-                pacman.install("audacity")  # Audacity
-            if "0" in pregunta_musica:
-                pass  # Atrás
-            deco.clear()
-        if "6" in apre:  # Oficina
-            deco.clear()
-            palabras.oficina()
-            print(
-                "--OFICINA--\nElige una o mas opciones\n1:LibreOffice\n2:OpenOffice\n3:OnlyOffice\n4:WPS Office\n0:Atrás"
-            )
-            pregunta_oficina = str(input(":"))
-            if "1" in pregunta_oficina:
-                pacman.install("libreoffice")
-            if "2" in pregunta_oficina:
-                pacman.aur("openoffice-bin")
-            if "3" in pregunta_oficina:
-                pacman.aur("onlyoffice-bin")
-            if "4" in pregunta_oficina:
-                pacman.aur("wps-office-all-dicts-win-languages")
-            if "0" in pregunta_oficina:
-                pass
+        if "4" in apre:  # Desarrollo
+            while True:
+                deco.clear()
+                palabras.desarrollo()
+                print(
+                    "Elige una o mas opciones\n1:JDK/JRE\n2:Golang\n3:Python(3.11)\n4:git\n5:cmake\n6:gcc\n7:Rust\n0:Atras"
+                )
+                pregunta_desarrollo = str(input(":"))
+                if "1" in pregunta_desarrollo:
+                    pacman.aur("jdk", "jre")
+                if "2" in pregunta_desarrollo:
+                    pacman.install("go go-tools")
+                if "3" in pregunta_desarrollo:
+                    pacman.aur("python311")
+                if "4" in pregunta_desarrollo:
+                    pacman.install("git")
+                if "5" in pregunta_desarrollo:
+                    pacman.install("cmake")
+                if "6" in pregunta_desarrollo:
+                    pacman.install("gcc")
+                if "7" in pregunta_desarrollo:
+                    pacman.install("rust")
+                if "0" in pregunta_desarrollo:
+                    break
+        if "5" in apre:  # Gaming
+            while True:
+                deco.clear()
+                palabras.gaming()
+                print(
+                    "Escoje que instalar\n1:Steam\n2:Lutris\n3:Wine\n4:proton-ge\n5:Play on Linux\n6:Mindustry\n7:Tlauncher\n8:Grapejuice(Roblox)\n9:Drivers\n0:Atrás"
+                )
+                pregunta_juegos = str(input(":"))
+                if "1" in pregunta_juegos:
+                    pacman.install("steam")  # Steam
+                if "2" in pregunta_juegos:
+                    pacman.install("lutris")  # Lutris
+                if "3" in pregunta_juegos:
+                    pacman.install("wine")  # Wine
+                if "4" in pregunta_juegos:
+                    pacman.aur("proton-ge-custom-bin")  # Proton-ge-custom-bin
+                if "5" in pregunta_juegos:
+                    pacman.aur("playonlinux")  # Play on Linux
+                if "6" in pregunta_juegos:
+                    pacman.aur("mindustry-bin")  # Mindustry
+                if "7" in pregunta_juegos:
+                    pacman.aur("tlauncher")
+                if "8" in pregunta_juegos:
+                    pacman.aur("grapejuice")  # Grapejuice
+                if "9" in pregunta_juegos:
+                    dependencias_desarrollo()  # Drivers
+                if "0" in pregunta_juegos:  # Atrás
+                    break
+        if "6" in apre:  # Musica
+            while True:
+                deco.clear()
+                palabras.musica()
+                print(
+                    "Seleciona una o mas opciones\n1:Spotify\n2:Spotify-Adblock\n3:Spotube\n4:Clementine\n5:YT Music\n6:Audacity\n0:Atrás"
+                )
+                pregunta_musica = str(input(":"))
+                if "1" in pregunta_musica:
+                    pacman.aur("spotify")  # Spotify
+                if "2" in pregunta_musica:  # Spotify
+                    spotify_check = pacman.check("spotify")
+                    match spotify_check:
+                        case True:
+                            pass
+                        case False:
+                            pacman.aur("spotify")
+                    pacman.aur("spotify-adblock")
+                if "3" in pregunta_musica:
+                    pacman.aur("spotube-bin")  # Spotube
+                if "4" in pregunta_musica:
+                    pacman.install("clementine")  # Clementine
+                if "5" in pregunta_musica:
+                    pacman.aur("youtube-music")  # YT Music
+                if "6" in pregunta_musica:
+                    pacman.install("audacity")  # Audacity
+                if "0" in pregunta_musica:
+                    break
+        if "7" in apre:  # Oficina
+            while True:
+                deco.clear()
+                palabras.oficina()
+                print(
+                    "--OFICINA--\nElige una o mas opciones\n1:LibreOffice\n2:OpenOffice\n3:OnlyOffice\n4:WPS Office\n0:Atrás"
+                )
+                pregunta_oficina = str(input(":"))
+                if "1" in pregunta_oficina:
+                    pacman.install("libreoffice")
+                if "2" in pregunta_oficina:
+                    pacman.aur("openoffice-bin")
+                if "3" in pregunta_oficina:
+                    pacman.aur("onlyoffice-bin")
+                if "4" in pregunta_oficina:
+                    pacman.aur("wps-office-all-dicts-win-languages")
+                if "0" in pregunta_oficina:
+                    break
         if "0" in apre:  # Salir
             deco.clear()
             break
 
 
 def cambiar_shell():
-    deco.clear()
-    palabras.cambiar_shell()
-    print("1:fish\n2:zsh\n3:bash\n0:Atrás")
-    shellpre = int(input("Que shell deseas poner?\n:"))
-    match shellpre:
-        case 1:
-            pacman.install("fish")
-            sys("chsh -s /bin/fish")
-            deco.clear()
-        case 2:
-            pacman.install("zsh")
-            sys("chsh -s /bin/zsh")
-            deco.clear()
-        case 3:
-            pacman.install("bash")
-            sys("chsh -s /bin/bash")
-            deco.clear()
-        case 0:
-            pass
-    deco.clear()
+    while True:
+        deco.clear()
+        palabras.cambiar_shell()
+        print("1:fish\n2:zsh\n3:bash\n0:Atrás")
+        shellpre = int(input("Que shell deseas poner?\n:"))
+        match shellpre:
+            case 1:
+                pacman.install("fish")
+                sys("chsh -s /bin/fish")
+                deco.clear()
+            case 2:
+                pacman.install("zsh")
+                sys("chsh -s /bin/zsh")
+                deco.clear()
+            case 3:
+                pacman.install("bash")
+                sys("chsh -s /bin/bash")
+                deco.clear()
+            case 0:
+                break
+        deco.clear()
 
 
 def pkgman():
-    deco.clear()
-    palabras.gestores_de_paquetes()
-    print("1:yay\n2:paru\n3:pikaur\n4:snapd\n5:flatpak\n6:Pamac\n0:Cancelar")
-    pkgpre1 = str(input(":"))
-    if "1" in pkgpre1:
-        pacman.aur("yay")  # Yay
-    if "2" in pkgpre1:
-        pacman.aur("paru")  # Paru
-    if "3" in pkgpre1:
-        pacman.aur("pikaur")  # Pikaur
-    if "4" in pkgpre1:
-        deco.clear()  # Snapd
-        palabras.snapd()
-        pacman.aur("snapd")
+    while True:
         deco.clear()
-        sys("sudo systemctl enable --now snapd.socket")
-        sys("sudo ln -s /var/lib/snapd/snap /snap")
-        sys("sudo systemctl enable --now snapd.apparmor")
-        sys("sudo apparmor_parser -r /etc/apparmor.d/*snap-confine*")
-        sys("sudo apparmor_parser -r /var/lib/snapd/apparmor/profiles/snap confine*")
-        deco.clear()
-        print("\nListo!\n")
-    if "5" in pkgpre1:
-        pacman.install("flatpak")  # Flatpak
-    if "6" in pkgpre1:  # Pamac
-        deco.clear()
-        palabras.pamac()
-        print(
-            "1:Instalar pamac AUR\n2:Instalar pamac Flatpak\n3:Instalar pamac nosnap\n0:Cancelar"
-        )
-        pamac_pre1 = int(input(":"))
-        match pamac_pre1:
-            case 1:
-                pacman.aur("pamac-aur")
-            case 2:
-                pacman.aur("pamac-flatpak")
-            case 3:
-                pacman.aur("pamac-nosnap")
-            case 0:
-                deco.clear()
-                pass
-            case _:
-                print("No se selecciono ninguno")
+        palabras.gestores_de_paquetes()
+        print("1:yay\n2:paru\n3:pikaur\n4:snapd\n5:flatpak\n6:Pamac\n0:Cancelar")
+        pkgpre1 = str(input(":"))
+        if "1" in pkgpre1:
+            pacman.aur("yay")  # Yay
+        if "2" in pkgpre1:
+            pacman.aur("paru")  # Paru
+        if "3" in pkgpre1:
+            pacman.aur("pikaur")  # Pikaur
+        if "4" in pkgpre1:
+            deco.clear()  # Snapd
+            palabras.snapd()
+            pacman.aur("snapd")
+            deco.clear()
+            sys("sudo systemctl enable --now snapd.socket")
+            sys("sudo ln -s /var/lib/snapd/snap /snap")
+            sys("sudo systemctl enable --now snapd.apparmor")
+            sys("sudo apparmor_parser -r /etc/apparmor.d/*snap-confine*")
+            sys(
+                "sudo apparmor_parser -r /var/lib/snapd/apparmor/profiles/snap confine*"
+            )
+            deco.clear()
+            print("\nListo!\n")
+        if "5" in pkgpre1:
+            pacman.install("flatpak")  # Flatpak
+        if "6" in pkgpre1:  # Pamac
+            deco.clear()
+            palabras.pamac()
+            print(
+                "1:Instalar pamac AUR\n2:Instalar pamac Flatpak\n3:Instalar pamac nosnap\n0:Cancelar"
+            )
+            pamac_pre1 = int(input(":"))
+            match pamac_pre1:
+                case 1:
+                    pacman.aur("pamac-aur")
+                case 2:
+                    pacman.aur("pamac-flatpak")
+                case 3:
+                    pacman.aur("pamac-nosnap")
+                case 0:
+                    deco.clear()
+                    pass
+                case _:
+                    print("No se selecciono ninguno")
         if "0" in pkgpre1:  # Cancelar
-            pass
+            break
 
 
 def escritorios():
-    deco.clear()
-    palabras.escritorios_wms()
-    print("1:WM's\n2:Escritorios\n0:Atrás")
-    pregunta_wm = str(input(":"))
-    if "1" in pregunta_wm:
+    while True:
         deco.clear()
-        palabras.wms()
-        print("1:i3wm\n2:awesome\n3:icewm\n4:bspwm\n0:Atrás")
-        pregunta_wm_1 = str(input(":"))
-        if "1" in pregunta_wm_1:
-            pacman.install("i3")
-        if "2" in pregunta_wm_1:
-            pacman.install("awesome")
-        if "3" in pregunta_wm_1:
-            pacman.install("icewm")
-        if "4" in pregunta_wm_1:
-            pacman.install("bspwm")
-        if "0" in pregunta_wm_1:
+        palabras.escritorios_wms()
+        print("1:WM's\n2:Escritorios\n0:Atrás")
+        pregunta_wm = str(input(":"))
+        if "1" in pregunta_wm:
+            while True:
+                deco.clear()
+                palabras.wms()
+                print("1:i3wm\n2:awesome\n3:icewm\n4:bspwm\n0:Atrás")
+                pregunta_wm_1 = str(input(":"))
+                if "1" in pregunta_wm_1:
+                    pacman.install("i3")
+                if "2" in pregunta_wm_1:
+                    pacman.install("awesome")
+                if "3" in pregunta_wm_1:
+                    pacman.install("icewm")
+                if "4" in pregunta_wm_1:
+                    pacman.install("bspwm")
+                if "0" in pregunta_wm_1:
+                    deco.clear()
+                    break
+        if "2" in pregunta_wm:
+            while True:
+                deco.clear()
+                palabras.escritorios()
+                print(
+                    "1:XFCE4\n2:GNOME\n3:KDE Plasma\n4:LXDE\n5:Cinnamon\n6:Mate\n0:Cancelar"
+                )
+                desk_pre = str(input(":"))
+                if "1" in desk_pre:
+                    pacman.install("xfce4 xfce4-goodies")  # XFCE4
+                if "2" in desk_pre:
+                    pacman.install("gnome-extra gnome")  # GNOME
+                if "3" in desk_pre:
+                    pacman.install("plasma")  # KDE Plasma
+                if "4" in desk_pre:
+                    pacman.install("lxde")  # LXDE
+                if "5" in desk_pre:
+                    pacman.install("cinnamon")  # Cinnamon
+                if "6" in desk_pre:
+                    pacman.install("mate")  # Mate
+                if "0" in desk_pre:
+                    break  # Cancelar
+        if "0" in pregunta_wm:
             deco.clear()
-            pass
-    if "2" in pregunta_wm:
-        deco.clear()
-        palabras.escritorios()
-        print("1:XFCE4\n2:GNOME\n3:KDE Plasma\n4:LXDE\n5:Cinnamon\n6:Mate\n0:Cancelar")
-        desk_pre = str(input(":"))
-        if "1" in desk_pre:
-            pacman.install("xfce4 xfce4-goodies")  # XFCE4
-        if "2" in desk_pre:
-            pacman.install("gnome-extra gnome")  # GNOME
-        if "3" in desk_pre:
-            pacman.install("plasma")  # KDE Plasma
-        if "4" in desk_pre:
-            pacman.install("lxde")  # LXDE
-        if "5" in desk_pre:
-            pacman.install("cinnamon")  # Cinnamon
-        if "6" in desk_pre:
-            pacman.install("mate")  # Mate
-        if "0" in desk_pre:
-            pass  # Cancelar
-    if "0" in pregunta_wm:
-        deco.clear()
-        pass
+            break
 
 
 def otros():
