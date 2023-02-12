@@ -1,7 +1,7 @@
 # Creado por Tom5521 o Angel pa'los cuates
 # Bajo la licencia GPL 3.0
 
-# Arch-Instalator MAIN v3.4.1
+# Arch-Instalator MAIN v3.5.0
 
 from time import sleep as sl
 import palabras
