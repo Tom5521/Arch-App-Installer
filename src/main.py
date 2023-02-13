@@ -4,14 +4,32 @@
 # Arch-Instalator MAIN v3.5.0
 
 from time import sleep as sl
-import palabras
-import base
-import pacman
+import palabras, base, pacman
 from os import system as sys
+from os import listdir, mkdir
 
 
 def clear():
     sys("clear")
+
+
+clear()
+syupd = listdir("/tmp")
+if "inst-temp" in syupd:
+    pass
+else:
+    print("Actualizando Repositorios...")
+    sys("sudo pacman -Syy >/dev/null 2>&1")
+    mkdir("/tmp/inst-temp")
+
+pacman.check("git")
+if pacman.check == True:
+    pass
+else:
+    print("git no esta instalado")
+    sl(2)
+    clear()
+    pacman.install("git")
 
 
 while True:
