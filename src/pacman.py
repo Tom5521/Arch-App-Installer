@@ -3,7 +3,7 @@
 
 # PY-pacman https://github.com/Tom5521/PY-pacman
 
-# V1.0.0
+# V1.1.0 MOD
 
 from os import getcwd, chdir
 from os import system as sys
@@ -68,42 +68,25 @@ def refresh():
     print("Repos Actualizados")
 
 
+lista_aur = []
+
+
 def aur(nombre_aur, nombre_aur_2="", nombre_aur_3=""):
     if nombre_aur != "":
-        clear()
-        url = "https://aur.archlinux.org/" + nombre_aur + ".git"
-        chdir("/tmp")
-        print("Clonando " + nombre_aur + "...")
-        sys("git clone " + url + ">/dev/null 2>&1")
-        clear()
-        chdir(nombre_aur)
-        print("Instalando " + nombre_aur + "...")
-        sys("makepkg -si --noconfirm >/dev/null 2>&1")
-        clear()
-        chdir(current_directoy)
-        installed()
+        lista_aur.append(nombre_aur)
     if nombre_aur_2 != "":
-        clear()
-        url = "https://aur.archlinux.org/" + nombre_aur_2 + ".git"
-        chdir("/tmp")
-        print("Clonando " + nombre_aur_2 + "...")
-        sys("git clone " + url + ">/dev/null 2>&1")
-        clear()
-        chdir(nombre_aur_2)
-        print("Instalando " + nombre_aur_2 + "...")
-        sys("makepkg -si --noconfirm >/dev/null 2>&1")
-        clear()
-        chdir(current_directoy)
-        installed()
+        lista_aur.append(nombre_aur_2)
     if nombre_aur_3 != "":
+        lista_aur.append(nombre_aur_3)
+    for i in lista_aur:
         clear()
-        url = "https://aur.archlinux.org/" + nombre_aur_3 + ".git"
+        url = "https://aur.archlinux.org/" + i + ".git"
         chdir("/tmp")
-        print("Clonando " + nombre_aur_3 + "...")
+        print("Clonando " + i + "...")
         sys("git clone " + url + ">/dev/null 2>&1")
         clear()
-        chdir(nombre_aur_3)
-        print("Instalando " + nombre_aur_3 + "...")
+        chdir(i)
+        print("Instalando " + i + "...")
         sys("makepkg -si --noconfirm >/dev/null 2>&1")
         clear()
         chdir(current_directoy)
