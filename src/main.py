@@ -596,6 +596,6 @@ while True:
         if "0" in pregunta_inicial:
             break  # Salir
     except (ValueError, TypeError):
-        raise "Error"
+        print("Error")
 clear()
 palabras.Final()
