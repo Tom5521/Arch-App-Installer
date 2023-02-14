@@ -1,10 +1,10 @@
 # Creado por Tom5521 o Angel pa'los cuates
 # Bajo la licencia GPL 3.0
 
-# Arch-Instalator MAIN v4.0.0
+# Arch-Instalator MAIN v4.0.1
 
 from time import sleep as sl
-import palabras, pacman
+from src import pacman, palabras
 from os import system as sys
 from os import listdir, mkdir
 
