@@ -2,6 +2,7 @@
 <img src="https://github.com/Tom5521/Arch-Instalator/blob/816db2715873cf7cb4992c1ae094ad6df1fcd5a7/dev_Archives/Arch-Instalator.png" width="1180" height="90" />
 
 [![wakatime](https://wakatime.com/badge/github/Tom5521/Arch-Instalator.svg)](https://wakatime.com/badge/github/Tom5521/Arch-Instalator)
+[![CodeFactor](https://www.codefactor.io/repository/github/tom5521/arch-instalator/badge)](https://www.codefactor.io/repository/github/tom5521/arch-instalator)
 ![GitHub repo size](https://img.shields.io/github/repo-size/Tom5521/Arch-Instalator)
 ![GitHub last commit](https://img.shields.io/github/last-commit/Tom5521/Arch-Instalator)
 
