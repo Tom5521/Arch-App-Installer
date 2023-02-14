@@ -3,7 +3,6 @@
 
 # Arch-Instalator EJECUTOR v4.0.0
 
-from os import system as sys
+from subprocess import run
 
-sys("clear")
-sys("python src/main.py")
+run(["python src/main.py"], shell=True)
