@@ -1,7 +1,7 @@
 # Creado por Tom5521 o Angel pa'los cuates
 # Bajo la licencia GPL 3.0
 
-# Arch-Instalator MAIN v4.0.1
+# Arch-Instalator MAIN v4.0.2
 
 from time import sleep as sl
 from src import pacman, palabras
@@ -306,7 +306,7 @@ def apps_desarrollo():
                 )
                 pregunta_desarrollo = str(input(":"))
                 if "1" in pregunta_desarrollo:
-                    pacman.aur("jdk", "jre")
+                    pacman.aur("jdk jre")
                 if "2" in pregunta_desarrollo:
                     pacman.install("go go-tools")
                 if "3" in pregunta_desarrollo:
@@ -554,7 +554,7 @@ def otros():
                     case "1":
                         pacman.install("linux linux-headers")
                     case "2":
-                        pacman.aur("linux-xanmod", "linux-xanmod-headers")
+                        pacman.aur("linux-xanmod linux-xanmod-headers")
                     case "3":
                         pacman.install("linux-zen linux-zen-headers")
                     case "0":
