@@ -68,17 +68,8 @@ def refresh():
     print("Repos Actualizados")
 
 
-lista_aur = []
-
-
-def aur(nombre_aur, nombre_aur_2="", nombre_aur_3=""):
-    if nombre_aur != "":
-        lista_aur.append(nombre_aur)
-    if nombre_aur_2 != "":
-        lista_aur.append(nombre_aur_2)
-    if nombre_aur_3 != "":
-        lista_aur.append(nombre_aur_3)
-    for i in lista_aur:
+def aur(nombre_aur):
+    for i in nombre_aur.split():
         clear()
         url = "https://aur.archlinux.org/" + i + ".git"
         chdir("/tmp")
