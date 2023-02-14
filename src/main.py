@@ -1,7 +1,7 @@
 # Creado por Tom5521 o Angel pa'los cuates
 # Bajo la licencia GPL 3.0
 
-# Arch-Instalator MAIN v3.5.0
+# Arch-Instalator MAIN v3.5.2
 
 from time import sleep as sl
 import palabras, base, pacman
@@ -22,8 +22,7 @@ else:
     sys("sudo pacman -Syy >/dev/null 2>&1")
     mkdir("/tmp/inst-temp")
 
-pacman.check("git")
-if pacman.check == True:
+if pacman.check("git") == True:
     pass
 else:
     print("git no esta instalado")
@@ -49,10 +48,6 @@ while True:
                 base.apps_desarrollo()  # Apps
             if "2" in pregunta_apps_y_dependencias:
                 base.dependencias_desarrollo()  # Dependencias
-            if pregunta_apps_y_dependencias == "DEFG":  # Dependencias Gaming
-                clear()
-                palabras.gaming()
-                base.basura.dependenciasG()
             if "0" in pregunta_apps_y_dependencias:  # Atrás
                 clear()
                 pass
@@ -64,6 +59,8 @@ while True:
             base.cambiar_shell()  # Cambiar shell
         if "5" in pregunta_inicial:
             base.otros()  # Otros
+        if pregunta_inicial == "mierda":  # Mierda
+            sys("espeak mierda >/dev/null 2>&1")
         if "0" in pregunta_inicial:
             break  # Salir
     except (ValueError, TypeError):
