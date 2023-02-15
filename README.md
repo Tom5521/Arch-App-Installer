@@ -13,7 +13,7 @@ Execute with:
 python Ejecutar.py
 ```
 #### Uso
-Al iniciar se actualizaran los repositorios solo una vez a menos de que se borre el archivo "inst-temp" de /tmp
+When starting the repositories will be updated only once unless the file is deleted"inst-temp" of /tmp
 
 In this installer you will have access to install apps such as
 
