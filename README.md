@@ -40,7 +40,7 @@ This script will be constant patching and updating, so in the future new functio
 
 
 
-Thanks for using it: D
+Thanks for using it :D
 
 
 ATT:
