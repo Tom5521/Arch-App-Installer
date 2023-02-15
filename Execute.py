@@ -1,7 +1,7 @@
-# Creado por Tom5521 o Angel pa'los cuates
-# Bajo la licencia GPL 3.0
+# Created by Tom5521 or Angel
+# Under the license GPL 3.0
 
-# Arch-Instalator MAIN v4.0.2
+# Arch-Instalator MAIN v4.1.0 EN
 
 from time import sleep as sl
 from src import pacman, palabras
@@ -18,14 +18,14 @@ syupd = listdir("/tmp")
 if "inst-temp" in syupd:
     pass
 else:
-    print("Actualizando Repositorios...")
+    print("Updating repositories...")
     sys("sudo pacman -Syy >/dev/null 2>&1")
     mkdir("/tmp/inst-temp")
 
 if pacman.check("git") == True:
     pass
 else:
-    print("git no esta instalado")
+    print("git is not installed")
     sl(2)
     clear()
     pacman.install("git")
@@ -35,23 +35,21 @@ def dependencias_desarrollo():
     while True:
         clear()
         palabras.drivers()
-        print("1:Drivers Gráficos\n2:Drivers de Sonido\n3:Bluetooth\n0:Atrás")
+        print("1:Graphic drivers \n2:Sound drivers\n3:Bluetooth \n0:back")
         pregunta_drivers = str(input(":"))
         if "1" in pregunta_drivers:
             while True:
                 clear()
-                palabras.drivers_graficos()
+                palabras.graphic_drivers()
                 print(
-                    "Elige tus especificaciones\n1:Nvidia\n2:Amd\n3:Intel(Open Source)\n0:Atrás"
+                    "Choose your specifications\n1:Nvidia\n2:Amd\n3:Intel(Open Source)\n0:Back"
                 )
                 pregunta_drivers_g = float(input(":"))
                 match pregunta_drivers_g:
                     case 1:  # Nvidia
                         clear()
                         palabras.nvidia()
-                        print(
-                            "Elige una version\n1:Propietario\n2:Open Source\n0:Atrás"
-                        )
+                        print("Choose a version\n1:Proprietary\n2:Open Source\n0:Back")
                         pregunta_drivers_nvidia = int(input(":"))
                         match pregunta_drivers_nvidia:
                             case 1:
@@ -61,7 +59,7 @@ def dependencias_desarrollo():
                     case 2:  # AMD
                         clear()
                         palabras.amd()
-                        print("Drivers...?\n1:Propietarios\n2:Open Source\n0:Atrás")
+                        print("Drivers...?\n1:Propiery\n2:Open Source\n0:Back")
                         pregunta_drivers_1 = int(input(":"))
                         match pregunta_drivers_1:
                             case 1:
@@ -79,16 +77,14 @@ def dependencias_desarrollo():
                         pass
         if "2" in pregunta_drivers:
             clear()
-            palabras.sonido()
-            print(
-                "Elige una opcion\n1:Servidores de Audio\n2:Drivers de Sonido\n0:Atrás"
-            )
+            palabras.sound()
+            print("Choose an option\n1:Audio servers\n2:Sound drivers\n0:Back")
             pregunta_drivers_s = str(input(":"))
             if "1" in pregunta_drivers_s:
                 while True:
                     clear()
-                    palabras.servidores_de_audio()
-                    print("1:PulseAudio\n2:Pipewire\n0:Atrás")
+                    palabras.sound_servers()
+                    print("1:PulseAudio\n2:Pipewire\n0:Back")
                     pregunta_drivers_s_s = str(input(":"))
                     if "1" in pregunta_drivers_s_s:
                         pacman.install("pulseaudio")
@@ -99,8 +95,8 @@ def dependencias_desarrollo():
             if "2" in pregunta_drivers_s:
                 while True:
                     clear()
-                    palabras.drivers_de_audio()
-                    print("Elige una o mas opciones\n1:ALSA\n2:Jack\n3:Flac\n0:Atrás")
+                    palabras.sound_drivers()
+                    print("Choose one or more options\n1:ALSA\n2:Jack\n3:Flac\n0:Back")
                     pregunta_drivers_s_d = str(input(":"))
                     if "1" in pregunta_drivers_s_d:
                         pacman.install("alsa alsa-firmware")
@@ -129,9 +125,9 @@ def dependencias_desarrollo():
 def add_repos():
     while True:
         clear()
-        palabras.repositorios()
+        palabras.repositories()
         print(
-            "Seleccione repos a instalar\n1:Repositorio endeavour OS\n2:Chaotic-AUR\n0:Atrás"
+            "Select repositories to install\n1:Repository Endeavour OS\n2:Chaotic-AUR\n0:Back"
         )
         pregunta_repos = str(input(":"))
         if "1" in pregunta_repos:  # Endeavour repo
@@ -148,7 +144,6 @@ def add_repos():
             clear()
             pacman.refresh()
             clear()
-            sys("echo Exito!")
         if "2" in pregunta_repos:  # Chaotic-AUR
             sys(
                 "sudo pacman-key --recv-key FBA220DFC880C036 --keyserver keyserver.ubuntu.com"
@@ -175,7 +170,7 @@ def apps_desarrollo():
         clear()
         palabras.apps()
         print(
-            "Escoje una categoria de apps a instalar\n1:Internet\n2:Imagen y Video\n3:IDE's\n4:Herramientas desarrollo\n5:Gaming\n6:Musica\n7:Oficina\n0:Salir"
+            "Select an app category to install\n1:internet\n2:Image and video\n3:IDE's\n4:Development tools\n5:gaming\n6:musica\n7:Office\n0:Back"
         )
         apre = str(input(":"))
         if "1" in apre:  # Internet
@@ -183,15 +178,15 @@ def apps_desarrollo():
                 clear()
                 palabras.internet()
                 print(
-                    "Escoje una Categoria\n1:Navegador\n2:Email\n3:Mensajeria\n0:Atrás"
+                    "Hide a category\n1:Browser\n2:Email\n3:Messenger service\n0:Back"
                 )
                 apre1 = str(input(":"))
                 if "1" in apre1:  # Navegador
                     while True:
                         clear()
-                        palabras.navegadores()
+                        palabras.browers()
                         print(
-                            "1:Firefox\n2:Chromium\n3:Opera\n4:Brave\n5:Chrome\n6:Tor\n0:Cancelar"
+                            "1:Firefox\n2:Chromium\n3:Opera\n4:Brave\n5:Chrome\n6:Tor\n0:Back"
                         )
                         pregunta_navegador = str(input(":"))
                         if "1" in pregunta_navegador:
@@ -213,7 +208,7 @@ def apps_desarrollo():
                         clear()
                         palabras.mail()
                         print(
-                            "Seleciona la o las apps que quieres instalar\n1:Thunderbird\n2:Mailspring\n3:Kmail\n0:Atrás"
+                            "Select the apps you want to install\n1:Thunderbird\n2:Mailspring\n3:Kmail\n0:Back"
                         )
                         pregunta_correo = str(input(":"))
                         if "1" in pregunta_correo:
@@ -227,9 +222,9 @@ def apps_desarrollo():
                 if "3" in apre1:  # Mensajeria
                     while True:
                         clear()
-                        palabras.mensajeria()
+                        palabras.messaging()
                         print(
-                            "Elige lo que quieres instalar:\n1:Discord\n2:Skype\n3:Teamspeak\n4:Telegram\n5:Zoom\n0:Atrás"
+                            "Choose what you want to install:\n1:Discord\n2:Skype\n3:Teamspeak\n4:Telegram\n5:Zoom\n0:Back"
                         )
                         pregunta_mensajes = str(input(":"))
                         if "1" in pregunta_mensajes:
@@ -249,9 +244,9 @@ def apps_desarrollo():
         if "2" in apre:  # Imagen y video
             while True:
                 clear()
-                palabras.imagen_y_video()
+                palabras.image_and_video()
                 print(
-                    "Selecciona que instalar\n1:vlc\n2:mpv\n3:gthumb\n4:gimp\n5:krita\n6:kdenlive\n7:Netflix\n8:Obs-Studio\n0:Atrás"
+                    "Select to install\n1:vlc\n2:mpv\n3:gthumb\n4:gimp\n5:krita\n6:kdenlive\n7:Netflix\n8:Obs-Studio\n0:Back"
                 )
                 pregunta_video = str(input(":"))
                 if "1" in pregunta_video:
@@ -275,9 +270,9 @@ def apps_desarrollo():
         if "3" in apre:  # IDE's
             while True:
                 clear()
-                palabras.desarrollo()
+                palabras.development_apps()
                 print(
-                    "Apps de desarrollo\nElige que apps instalar\n1:VS code\n2:Code OSS\n3:Pycharm Comunity\n4:Eclipse-Java\n5:Sublime Text\n6:Android Studio\n7:Anbox\n0:Atrás"
+                    "Choose that apps install\n1:VS code\n2:Code OSS\n3:Pycharm Comunity\n4:Eclipse-Java\n5:Sublime Text\n6:Android Studio\n7:Anbox\n0:Back"
                 )
                 pregunta_ide = str(input(":"))
                 if "1" in pregunta_ide:  # VS Code
@@ -300,9 +295,9 @@ def apps_desarrollo():
         if "4" in apre:  # Desarrollo
             while True:
                 clear()
-                palabras.desarrollo()
+                palabras.development()
                 print(
-                    "Elige una o mas opciones\n1:JDK/JRE\n2:Golang\n3:Python(3.11)\n4:git\n5:cmake\n6:gcc\n7:Rust\n0:Atras"
+                    "Choose one or more options\n1:JDK/JRE\n2:Golang\n3:Python(3.11)\n4:git\n5:cmake\n6:gcc\n7:Rust\n0:Back"
                 )
                 pregunta_desarrollo = str(input(":"))
                 if "1" in pregunta_desarrollo:
@@ -326,7 +321,7 @@ def apps_desarrollo():
                 clear()
                 palabras.gaming()
                 print(
-                    "Escoje que instalar\n1:Steam\n2:Lutris\n3:Wine\n4:proton-ge\n5:Play on Linux\n6:Mindustry\n7:Tlauncher\n8:Grapejuice(Roblox)\n9:Drivers\n0:Atrás"
+                    "Select app to install\n1:Steam\n2:Lutris\n3:Wine\n4:proton-ge\n5:Play on Linux\n6:Mindustry\n7:Tlauncher\n8:Grapejuice(Roblox)\n9:Drivers\n0:Back"
                 )
                 pregunta_juegos = str(input(":"))
                 if "1" in pregunta_juegos:
@@ -352,9 +347,9 @@ def apps_desarrollo():
         if "6" in apre:  # Musica
             while True:
                 clear()
-                palabras.musica()
+                palabras.music()
                 print(
-                    "Seleciona una o mas opciones\n1:Spotify\n2:Spotify-Adblock\n3:Spotube\n4:Clementine\n5:YT Music\n6:Audacity\n0:Atrás"
+                    "Select one or more options\n1:Spotify\n2:Spotify-Adblock\n3:Spotube\n4:Clementine\n5:YT Music\n6:Audacity\n0:Back"
                 )
                 pregunta_musica = str(input(":"))
                 if "1" in pregunta_musica:
@@ -380,9 +375,9 @@ def apps_desarrollo():
         if "7" in apre:  # Oficina
             while True:
                 clear()
-                palabras.oficina()
+                palabras.office()
                 print(
-                    "--OFICINA--\nElige una o mas opciones\n1:LibreOffice\n2:OpenOffice\n3:OnlyOffice\n4:WPS Office\n0:Atrás"
+                    "Choose one or more options\n1:LibreOffice\n2:OpenOffice\n3:OnlyOffice\n4:WPS Office\n0:Back"
                 )
                 pregunta_oficina = str(input(":"))
                 if "1" in pregunta_oficina:
@@ -403,9 +398,9 @@ def apps_desarrollo():
 def cambiar_shell():
     while True:
         clear()
-        palabras.cambiar_shell()
+        palabras.change_shell()
         print("1:fish\n2:zsh\n3:bash\n0:Atrás")
-        shellpre = int(input("Que shell deseas poner?\n:"))
+        shellpre = int(input("What Shell you want use?\n:"))
         match shellpre:
             case 1:
                 pacman.install("fish")
@@ -427,8 +422,8 @@ def cambiar_shell():
 def pkgman():
     while True:
         clear()
-        palabras.gestores_de_paquetes()
-        print("1:yay\n2:paru\n3:pikaur\n4:snapd\n5:flatpak\n6:Pamac\n0:Cancelar")
+        palabras.package_managers()
+        print("1:yay\n2:paru\n3:pikaur\n4:snapd\n5:flatpak\n6:Pamac\n0:Back")
         pkgpre1 = str(input(":"))
         if "1" in pkgpre1:
             pacman.aur("yay")  # Yay
@@ -456,7 +451,7 @@ def pkgman():
             clear()
             palabras.pamac()
             print(
-                "1:Instalar pamac AUR\n2:Instalar pamac Flatpak\n3:Instalar pamac nosnap\n0:Cancelar"
+                "1:Install pamac AUR\n2:Install pamac Flatpak\n3:Install pamac nosnap\n0:Cancelar"
             )
             pamac_pre1 = int(input(":"))
             match pamac_pre1:
@@ -470,7 +465,7 @@ def pkgman():
                     clear()
                     pass
                 case _:
-                    print("No se selecciono ninguno")
+                    print("Nothing Selected")
         if "0" in pkgpre1:  # Cancelar
             break
 
@@ -478,8 +473,8 @@ def pkgman():
 def escritorios():
     while True:
         clear()
-        palabras.escritorios_wms()
-        print("1:WM's\n2:Escritorios\n0:Atrás")
+        palabras.desk_wms()
+        print("1:WM's\n2:Desks\n0:Back")
         pregunta_wm = str(input(":"))
         if "1" in pregunta_wm:
             while True:
@@ -501,9 +496,9 @@ def escritorios():
         if "2" in pregunta_wm:
             while True:
                 clear()
-                palabras.escritorios()
+                palabras.desks()
                 print(
-                    "1:XFCE4\n2:GNOME\n3:KDE Plasma\n4:LXDE\n5:Cinnamon\n6:Mate\n0:Cancelar"
+                    "1:XFCE4\n2:GNOME\n3:KDE Plasma\n4:LXDE\n5:Cinnamon\n6:Mate\n0:Back"
                 )
                 desk_pre = str(input(":"))
                 if "1" in desk_pre:
@@ -528,9 +523,9 @@ def escritorios():
 def otros():
     while True:
         clear()
-        palabras.otros()
+        palabras.other()
         print(
-            "1:Intalar dependencias i3(requiere repo chaotic)\n2:Instalar repos\n3:Instalar Kernels\n0:Atrás"
+            "1:Install i3 dependencies(requiere repo chaotic)\n2:Replace\n3:Install Kernels\n0:Back"
         )
         pregunta_otros = str(input(":"))
         if "1" in pregunta_otros:
@@ -548,7 +543,7 @@ def otros():
             while True:
                 clear()
                 palabras.kernels()
-                print("1:Linux\n2:xanmod\n3:zen\n0:Atrás")
+                print("1:Linux\n2:xanmod\n3:zen\n0:Back")
                 pregunta_kernel = str(input(":"))
                 match pregunta_kernel:
                     case "1":
@@ -566,14 +561,14 @@ def otros():
 while True:
     try:
         clear()
-        palabras.texto_inicial()
+        palabras.initial_text()
         print(
-            "1:Apps y Drivers\n2:Gestores de paquetes\n3:Escritorios/WM's\n4:Cambiar Shell\n5:Otros\n0:Salir"
+            "1:Apps and Drivers\n2:Package managers\n3:Desks/WM's\n4:Change Shell\n5:Others\n0:Back"
         )
         pregunta_inicial = str(input(":"))
         if "1" in pregunta_inicial:  # Apps y dependencias
             clear()
-            palabras.apps_y_drivers()
+            palabras.apps_and_drivers()
             print("1:Apps\n2:Drivers\n0:Atrás")
             pregunta_apps_y_dependencias = str(input(":"))
             if "1" in pregunta_apps_y_dependencias:
@@ -591,11 +586,11 @@ while True:
             cambiar_shell()  # Cambiar shell
         if "5" in pregunta_inicial:
             otros()  # Otros
-        if pregunta_inicial == "mierda":  # Mierda
-            sys("espeak mierda >/dev/null 2>&1")
+        if pregunta_inicial == "shit":  # Mierda
+            sys("espeak shit >/dev/null 2>&1")
         if "0" in pregunta_inicial:
             break  # Salir
     except (ValueError, TypeError):
         print("Error")
 clear()
-palabras.Final()
+palabras.final()

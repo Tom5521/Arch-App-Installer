@@ -6,41 +6,41 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/Tom5521/Arch-Instalator)
 ![GitHub last commit](https://img.shields.io/github/last-commit/Tom5521/Arch-Instalator)
 
-## Un script instalador escrito en Python con mis apps favoritas
+## A script installer written in Python with my favorite apps
 
-Ejecutar con:
+Execute with:
 ```
 python Ejecutar.py
 ```
 #### Uso
 Al iniciar se actualizaran los repositorios solo una vez a menos de que se borre el archivo "inst-temp" de /tmp
 
-En este instalador tendra acseso a instalar apps como
+In this installer you will have access to install apps such as
 
 - Spotify/spotify-adblock
-- Suites de Ofimatica
-- IDE's como VScode o Eclipse
-- Drivers graficos para diferentes tipos de dispositivos
-- Drivers/servidores de Sonido
-- Instalacion facilitada de Kerls como linux-zen o xanmod
-- Utilidades para gaming como proton,steam,wine,lutris.etc
-- Acceso a la instalacion de gestores de paquetes como yay,paru,flatpak,snapd .etc 
-Ademas de un gestor grafico de ellos osea pamac
-- La opcion de cambiar al shell de tu preferencia 
-- Poder instalar apps para escuchar musica como clementine o yt music
-- Poder instalar apps de entretenimiento como netflix
-- Poder instalar apps de mensajeria instantanea como telegram o whatsapp
-- Opcion de Instalar varios navegadores como Firefox,chromium .etc
-- Tambien podras instalar apps de gestion de correo electronico
-- Podras instalar escritorios como XFCE o GNOME ademas de una decente cantidad de window managers (sin ninguna configuracion incluida)
-- Y por ultimo podras instalar la app blueman para manejar bluetooth
+- Office suites
+- IDE's as VScode o Eclipse
+- Graphic drivers for different types of devices
+- Sonido Drivers/Sound Servers
+- Facilitated Installation of Kernels like Linux-Zen or Xanmod
+- Utilities for gaming such as proton, steam, wine, lutris.etc
+- Access to the installation of package managers such as Yay, Paru, Flatpak, Snapd .etc
+In addition to a graphic manager of them bone pamac
+- The option of changing your preference shell
+- Be able to install apps to listen to music like Clementine or YT Music
+- Be able to install entertainment apps like Netflix
+- Be able to install instant messaging apps such as Telegram or WhatsApp
+- Opt to install several browsers like Firefox, Chromium .etc
+- You can also install email management apps
+- You can install desks such as XFCE or GNOME in addition to a decent amount of Window Managers (without any configuration included)
+- And finally you can install the Blueman app to handle Bluetooth
 
-#### En Conclusion
-Este script estara en constante parcheo y actualizacion por lo cual en el futuro se añadiran/corregiran nuevas funciones 
+#### In conclusion
+This script will be constant patching and updating, so in the future new functions will be added/correct
 
 
 
-Gracias por Usarlo :D
+Thanks for using it: D
 
 
 ATT:

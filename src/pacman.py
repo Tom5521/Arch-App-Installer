@@ -1,5 +1,5 @@
-# Creado por Tom5521 o Angel pa'los cuates
-# Bajo la licencia GPL 3.0
+# Created by Tom5521 or Angel
+# Under the license GPL 3.0
 
 # PY-pacman https://github.com/Tom5521/PY-pacman
 
@@ -17,7 +17,7 @@ def clear():
 
 
 def installed():
-    print("Instalado")
+    print("Installed")
     sl(1)
 
 
@@ -42,12 +42,12 @@ def check(nombre_check):
 def install(nombre_pacman, cond_1="", cond_2=""):
     match cond_1:
         case "-v":
-            print("Instalando " + nombre_pacman + "...")
+            print("Installing " + nombre_pacman + "...")
             sys("sudo pacman -S " + nombre_pacman + sp + cond_2 + sp + " --noconfirm")
-            print("Instalado")
+            print("Installed")
         case _:
             clear()
-            print("Instalando " + nombre_pacman + "...")
+            print("Installing " + nombre_pacman + "...")
             sys(
                 "sudo pacman -S "
                 + nombre_pacman
@@ -62,10 +62,10 @@ def install(nombre_pacman, cond_1="", cond_2=""):
 
 def refresh():
     clear()
-    print("Actualizando repos...")
+    print("Updating repos...")
     sys("sudo pacman -Syy >/dev/null 2>&1")
     clear()
-    print("Repos Actualizados")
+    print("Repos Updated")
 
 
 def aur(nombre_aur):
@@ -73,11 +73,11 @@ def aur(nombre_aur):
         clear()
         url = "https://aur.archlinux.org/" + i + ".git"
         chdir("/tmp")
-        print("Clonando " + i + "...")
+        print("Cloning " + i + "...")
         sys("git clone " + url + ">/dev/null 2>&1")
         clear()
         chdir(i)
-        print("Instalando " + i + "...")
+        print("Installing " + i + "...")
         sys("makepkg -si --noconfirm >/dev/null 2>&1")
         clear()
         chdir(current_directoy)
@@ -87,11 +87,11 @@ def aur(nombre_aur):
 def upgrade(condu_1="", condu_2=""):
     match condu_1:
         case "-v":
-            print("Actualizando...")
+            print("Updating...")
             sys("sudo pacman -Syu --noconfirm" + sp + condu_2)
         case _:
             clear()
-            print("Actualizando...")
+            print("Updating...")
             sys("sudo pacman -Syu --noconfirm" + sp + condu_1 + sp + ">/dev/null 2>&1")
             clear()
-            print("Actualizacion Completada")
+            print("Completed update")
