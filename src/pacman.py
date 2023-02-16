@@ -3,7 +3,7 @@
 
 # PY-pacman https://github.com/Tom5521/PY-pacman
 
-# V1.1.0 MOD
+# V1.2.0 MOD
 
 from os import getcwd, chdir
 from os import system as sys
