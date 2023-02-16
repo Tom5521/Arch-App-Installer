@@ -563,7 +563,7 @@ def otros():
 while True:
     try:
         clear()
-        words.initial_text()
+        words.start_text()
         print(
             "1:Apps and Drivers\n2:Package managers\n3:Desks/WM's\n4:Change Shell\n5:Others\n0:Back"
         )
