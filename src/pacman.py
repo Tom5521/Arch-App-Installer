@@ -95,3 +95,9 @@ def upgrade(condu_1="", condu_2=""):
             sys("sudo pacman -Syu --noconfirm" + sp + condu_1 + sp + ">/dev/null 2>&1")
             clear()
             print("Completed update")
+
+
+def remove(package):
+    clear()
+    sys("sudo pacman -R " + package + " --noconfirm" + ">/dev/null 2>&1")
+    print("Removed")
