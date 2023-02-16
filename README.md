@@ -1,5 +1,5 @@
 
-<img src="https://github.com/Tom5521/Arch-Instalator/blob/master/src/Captura%20de%20pantalla%20de%202023-02-15%2022-03-58.png" width="1180" height="90" />
+<img src="https://res.cloudinary.com/dqjsgmkxo/image/upload/v1676580069/Captura_20de_20pantalla_20de_202023-02-15_2022-03-58_abrmkt.png" width="1180" height="90" />
 
 [![wakatime](https://wakatime.com/badge/github/Tom5521/Arch-Instalator.svg)](https://wakatime.com/badge/github/Tom5521/Arch-Instalator)
 [![CodeFactor](https://www.codefactor.io/repository/github/tom5521/arch-app-installer/badge)](https://www.codefactor.io/repository/github/tom5521/arch-app-installer)
