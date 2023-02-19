@@ -12,7 +12,7 @@ Execute with:
 ```
 python Ejecutar.py
 ```
-#### Uso
+#### Use
 When starting the repositories will be updated only once unless the file is deleted"inst-temp" of /tmp
 
 In this installer you will have access to install apps such as
