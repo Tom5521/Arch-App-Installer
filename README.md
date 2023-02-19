@@ -6,7 +6,7 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/Tom5521/Arch-Instalator)
 ![GitHub last commit](https://img.shields.io/github/last-commit/Tom5521/Arch-Instalator)
 
-## A script installer written in Python with my favorite apps
+## A installer script written in Python with my favorite apps
 
 Execute with:
 ```
