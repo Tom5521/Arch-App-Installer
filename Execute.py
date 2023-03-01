@@ -113,8 +113,6 @@ def dependencias_desarrollo():
         if "3" in pregunta_drivers:
             pacman.install("bluez blueman")
             clear()
-            sys("sudo systemctl enable bluetooth.service")
-            clear()
         if "0" in pregunta_drivers:
             break
         else:
