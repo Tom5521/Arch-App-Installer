@@ -167,7 +167,7 @@ def apps_desarrollo():
         clear()
         words.apps()
         print(
-            "Select an app category to install\n1:internet\n2:Image and video\n3:IDE's\n4:Development tools\n5:gaming\n6:musica\n7:Office\n0:Back"
+            "Select an app category to install\n1:internet\n2:Image and video\n3:Development tools\n4:gaming\n5:musica\n6:Office\n0:Back"
         )
         apre = str(input(":"))
         if "1" in apre:  # Internet
@@ -269,51 +269,44 @@ def apps_desarrollo():
                 clear()
                 words.development_apps()
                 print(
-                    "Choose that apps install\n1:VS code\n2:Code OSS\n3:Pycharm Comunity\n4:Eclipse-Java\n5:Sublime Text\n6:Android Studio\n7:Anbox\n0:Back"
+                    "Choose that apps install\n1:VS code\n2:Code OSS\n3:Pycharm Comunity\n4:Eclipse-Java\n5:Sublime Text\n6:Android Studio\n7:Anbox\n8:JDK/JRE\n9:Golang\n10:Python(3.11)\n11:git\n12:cmake\n13:gcc\n14:Rust\n0:Back"
                 )
                 pregunta_ide = str(input(":"))
-                if "1" in pregunta_ide:  # VS Code
-                    pacman.aur("visual-studio-code-bin")
-                if "2" in pregunta_ide:
-                    pacman.install("code")  # Code OSS
-                if "3" in pregunta_ide:
-                    # Pycharm Comunity
-                    pacman.install("pycharm-community-edition")
-                if "4" in pregunta_ide:
-                    pacman.aur("eclipse-java")  # Eclipse-Java
-                if "5" in pregunta_ide:
-                    pacman.aur("sublime-text-4")  # Sublime Text
-                if "6" in pregunta_ide:
-                    pacman.aur("android-studio")  # Android Studio
-                if "7" in pregunta_ide:
-                    pacman.aur("anbox-git")  # Anbox
-                if pregunta_ide == "0":
+                for i in pregunta_ide.split():
+                    match i:
+                        case "1":
+                            pacman.aur("visual-studio-code-bin")
+                        case "2":
+                            pacman.install("code")
+                        case "3":
+                            pacman.install("pycharm-community-edition")
+                        case "4":
+                            pacman.aur("eclipse-java")
+                        case "5":
+                            pacman.aur("sublime-text-4")
+                        case "6":
+                            pacman.aur("android-studio")
+                        case "7":
+                            pacman.aur("anbox-git")
+                        case "8":
+                            pacman.aur("jdk jre")
+                        case "9":
+                            pacman.install("go go-tools")
+                        case "10":
+                            pacman.aur("python311")
+                        case "11":
+                            pacman.install("git")
+                        case "12":
+                            pacman.install("cmake")
+                        case "13":
+                            pacman.install("gcc")
+                        case "14":
+                            pacman.install("rust")
+                        case _:
+                            pass
+                if "0" in pregunta_ide:
                     break  # Atrás
-        if "4" in apre:  # Desarrollo
-            while True:
-                clear()
-                words.development()
-                print(
-                    "Choose one or more options\n1:JDK/JRE\n2:Golang\n3:Python(3.11)\n4:git\n5:cmake\n6:gcc\n7:Rust\n0:Back"
-                )
-                pregunta_desarrollo = str(input(":"))
-                if "1" in pregunta_desarrollo:
-                    pacman.aur("jdk jre")
-                if "2" in pregunta_desarrollo:
-                    pacman.install("go go-tools")
-                if "3" in pregunta_desarrollo:
-                    pacman.aur("python311")
-                if "4" in pregunta_desarrollo:
-                    pacman.install("git")
-                if "5" in pregunta_desarrollo:
-                    pacman.install("cmake")
-                if "6" in pregunta_desarrollo:
-                    pacman.install("gcc")
-                if "7" in pregunta_desarrollo:
-                    pacman.install("rust")
-                if "0" in pregunta_desarrollo:
-                    break
-        if "5" in apre:  # Gaming
+        if "4" in apre:  # Gaming
             while True:
                 clear()
                 words.gaming()
@@ -341,7 +334,7 @@ def apps_desarrollo():
                     dependencias_desarrollo()  # Drivers
                 if "0" in pregunta_juegos:  # Atrás
                     break
-        if "6" in apre:  # Musica
+        if "5" in apre:  # Musica
             while True:
                 clear()
                 words.music()
@@ -369,7 +362,7 @@ def apps_desarrollo():
                     pacman.install("audacity")  # Audacity
                 if "0" in pregunta_musica:
                     break
-        if "7" in apre:  # Oficina
+        if "6" in apre:  # Oficina
             while True:
                 clear()
                 words.office()
@@ -416,6 +409,8 @@ def cambiar_shell():
                 clear()
             case 0:
                 break
+            case _:
+                pass
         clear()
 
 
