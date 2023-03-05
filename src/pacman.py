@@ -5,7 +5,7 @@
 
 # V1.2.0 MOD
 
-from os import getcwd, chdir
+from os import getcwd, chdir, listdir
 from os import system as sys
 from time import sleep as sl
 
@@ -73,8 +73,12 @@ def aur(nombre_aur):
         clear()
         url = "https://aur.archlinux.org/" + i + ".git"
         chdir("/tmp")
-        print("Cloning " + i + "...")
-        sys("git clone " + url + ">/dev/null 2>&1")
+        if i in listdir("/tmp"):
+            print("Already Cloned")
+            sl(1)
+        else:
+            print("Cloning " + i + "...")
+            sys("git clone " + url + ">/dev/null 2>&1")
         clear()
         chdir(i)
         print("Installing " + i + "...")
